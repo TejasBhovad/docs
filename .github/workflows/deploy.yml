@@ -1,34 +1,27 @@
-name: Deploy to GitHub Pages
-
+name: Build HTML
 on:
   push:
     branches:
       - master
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
-
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build-and-deploy:
     runs-on: ubuntu-latest
-       steps:
-        - name: Checkout
-          uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       
-        - name: Use Node 18
-         uses: actions/setup-node@v3
-         with:
-            node-version: 18
+      - name: Use Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-        - name: Build HTML
-          run: |
-           npm install 
-            npm run build
+      - name: Build HTML
+        run: |
+          npm install 
+          npm run build
       
-       - name: Deploy
-         uses: peaceiris/actions-gh-pages@v3
-         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build
-            user_name: github-actions[bot]
-            user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
