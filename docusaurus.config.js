@@ -28,12 +28,12 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  
+
   plugins: [
     [
-      '@docusaurus/plugin-google-analytics',
+      "@docusaurus/plugin-google-analytics",
       {
-        trackingID: 'G-H9YFDYX7H4',
+        trackingID: "G-H9YFDYX7H4",
         anonymizeIP: true,
       },
     ],
@@ -43,10 +43,6 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        googleAnalytics: {
-          trackingID: "G-H9YFDYX7H4",
-          anonymizeIP: true,
-        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
