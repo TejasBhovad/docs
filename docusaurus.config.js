@@ -37,6 +37,13 @@ const config = {
         anonymizeIP: true,
       },
     ],
+    [
+      "@docusaurus/plugin-google-gtag",
+      {
+        trackingID: "G-H9YFDYX7H4",
+        anonymizeIP: true,
+      },
+    ],
   ],
   presets: [
     [
