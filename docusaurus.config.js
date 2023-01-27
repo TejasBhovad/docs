@@ -28,7 +28,16 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  plugins: ["docusaurus-plugin-sass"],
+  
+  plugins: [
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'G-H9YFDYX7H4',
+        anonymizeIP: true,
+      },
+    ],
+  ],
   presets: [
     [
       "classic",
