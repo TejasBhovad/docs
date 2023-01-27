@@ -29,27 +29,31 @@ const config = {
     locales: ["en"],
   },
 
-  plugins: [
-    [
-      "@docusaurus/plugin-google-analytics",
-      {
-        trackingID: "G-H9YFDYX7H4",
-        anonymizeIP: true,
-      },
-    ],
-    [
-      "@docusaurus/plugin-google-gtag",
-      {
-        trackingID: "G-H9YFDYX7H4",
-        anonymizeIP: true,
-      },
-    ],
-  ],
+  // plugins: [
+  //   [
+  //     "@docusaurus/plugin-google-analytics",
+  //     {
+  //       trackingID: "G-H9YFDYX7H4",
+  //       anonymizeIP: true,
+  //     },
+  //   ],
+  //   [
+  //     "@docusaurus/plugin-google-gtag",
+  //     {
+  //       trackingID: "G-H9YFDYX7H4",
+  //       anonymizeIP: true,
+  //     },
+  //   ],
+  // ],
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        gtag: {
+          trackingID: 'G-H9YFDYX7H4',
+          anonymizeIP: true,
+        },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
