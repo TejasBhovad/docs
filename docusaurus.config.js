@@ -28,7 +28,14 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
+  plugins: [
+    [
+      '@docusaurus/plugin-google-tag-manager',
+      {
+        containerId: 'GTM-NV9TL4B',
+      },
+    ],
+  ],
   // plugins: [
   //   [
   //     "@docusaurus/plugin-google-analytics",
