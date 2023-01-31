@@ -5,9 +5,8 @@ slug: /
 
 # Introduction
 
-Find all the **Programs** you are looking for here
 
-The documentation will contain all the programs organized category-wise
+This documentation will contain all the Data Structures programs organized category-wise
 
 ## Compilation
 

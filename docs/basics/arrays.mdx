@@ -1,0 +1,54 @@
+---
+sidebar_position: 1
+---
+
+import CodeBlock from "@theme/CodeBlock";
+import file_1 from "!!raw-loader!/src/code/arrays/input.c";
+import file_2 from "!!raw-loader!/src/code/arrays/output.c";
+
+# Arrays
+
+## definition
+
+An Array is a collection of elements of the same data type.
+
+## declaration
+
+```c
+ int ar[10];
+ char ch[10];
+```
+
+## initialisation
+
+Initialisation refers to giving an initial value to a variable.
+
+```c
+int ar[5] = { 10, 20, 30, 40, 50};
+```
+
+## referencing
+
+Every element in an array can be referenced by its index. Index numbers range from 0 to ( length of array - 1 ).
+
+Following is an example of indexes of the array declared above.
+
+| ELEMENTS | 10  | 20  | 30  | 40  | 50  |
+| :------: | :-: | :-: | :-: | :-: | :-: |
+|  INDEX   |  0  |  1  |  2  |  3  |  4  |
+
+`ar[3]` --> 40
+
+`ar[0]` --> 10
+
+## Looping
+
+To reference each element of the array we use loops.
+
+### Input
+
+<CodeBlock language="c">{file_1}</CodeBlock>
+
+### Output
+
+<CodeBlock language="c">{file_2}</CodeBlock>
