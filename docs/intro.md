@@ -5,7 +5,6 @@ slug: /
 
 # Introduction
 
-
 This documentation will contain all the Data Structures programs organized category-wise
 
 ## Compilation
@@ -20,6 +19,8 @@ This documentation will contain all the Data Structures programs organized categ
 
 :::note
 
-If your program uses Math functions use `gcc filename.c -o out -lm` instead
+- If your program uses Math functions use `gcc filename.c -o out -lm` instead
+
+- You can create a new directory named `foldername` in linux using `mkdir foldername` command
 
 :::
