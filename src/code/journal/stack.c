@@ -4,7 +4,7 @@
 void push(int *ptr);
 void pop(int *ptr);
 void display(int *ptr);
-int peek(int *ptr);
+void peek(int *ptr);
 
 // GLOBAL VARIABLES
 int top = -1;
@@ -14,23 +14,51 @@ int main()
 {
     printf("Enter N : \n");
     scanf("%d", &N);
-    int ar[N];
-
-    // ACCEPTING N ELEMENTS OF STACK
-    for (int i = 0; i < N; i++)
+    int ar[N], choice;
+    do
     {
-        push(ar);
-    }
+        printf("\nEnter Choice:");
+        printf("\n1. Push");
+        printf("\n2. Pop");
+        printf("\n3. Peek");
+        printf("\n4. Display");
+        printf("\n5. Exit\n");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+        {
+            push(ar);
+            break;
+        }
+        case 2:
+        {
+            pop(ar);
+            break;
+        }
+        case 3:
+        {
+            peek(ar);
+            break;
+        }
+        case 4:
+        {
+            display(ar);
+            break;
+        }
+        case 5:
+        {
+            printf("\nExited from Loop");
+            break;
+        }
+        default:
+        {
+            printf("\nInvalid choice");
+            break;
+        }
+        }
 
-    display(ar);
-    pop(ar);
-    pop(ar);
-    display(ar);
-    push(ar);
-    display(ar);
-
-    int topmost = peek(ar);
-    printf("\nTopmost element: %d", topmost);
+    } while (choice != 5);
     printf("\n");
 
     return 0;
@@ -79,7 +107,7 @@ void display(int *ptr)
 }
 
 // PEEK: DISPLAY TOPMOST ELEMENT
-int peek(int *ptr)
+void peek(int *ptr)
 {
     // STACK UNDERFLOW
     if (top == -1)
@@ -88,6 +116,6 @@ int peek(int *ptr)
     }
     else
     {
-        return *(ptr + top);
+        printf("\nTopmost element: %d", *(ptr + top));
     }
 }
