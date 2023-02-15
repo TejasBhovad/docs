@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[225],{6639:s=>{s.exports=JSON.parse('{"title":"Stacks","description":"Stacks in C","slug":"/category/stacks","permalink":"/docs/category/stacks","navigation":{"previous":{"title":"Recursion","permalink":"/docs/basics/recursion"},"next":{"title":"Tower of Hanoi","permalink":"/docs/stacks/hanoiTower"}}}')}}]);
