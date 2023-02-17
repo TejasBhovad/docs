@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
-description: "Queues Operations Program"
+description: "Linear Queues Operations Program"
 ---
 
 import CodeBlock from "@theme/CodeBlock";
 import file_1 from "!!raw-loader!/src/code/queue/main.c";
 
-# Queues
+# Linear Queues
 
 Elements in queues are added from one end and deleted from other.<br/><br/>
 The end from which elements are added is called **rear end**, and the end from where elements are deleted is called **front end**.
@@ -27,6 +27,10 @@ rear == N - 1
 ```
 
 2. **Underflow**: When the queue is empty but user tried to denqueue an element.
+
+### Disadvantages
+
+When elements are popped the size of queue decreases.
 
 ```c
 // condition:

@@ -7,6 +7,8 @@ slug: /
 
 This documentation will contain all the Data Structures programs organized category-wise
 
+Th programs were created in vscode so they should run fine on online compilers but may need changes if ran on turbo c compiler.
+
 ## Compilation
 
 ### Linux

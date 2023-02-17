@@ -1,0 +1,34 @@
+---
+sidebar_position: 2
+description: "Circular Queues Operations Program"
+---
+
+import CodeBlock from "@theme/CodeBlock";
+import file_1 from "!!raw-loader!/src/code/queue/circular.c";
+
+# Circular Queues
+
+### Operations
+
+1. **Enqueue**: Adding elements to the queue
+2. **Dequeue**: Removing elements from the queue
+
+### Errors
+
+1. **Overflow**: When the queue is full but user tries to enqueue an element.
+
+```c
+// condition:
+(front == 0 && rear == N - 1) || (rear == front - 1)
+```
+
+2. **Underflow**: When the queue is empty but user tried to denqueue an element.
+
+```c
+// condition:
+(front == -1 && rear == -1)
+```
+
+## Code
+
+<CodeBlock language="c">{file_1}</CodeBlock>
