@@ -79,7 +79,7 @@ void enqueue(int *ptr, int x)
             rear = 0;
             *(ptr + rear) = x;
         }
-        else if (front == 0 && rear != N - 1)
+        else
         {
             rear++;
             *(ptr + rear) = x;
@@ -122,38 +122,29 @@ void dequeue(int *ptr)
 // DISPLAY FUNCTION
 void display(int *ptr)
 {
-    int i = front;
     printf("\nElements in Queue: \n");
-    // while (i <= rear)
-    // {
-    //     printf("%d,", *(ptr + i));
-    //     i = (i + 1) % N;
-    // }
-    int front_pos = front, rear_pos = rear;
-    if (front == -1)
+    if (front == -1 && rear == -1)
     {
         printf("Queue is empty");
         return;
     }
     printf("Queue elements : ");
-    if (front_pos <= rear_pos)
-        while (front_pos <= rear_pos)
+    if (front <= rear)
+    {
+        for (int i = front; i <= rear; i++)
         {
-            printf("%d ", *(ptr + front_pos));
-            front_pos++;
+            printf("%d ", *(ptr + i));
         }
+    }
     else
     {
-        while (front_pos <= N - 1)
+        for (int i = front; i < N; i++)
         {
-            printf("%d ", *(ptr + front_pos));
-            front_pos++;
+            printf("%d ", *(ptr + i));
         }
-        front_pos = 0;
-        while (front_pos <= rear_pos)
+        for (int i = 0; i <= rear; i++)
         {
-            printf("%d ", *(ptr + front_pos));
-            front_pos++;
+            printf("%d ", *(ptr + i));
         }
     }
 }
