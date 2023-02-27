@@ -4,89 +4,101 @@
 char stack[100];
 int top = -1;
 
-void push(char x)
+void
+push (char x)
 {
-    top++;
-    stack[top] = x;
+  top++;
+  stack[top] = x;
 }
 
-char pop()
+void
+display (char *ptr)
 {
-    if (top == -1)
+  printf ("\nElements in Stack:\n");
+  for (int i = 0; i <= top; i++)
     {
-        printf("\nUnderflow Error");
-        return -1;
-    }
-
-    else
-    {
-
-        return stack[top--];
+      printf (" %d", *(ptr + i));
     }
 }
 
-int priority(char x)
+char
+pop ()
 {
-    if (x == '(')
+  if (top == -1)
     {
-        return 0;
+      printf ("\nUnderflow Error");
+      return -1;
     }
 
-    if (x == '+' || x == '-')
+  else
     {
-        return 1;
-    }
 
-    if (x == '*' || x == '/' || x == '%')
-    {
-        return 2;
+      return stack[top--];
     }
-    return 0;
 }
 
-int main()
+int
+priority (char x)
 {
-    char exp[100];
-    char *e, x;
-    printf("Enter the expression : ");
-    scanf("%s", exp);
-    printf("\n");
-    e = exp;
-
-    while (*e != '\0')
+  if (x == '+' || x == '-')
     {
-        if (isalnum(*e))
-        {
-            printf("%c ", *e);
-        }
-
-        else if (*e == '(')
-        {
-            push(*e);
-        }
-
-        else if (*e == ')')
-        {
-            while ((x = pop()) != '(')
-            {
-                printf("%c ", x);
-            }
-        }
-        else
-        {
-            while (priority(stack[top]) > priority(*e))
-            {
-                printf("%c ", pop());
-            }
-            push(*e);
-        }
-        e++;
+      return 1;
     }
 
-    while (top != -1)
+  if (x == '*' || x == '/' || x == '%')
     {
-        printf("%c ", pop());
+      return 2;
     }
-    printf("\n");
-    return 0;
+  return 0;
+}
+
+int
+main ()
+{
+  char exp[100];
+  char *e, x;
+  printf ("Enter the expression : ");
+  scanf ("%s", exp);
+  printf ("\n");
+  e = exp;
+
+  while (*e != '\0')
+    {
+      if (isalnum (*e))
+	{
+	  printf ("%c ", *e);
+	}
+
+      else if (*e == '(')
+	{
+	  push (*e);
+	}
+
+      else if (*e == ')')
+	{
+	  while ((x = pop ()) != '(')
+	    {
+	      printf ("%c ", x);
+	    }
+	  // display(stack);
+	}
+      else
+	{
+	  if (priority (*e) <= priority (stack[top]))
+	    {
+	      printf ("%c ", pop ());
+	    }
+
+	  push (*e);
+	}
+      e++;
+    }
+// display(stack);
+  while (top != -1)
+    {
+      printf ("%c ", pop ());
+    }
+  display (stack);
+  printf ("\n");
+  return 0;
 }
