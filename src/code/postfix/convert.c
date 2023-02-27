@@ -37,7 +37,7 @@ int priority(char x)
         return 1;
     }
 
-    if (x == '*' || x == '/' || x == '^' || x == '%')
+    if (x == '*' || x == '/' || x == '%')
     {
         return 2;
     }
