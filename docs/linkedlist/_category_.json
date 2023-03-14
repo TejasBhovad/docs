@@ -1,0 +1,8 @@
+{
+  "label": "LinkedList",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Linked List Implementation in C"
+  }
+}
