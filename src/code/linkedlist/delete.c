@@ -117,27 +117,37 @@ struct node *addNodeBefore()
     }
     return head;
 }
-struct node *deleteNodeEnd()
+void deleteNodeEnd(struct node *head)
 {
     if (head == 0)
     {
-        // head = newNode
         printf("\nERROR: No Element to Remove.");
-        newNode = createNode();
-        return newNode;
     }
     else
     {
-        struct node *current = head, *prev;
-        while (current->data != 0)
+        struct node *current = head, *prev = 0;
+        while (current->next != 0)
         {
             prev = current;
             current = current->next;
         }
-        newNode->next = prev->next;
-        prev->next = newNode;
+        printf("\nRemoved Element: %d\n", current->data);
+        prev->next = 0;
+        free(current);
     }
-    return head;
+}
+void deleteNodeStart(struct node *head)
+{
+    if (head == 0)
+    {
+        printf("\nERROR: No Element to Remove.");
+    }
+    else
+    {
+        printf("\nRemoved Element: %d\n", head->data);
+        head = head->next;
+        free(head);
+    }
 }
 int main()
 {
@@ -147,9 +157,11 @@ int main()
     display(head);
     head = addNodeEnd();
     display(head);
-    head = addNodeAfter();
-    display(head);
-    head = addNodeBefore();
+    // head = addNodeAfter();
+    // display(head);
+    // head = addNodeBefore();
+    // display(head);
+    deleteNodeStart(head);
     display(head);
 
     // int choice;
