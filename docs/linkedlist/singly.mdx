@@ -21,6 +21,42 @@ import file_1 from "!!raw-loader!/src/code/linkedlist/singly.c";
 2. Delete Elements from End
 3. Delete Inputted Elements
 
+## THEORY
+### Display
+- use a temporary variable[*current] to store value of head in it
+- print the value of data of temporary variable [current->data]
+- set temporary variable to next address of temporary variable
+
+### Create Node
+- a new node is created and required memory is allocated
+- set the next address of this created element to null
+- IF (HEAD==0) <br/>
+  -> set head to new node<br/>
+  -> set temp to new node<br/>
+- INPUT value of data of new node
+- RETURN new node
+
+### Add Node at Start
+- IF (HEAD==0)<br/>
+  -> throw error that linked list is not defined
+- ELSE<br/>
+  -> set new node to function call to create function<br/>
+  -> set next address of new node to head<br/>
+  -> set head to new node<br/>
+- RETURN head
+
+### Add Node at End
+- IF (HEAD==0)<br/>
+  -> throw error that linked list is not defined
+- ELSE<br/>
+  -> set new node to function call to create function<br/>
+  -> use a temporary variable and store value of head in it<br/>
+  -> iterate through the list till you find the last element<br/>
+  -> set next address of current variable to new node<br/>
+  -> set temp to new node<br/>
+- RETURN head
+
+**More to come...**
 ## CODE
 
 <CodeBlock language="c">{file_1}</CodeBlock>

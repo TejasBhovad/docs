@@ -35,7 +35,7 @@ struct node *addNodeStart()
 
     if (head == 0)
     {
-        printf("\nERROR: Linked List not Defined.");
+        printf("\nERROR: Linked List not Defined.\n");
     }
     else
     {
@@ -50,7 +50,7 @@ struct node *addNodeEnd()
 
     if (head == 0)
     {
-        printf("\nERROR: Linked List not Defined.");
+        printf("\nERROR: Linked List not Defined.\n");
     }
     else
     {
@@ -70,9 +70,9 @@ struct node *addNodeAfter()
 
     if (head == 0)
     {
-        printf("\nERROR: Linked List not Defined.");
-        newNode = createNode();
-        return newNode;
+        printf("\nERROR: Linked List not Defined.\n");
+        // newNode = createNode();
+        // return newNode;
     }
     else
     {
@@ -168,7 +168,7 @@ void deleteNodeAt()
             prev = current;
             current = current->next;
         }
-        
+
         // when the first element is to be removed prev element is head
         if (ctr > 1)
         {
