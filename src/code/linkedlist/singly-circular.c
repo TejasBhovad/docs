@@ -11,7 +11,7 @@ void display()
 {
     NODE *current = head;
     printf("List: ");
-    while (current != 0)
+    while (current->next != head)
     {
         printf("%d ", current->data);
         current = current->next;
@@ -22,19 +22,18 @@ void display()
 void createNode()
 {
     newNode = (NODE *)malloc(sizeof(NODE));
+
     if (head == 0)
     {
         printf("\nEmpty List created \n");
-        newNode->next = 0;
-        printf("\nEnter Value to be Added: ");
-        scanf("%d", &(newNode->data));
-        head = newNode;
+        head = temp = newNode;
+        newNode->next = head;
     }
     else
     {
         printf("\nEnter Value to be Added: ");
         scanf("%d", &(newNode->data));
-        newNode->next = 0;
+        newNode->next = head;
     }
 }
 
@@ -47,6 +46,12 @@ void addNodeStart()
     else
     {
         createNode();
+        NODE *current = head;
+        while (current->next != head)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
         newNode->next = head;
         head = newNode;
     }
@@ -57,16 +62,19 @@ void addNodeEnd()
     if (head == 0)
     {
         printf("\nERROR: Linked List not Defined.\n");
+        return;
     }
     else
     {
         createNode();
         NODE *current = head;
-        while (current->next != 0)
+        while (current->next != head)
         {
             current = current->next;
         }
         current->next = newNode;
+        newNode->next = head;
+        head = newNode;
     }
 }
 
@@ -121,16 +129,22 @@ void deleteNodeEnd()
     {
         printf("\nERROR: No Element to Remove.");
     }
+    else if (head->next == head)
+    {
+        head = 0;
+        free(head);
+    }
     else
     {
-        struct node *current = head, *prev = 0;
-        while (current->next != 0)
+        NODE *current = head, *prev;
+        while (current->next != head)
         {
             prev = current;
             current = current->next;
         }
-        printf("\nRemoved Element: %d\n", current->data);
-        prev->next = 0;
+        printf("\nRemoved Element from End");
+
+        prev->next = current->next;
         free(current);
     }
 }
@@ -141,13 +155,23 @@ void deleteNodeStart()
     {
         printf("\nERROR: No Element to Remove.");
     }
-    else
+    else if (head->next == head)
     {
         printf("\nRemoved Element: %d\n", head->data);
-        struct node *current;
-        current = head;
+        head = 0;
+        free(head);
+    }
+    else
+    {
+        printf("\nRemoved Element from Start\n");
+        NODE *current = head;
+        while (current->next != head)
+        {
+            current = current->next;
+        }
+        current->next = head->next;
+        free(head);
         head = current->next;
-        free(current);
     }
 }
 
@@ -180,7 +204,7 @@ int main()
     do
     {
         printf("\nENTER CHOICE:");
-        printf("\n1. Create Empty List");
+        printf("\n1. Create List");
         printf("\n2. Add Node at Start of List");
         printf("\n3. Add Node at End of List");
         printf("\n4. Add Node after key element");
@@ -195,7 +219,6 @@ int main()
         case 1:
         {
             createNode();
-            display();
             break;
         }
         case 2:
