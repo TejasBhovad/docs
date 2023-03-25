@@ -123,7 +123,7 @@ void deleteNodeEnd()
     }
     else
     {
-        struct node *current = head, *prev = 0;
+        NODE *current = head, *prev = 0;
         while (current->next != 0)
         {
             prev = current;
@@ -144,8 +144,7 @@ void deleteNodeStart()
     else
     {
         printf("\nRemoved Element: %d\n", head->data);
-        struct node *current;
-        current = head;
+        NODE *current = head;
         head = current->next;
         free(current);
     }
@@ -164,13 +163,22 @@ void deleteNodeAt()
         scanf("%d", &key);
         NODE *current = head, *prev;
 
-        while (current->data != key && current->next != head)
+        while (current->data != key && current->next != 0)
         {
             prev = current;
             current = current->next;
+            ctr++;
         }
-        prev->next = current->next;
-        free(current);
+        if (ctr == 0)
+        {
+            head = 0;
+            free(current);
+        }
+        else
+        {
+            prev->next = current->next;
+            free(current);
+        }
     }
 }
 

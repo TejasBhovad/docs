@@ -192,9 +192,18 @@ void deleteNodeAt()
         {
             prev = current;
             current = current->next;
+            ctr++;
         }
-        prev->next = current->next;
-        free(current);
+        if (ctr == 0)
+        {
+            head = 0;
+            free(current);
+        }
+        else
+        {
+            prev->next = current->next;
+            free(current);
+        }
     }
 }
 
