@@ -47,7 +47,7 @@ void addNodeStart()
     else
     {
         createNode();
-        newNode->next = head;
+        newNode->next = 0;
         head = newNode;
     }
 }
@@ -67,6 +67,7 @@ void addNodeEnd()
             current = current->next;
         }
         current->next = newNode;
+        newNode->next = 0;
     }
 }
 
