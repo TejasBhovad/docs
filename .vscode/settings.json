@@ -1,4 +1,7 @@
 {
-  "cSpell.words": ["Bhovad", "Tejas", "tejasbhovad"],
-  "C_Cpp.errorSquiggles": "disabled"
+  "cSpell.words": ["Bhovad", "INORDER", "Tejas", "tejasbhovad"],
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "stdlib.h": "c"
+  }
 }

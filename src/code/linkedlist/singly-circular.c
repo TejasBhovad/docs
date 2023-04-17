@@ -3,19 +3,19 @@
 #include <stdlib.h>
 
 // Node structure
-struct Node
+NODE
 {
     int data;
-    struct Node *next;
+    NODE *next;
 };
 
 // Global variables
-struct Node *head = NULL;
+NODE *head = NULL;
 
 // Function to add a node at the start of the list
 void addAtStart(int data)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    NODE *newNode = (NODE *)malloc(sizeof(NODE));
     newNode->data = data;
     newNode->next = head;
     head = newNode;
@@ -24,7 +24,7 @@ void addAtStart(int data)
 // Function to add a node at the end of the list
 void addAtEnd(int data)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    NODE *newNode = (NODE *)malloc(sizeof(NODE));
     newNode->data = data;
     newNode->next = NULL;
 
@@ -34,7 +34,7 @@ void addAtEnd(int data)
         return;
     }
 
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr->next != NULL)
     {
         curr = curr->next;
@@ -45,7 +45,7 @@ void addAtEnd(int data)
 // Function to add a node before a given node
 void addBefore(int key, int data)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    NODE *newNode = (NODE *)malloc(sizeof(NODE));
     newNode->data = data;
     newNode->next = NULL;
 
@@ -62,7 +62,7 @@ void addBefore(int key, int data)
         return;
     }
 
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr->next != NULL && curr->next->data != key)
     {
         curr = curr->next;
@@ -81,7 +81,7 @@ void addBefore(int key, int data)
 // Function to add a node after a given node
 void addAfter(int key, int data)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    NODE *newNode = (NODE *)malloc(sizeof(NODE));
     newNode->data = data;
     newNode->next = NULL;
 
@@ -91,7 +91,7 @@ void addAfter(int key, int data)
         return;
     }
 
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr != NULL && curr->data != key)
     {
         curr = curr->next;
@@ -116,7 +116,7 @@ void deleteStart()
         return;
     }
 
-    struct Node *temp = head;
+    NODE *temp = head;
     head = head->next;
     free(temp);
 }
@@ -137,7 +137,7 @@ void deleteEnd()
         return;
     }
 
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr->next->next != NULL)
     {
         curr = curr->next;
@@ -157,13 +157,13 @@ void deleteKey(int key)
 
     if (head->data == key)
     {
-        struct Node *temp = head;
+        NODE *temp = head;
         head = head->next;
         free(temp);
         return;
     }
 
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr->next != NULL && curr->next->data != key)
     {
         curr = curr->next;
@@ -175,7 +175,7 @@ void deleteKey(int key)
         return;
     }
 
-    struct Node *temp = curr->next;
+    NODE *temp = curr->next;
     curr->next = curr->next->next;
     free(temp);
 }
@@ -183,7 +183,7 @@ void deleteKey(int key)
 // Function to print the list
 void printList()
 {
-    struct Node *curr = head;
+    NODE *curr = head;
     while (curr != NULL)
     {
         printf("%d ", curr->data);
