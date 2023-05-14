@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 // Node structure
-NODE
+typedef struct NODE
 {
     int data;
-    NODE *next;
+    struct NODE *next;
 };
 
 // Global variables

@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-NODE
+typedef struct NODE
 {
     int data;
-    NODE *next;
+    struct NODE *next;
 }
 typedef NODE;
 NODE *head = 0, *newNode;
