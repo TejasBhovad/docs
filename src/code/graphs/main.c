@@ -4,59 +4,72 @@
 
 #define MAX_NODES 100
 
-typedef struct Queue
-{
-    int arr[MAX_NODES];
-    int front, rear;
-} Queue;
+int front = -1;
+int rear = -1;
+int top = -1;
 
-void init(Queue *q)
-{
-    q->front = q->rear = -1;
-}
+int queue[MAX_NODES];
+int stack[MAX_NODES];
 
-void enqueue(Queue *q, int node)
+void enqueue(int node)
 {
-    if (q->rear == MAX_NODES - 1)
+    if (rear == MAX_NODES - 1)
     {
         printf("Queue is full\n");
         return;
     }
-    q->arr[++q->rear] = node;
-    if (q->front == -1)
+    queue[++rear] = node;
+    if (front == -1)
     {
-        q->front = 0;
+        front = 0;
     }
 }
 
-int dequeue(Queue *q)
+void push(int node)
 {
-    if (q->front == -1 || q->front > q->rear)
+    if (top == MAX_NODES - 1)
+    {
+        printf("Stack is full\n");
+        return;
+    }
+    stack[++top] = node;
+}
+
+int dequeue()
+{
+    if (front == -1 || front > rear)
     {
         printf("Queue is empty\n");
         return -1;
     }
-    int node = q->arr[q->front++];
-    return node;
+    return queue[front++];
+}
+
+int pop()
+{
+    if (top == -1)
+    {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return stack[top--];
 }
 
 void bfs(int graph[MAX_NODES][MAX_NODES], int n)
 {
     bool visited[MAX_NODES] = {false};
-    Queue queue;
-    init(&queue);
-    enqueue(&queue, 0);
+    enqueue(0);
     visited[0] = true;
-    while (queue.front <= queue.rear)
+    while (front <= rear)
     {
-        int node = dequeue(&queue);
+        int node = dequeue();
         printf("%d ", node);
         for (int i = 0; i < n; i++)
         {
             if (graph[node][i] == 1 && !visited[i])
             {
                 visited[i] = true;
-                enqueue(&queue, i);
+                enqueue(i);
             }
         }
     }
@@ -66,20 +79,18 @@ void bfs(int graph[MAX_NODES][MAX_NODES], int n)
 void dfs(int graph[MAX_NODES][MAX_NODES], int n)
 {
     bool visited[MAX_NODES] = {false};
-    int stack[MAX_NODES];
-    int top = -1;
-    stack[++top] = 0;
+    push(0);
     visited[0] = true;
     while (top != -1)
     {
-        int node = stack[top--];
+        int node = pop();
         printf("%d ", node);
         for (int i = 0; i < n; i++)
         {
             if (graph[node][i] == 1 && !visited[i])
             {
                 visited[i] = true;
-                stack[++top] = i;
+                push(i);
             }
         }
     }
