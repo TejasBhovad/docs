@@ -21,7 +21,7 @@ int bSearch()
         }
         else
         {
-            end = mid;
+            end = mid-1;
             bSearch();
         }
     }

@@ -23,7 +23,7 @@ int bSearch()
         }
         else
         {
-            end = mid;
+            end = mid-1;
             mid = (beg + end) / 2;
         }
     }
