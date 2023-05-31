@@ -40,7 +40,7 @@ void addNodeStart()
 void addNodeEnd()
 {
     createNode();
-    if (head == NULL)
+    if (head == 0)
     {
         head = newNode;
     }
