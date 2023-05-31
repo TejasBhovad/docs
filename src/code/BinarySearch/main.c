@@ -7,7 +7,7 @@ int bSearch()
     end = N;
     int flag = 0;
     mid = (beg + end) / 2;
-    while (end > mid)
+    while (end >= mid)
     {
 
         if (key == ar[mid])

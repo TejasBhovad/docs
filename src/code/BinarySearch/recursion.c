@@ -6,7 +6,7 @@ int bSearch()
 {
 
     mid = (beg + end) / 2;
-    if (end > mid)
+    if (end >= mid)
     {
         if (key == ar[mid])
         {
