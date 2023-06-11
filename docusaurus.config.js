@@ -9,7 +9,7 @@ const config = {
   title: "Docs",
   tagline: "Documentation for Engineering Programs",
   url: "https://tejasbhovad.github.io",
-  baseUrl: "/docs/c",
+  baseUrl: "/docs",
   trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -65,7 +65,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           path: this.clientModules,
-          routeBasePath: "/",
+          routeBasePath: "/c",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
