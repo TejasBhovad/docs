@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /
 ---
 
-# Introduction
+# C Programs
 
 This documentation will contain all the Data Structures programs organized category-wise
 

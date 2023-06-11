@@ -9,7 +9,7 @@ const config = {
   title: "Docs",
   tagline: "Documentation for Engineering Programs",
   url: "https://tejasbhovad.github.io",
-  baseUrl: "/docs",
+  baseUrl: "/docs/c",
   trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -28,6 +28,7 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+
   // plugins: [
   //   [
   //     '@docusaurus/plugin-google-tag-manager',
@@ -63,6 +64,7 @@ const config = {
         // },
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          path: this.clientModules,
           routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
