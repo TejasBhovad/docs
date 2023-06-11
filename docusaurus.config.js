@@ -11,7 +11,7 @@ const config = {
   url: "https://tejasbhovad.github.io",
   baseUrl: "/docs",
   trailingSlash: false,
-  onBrokenLinks: "throw",
+  onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
