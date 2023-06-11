@@ -3,26 +3,12 @@ sidebar_position: 1
 slug: /
 ---
 
-# C Programs
+# Introduction to Docs
 
-This documentation will contain all the Data Structures programs organized category-wise
+This site provides you with a 📚 comprehensive collection of program codes taught in our university's programming courses.
 
-Th programs were created in vscode so they should run fine on online compilers but may need changes if ran on turbo c compiler.
+I hope you find this resource valuable as you explore and apply the programming concepts taught in our program.
 
-## Compilation
+I also encourage you to engage with me on [GitHub](https://github.com/TejasBhovad/docs), where you can star ⭐ and contribute to this repository, making it an even more valuable and collaborative resource for the programming community.
 
-### Linux
-
-1. Open Terminal
-2. `cd Desktop/` - change the current working directory to Desktop
-3. `touch filename.c` - create a file named `filename.c` in current working directory
-4. `gcc filename.c -o out` - compiling the `filename.c` file in binary file `out`
-5. `./out` - to run the compiled program
-
-:::note
-
-- If your program uses Math functions use `gcc filename.c -o out -lm` instead
-
-- You can create a new directory named `foldername` in linux using `mkdir foldername` command
-
-:::
+Happy coding! 💻✨

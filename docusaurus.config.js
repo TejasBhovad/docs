@@ -65,7 +65,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           path: this.clientModules,
-          routeBasePath: "/c",
+          routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
@@ -80,6 +80,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      sidebar: {
+        Java: ["docs/java/basics/"],
+        C: ["docs/c/basics/", "docs/c/journal/"],
+      },
       navbar: {
         title: "<docs>",
         // logo: {
