@@ -19,18 +19,21 @@ void display()
 }
 void sort()
 {
-    int tmp;
+    int tmp, index;
     for (i = 0; i < N; i++)
     {
+        index = i;
         for (j = i + 1; j < N; j++)
         {
-            if (ar[i] > ar[j])
+
+            if (ar[index] > ar[j])
             {
-                tmp = ar[i];
-                ar[i] = ar[j];
-                ar[j] = tmp;
+                index = j;
             }
         }
+        tmp = ar[i];
+        ar[i] = ar[index];
+        ar[index] = tmp;
         printf("\nPass %d: ", i + 1);
         display();
     }
