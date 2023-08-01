@@ -41,7 +41,7 @@ int main()
     }
     else
     {
-        printf("\nElement found at index %d", result);
+        printf("\nElement found at index %d\n", result);
     }
     return 0;
 }
