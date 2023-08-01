@@ -4,7 +4,7 @@ int beg, mid, end;
 int bSearch(int key, int beg, int end)
 {
     mid = (beg + end) / 2;
-    if (end >= mid)
+    if (end >= beg)
     {
         if (key == ar[mid])
         {
