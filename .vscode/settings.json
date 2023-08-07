@@ -2,6 +2,8 @@
   "cSpell.words": ["Bhovad", "INORDER", "Tejas", "tejasbhovad"],
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
-    "stdlib.h": "c"
+    "*.rmd": "markdown",
+    "stdlib.h": "c",
+    "stdio.h": "c"
   }
 }
