@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[7589],{7311:e=>{e.exports=JSON.parse('{"title":"Other","description":"Misc Java problems","slug":"/category/other","permalink":"/docs/category/other","navigation":{"previous":{"title":"Matrix","permalink":"/docs/java/Matrix"},"next":{"title":"Objects in Java","permalink":"/docs/java/other/Student"}}}')}}]);
