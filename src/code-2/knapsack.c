@@ -60,7 +60,7 @@ int main()
     }
     printf("The solution vector is: ");
     for (i = 0; i < n; i++)
-        printf("%f ", x[i]);
-    printf("\nThe total profit is: %f\n", tp);
+        printf("%.2f ", x[i]);
+    printf("\nThe total profit is: %.2f\n", tp);
     return 0;
 }
