@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[1466],{1826:s=>{s.exports=JSON.parse('{"title":"R Scripts","slug":"/category/r-scripts","permalink":"/docs/category/r-scripts","navigation":{"previous":{"title":"Dijkstras Alogrithm","permalink":"/docs/algorithms/dijkstras"},"next":{"title":"Experiment 1","permalink":"/docs/R/Experiment_1"}}}')}}]);
