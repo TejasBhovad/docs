@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[9637],{500:e=>{e.exports=JSON.parse('{"title":"C programs","description":"C problems","slug":"/category/c-programs","permalink":"/docs/category/c-programs","navigation":{"previous":{"title":"Experiment 4","permalink":"/docs/R/Experiment_4"},"next":{"title":"Basics","permalink":"/docs/category/basics"}}}')}}]);
