@@ -1,0 +1,57 @@
+---
+sidebar_position: 2
+description: "Basic SQL commads"
+---
+
+import CodeBlock from "@theme/CodeBlock";
+import create from "!!raw-loader!/src/SQL/1/create.sql";
+import alter from "!!raw-loader!/src/SQL/1/alter.sql";
+import insert from "!!raw-loader!/src/SQL/1/insert.sql";
+import update from "!!raw-loader!/src/SQL/1/update.sql";
+import delete_ from "!!raw-loader!/src/SQL/1/delete.sql";
+import truncate from "!!raw-loader!/src/SQL/1/truncate.sql";
+import drop from "!!raw-loader!/src/SQL/1/drop.sql";
+
+# Basic SQL commands
+
+## Introduction
+
+Use the following commands to create a database, create a table, insert data, and select data etc in Oracle Live SQL https://livesql.oracle.com.
+
+:::note
+
+If you get ORA-00955: name is already used by an existing object error, you can use the following command to delete the table.
+
+```sql
+DROP TABLE table_name;
+```
+
+:::
+
+### Create
+
+<CodeBlock language="sql">{create}</CodeBlock>
+
+### Alter
+
+<CodeBlock language="sql">{alter}</CodeBlock>
+
+### Truncate
+
+<CodeBlock language="sql">{truncate}</CodeBlock>
+
+### Drop
+
+<CodeBlock language="sql">{drop}</CodeBlock>
+
+### Insert
+
+<CodeBlock language="sql">{insert}</CodeBlock>
+
+### Update
+
+<CodeBlock language="sql">{update}</CodeBlock>
+
+### Delete
+
+<CodeBlock language="sql">{delete_}</CodeBlock>
