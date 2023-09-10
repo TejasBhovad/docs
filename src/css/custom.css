@@ -46,3 +46,6 @@
 .footer {
   background-color: #232627;
 }
+.hidecategory {
+  display: none;
+}
