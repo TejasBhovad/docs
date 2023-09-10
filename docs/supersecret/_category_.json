@@ -1,8 +1,5 @@
 {
   "label": "Super secret Stuff",
   "position": 999,
-  "link": {
-    "type": "generated-index"
-  },
   "className": "hidecategory"
 }
