@@ -1,13 +1,7 @@
 // WAP to find the longest common subsequence of two strings.
 #include <stdio.h>
 #include <string.h>
-
 #define MAX 100
-
-int max(int a, int b)
-{
-    return (a > b) ? a : b;
-}
 void printLCS(char b[MAX][MAX], char X[MAX], int i, int j)
 {
     if (i == 0 || j == 0)
