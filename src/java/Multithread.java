@@ -1,37 +1,32 @@
-class MultiThread {
+import java.util.*;
+
+public class Multithread {
     public static void main(String[] args) {
-
-        PrintNumbers pn = new PrintNumbers();
-        PrintSquares ps = new PrintSquares();
-        pn.t1.start();
-        ps.t2.start();
+        Reader r = new Reader();
+        Thread readerThread = new Thread(r);
+        readerThread.start();
     }
 }
 
-class PrintNumbers implements Runnable {
-    Thread t1;
-
-    PrintNumbers() {
-        t1 = new Thread(this);
-    }
-
+class Reader implements Runnable {
     public void run() {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
-        }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int n = sc.nextInt();
+        Thread Square = new Thread(new Square(n));
+        Square.start();
     }
 }
 
-class PrintSquares implements Runnable {
-    Thread t2;
+class Square implements Runnable {
+    int x;
 
-    PrintSquares() {
-        t2 = new Thread(this);
+    Square(int n) {
+        x = n;
     }
 
     public void run() {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i * i);
-        }
+        int sqr = x * x;
+        System.out.println("Square: " + sqr);
     }
 }
