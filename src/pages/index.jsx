@@ -104,7 +104,6 @@ export default function Home() {
           <h1
             className="title"
             style={{
-              fontSize: "4rem",
               fontWeight: "bold",
               height: "30%",
               width: "100%",
@@ -130,11 +129,10 @@ export default function Home() {
                 maxWidth: "1200px",
                 opacity: "0.8",
                 padding: "0 1rem",
-                fontSize: "1.15rem",
+                // fontSize: "1.15rem",
               }}
             >
-              This site provides you with a comprehensive collection of program
-              codes taught in our university's programming courses.
+              A comprehensive collection of programming codes.
             </div>
           </div>
           <div

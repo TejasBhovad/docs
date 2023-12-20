@@ -100,6 +100,12 @@ html[data-theme="dark"] {
     flex-direction: column;
   }
 }
+@media (max-width: 600px) {
+  div.description {
+    font-size: 1rem;
+  }
+}
+
 /* html[data-theme="dark"] { */
 
 html[data-theme="dark"] .navbar {
@@ -192,3 +198,21 @@ path.card-logo {
   background-color: rgb(237, 232, 247);
   color: #0a0914;
 } */
+
+.description {
+  font-size: 1.15rem;
+}
+h1.title {
+  font-size: 4rem;
+}
+@media (max-width: 600px) {
+  h1.title {
+    font-size: 3.5rem;
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
