@@ -1,29 +1,41 @@
-# 📚 Documentation for Code
+# Website
 
-Welcome to the source code repository for the Documentation for Code project! 🎉
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## Project Overview
+### Installation
 
-The Documentation Website project provides a user-friendly and customizable platform for understanding and sharing program codes. 💻
+```
+$ yarn
+```
 
-## Contributing
+### Local Development
 
-We welcome and encourage contributions from the community to make this project even better. If you'd like to contribute, please follow these guidelines: 🙌
+```
+$ yarn start
+```
 
-1. 🍴 Fork the repository and create a new branch for your contribution.
-2. 🖌️ Ensure your code adheres to the project's coding style and guidelines.
-3. 💬 Provide clear and concise commit messages for your changes.
-4. ✅ Test your changes thoroughly to maintain the overall stability and functionality of the project.
-5. 📩 Submit a pull request, explaining the purpose and details of your contribution.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-By contributing to this project, you agree to license your work under the project's open-source license. 📝
+### Build
 
-## License
+```
+$ yarn build
+```
 
-The Documentation Website project is licensed under the [MIT License](./LICENSE). Feel free to use, modify, and distribute this software as per the terms of the license. 📄
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Feedback and Support
+### Deployment
 
-If you have any questions, feedback, or need support, please open an issue on the [Issue Tracker](https://github.com/TejasBhovad/docs/issues).
+Using SSH:
 
-We appreciate your interest in the Documentation Website project and look forward to your contributions! 🙏
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -1,106 +1,148 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// `@type` JSDoc annotations allow editor autocompletion and type checking
+// (when paired with `@ts-check`).
+// There are various equivalent ways to declare your Docusaurus config.
+// See: https://docusaurus.io/docs/api/docusaurus-config
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Docs",
-  tagline: "Documentation for Engineering Programs",
+  tagline: "Code Docs by Tejas Bhovad",
   url: "https://tejasbhovad.github.io",
   baseUrl: "/docs",
-  trailingSlash: false,
-  onBrokenLinks: "ignore",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "TejasBhovad", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   deploymentBranch: "gh-pages",
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  trailingSlash: false,
+
+  favicon: "img/favicon.ico",
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
   },
 
-  // plugins: [
-  //   [
-  //     '@docusaurus/plugin-google-tag-manager',
-  //     {
-  //       containerId: 'GTM-NV9TL4B',
-  //     },
-  //   ],
-  // ],
-  plugins: [
-    [
-      "@docusaurus/plugin-google-analytics",
-      {
-        trackingID: "G-H9YFDYX7H4",
-        anonymizeIP: true,
-      },
-    ],
-    [
-      "@docusaurus/plugin-google-gtag",
-      {
-        trackingID: "G-H9YFDYX7H4",
-        anonymizeIP: true,
-      },
-    ],
-  ],
   presets: [
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        // gtag: {
-        //   trackingID: 'G-H9YFDYX7H4',
-        //   anonymizeIP: true,
-        // },
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          path: this.clientModules,
-          routeBasePath: "/",
+          sidebarPath: "./sidebars.js",
+          path: "docs/one",
+          routeBasePath: "one",
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl: "https://github.com/TejasBhovad/docs",
+        },
+        blog: {
+          showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
-
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          // customCss: "./src/css/custom.css",
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       }),
+    ],
+  ],
+  plugins: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        indexPages: true,
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "two",
+        path: "docs/two",
+        routeBasePath: "two",
+        sidebarPath: "./sidebars.js",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "three",
+        path: "docs/three",
+        routeBasePath: "three",
+        sidebarPath: "./sidebars.js",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "four",
+        path: "docs/four",
+        routeBasePath: "four",
+        sidebarPath: "./sidebars.js",
+      },
     ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      sidebar: {
-        Java: ["docs/java/basics/"],
-        C: ["docs/c/basics/", "docs/c/journal/"],
+      metadata: [
+        {
+          name: "description",
+          content: "Code Docs by Tejas Bhovad",
+        },
+        {
+          name: "keywords",
+          content: "docs, code, tejas, bhovad",
+        },
+      ],
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
+
+      // Replace with your project's social card
+      image: "img/docusaurus-social-card.jpg",
       navbar: {
         title: "<docs>",
         // logo: {
-        //   alt: "My Site Logo",
+        //   alt: "Code Docs Logo",
         //   src: "img/logo.svg",
         // },
         items: [
           // {
-          //   type: "doc",
-          //   docId: "intro",
+          //   type: "docSidebar",
+          //   sidebarId: "tutorialSidebar",
           //   position: "left",
           //   label: "Tutorial",
           // },
-          // { to: "/blog", label: "Blog", position: "left" },
+          {
+            label: "Semesters",
+            position: "left",
+            items: [
+              { to: "/docs/one", label: "Semester 1" },
+              { to: "/docs/two", label: "Semester 2" },
+              { to: "/docs/three", label: "Semester 3" },
+              { to: "/docs/four", label: "Semester 4" },
+            ],
+          },
+          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/TejasBhovad/docs",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            href: "https://tejasbhovad.vercel.app/",
+            label: "Website",
             position: "right",
           },
         ],
@@ -112,8 +154,20 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Home",
-                to: "/",
+                label: "Semester One",
+                to: "/docs/one",
+              },
+              {
+                label: "Semester Two",
+                to: "/docs/two",
+              },
+              {
+                label: "Semester Three",
+                to: "/docs/three",
+              },
+              {
+                label: "Semester Four",
+                to: "/docs/four",
               },
             ],
           },
@@ -122,8 +176,9 @@ const config = {
             items: [
               {
                 label: "Github",
-                href: "https://github.com/TejasBhovad",
+                href: "https://github.com/TejasBhovad/docs",
               },
+
               {
                 label: "Twitter",
                 href: "https://twitter.com/tejas_bhovad",
@@ -134,24 +189,24 @@ const config = {
             title: "More",
             items: [
               {
+                label: "Blog",
+                to: "/blog",
+              },
+              {
                 label: "Website",
-                href: "https://tejasbhovad.vercel.app",
+                href: "https://tejasbhovad.vercel.app/",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Tejas Bhovad`,
+        copyright: `Copyright © ${new Date().getFullYear()} TejasBhovad, Made with Docusauorus`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         additionalLanguages: ["java"],
       },
     }),
 };
 
-module.exports = config;
-// (module.exports = {
-//     config
-//     plugins: ["docusaurus-plugin-sass"],
-//   });
+export default config;

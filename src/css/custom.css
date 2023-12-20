@@ -6,46 +6,189 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary: #6737f8;
+  --ifm-color-primary-dark: #141414;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e; */
-  --ifm-color-primary: #0093c2;
-  --ifm-color-primary-dark: #0084af;
-  --ifm-color-primary-darker: #007da5;
-  --ifm-color-primary-darkest: #006788;
-  --ifm-color-primary-light: #00a2d5;
-  --ifm-color-primary-lighter: #00a9df;
-  --ifm-color-primary-lightest: #00bffc;
+  --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  /* --ifm-footer-background-color: #11262d; */
 }
+html[data-theme="light"] {
+  --ifm-navbar-search-input-placeholder-color: #0a0914;
 
+  --ifm-color-primary: #5631c5;
+  --ifm-background-color: #e8e6f8;
+  --ifm-background-surface-color: #d6d5ed;
+  --ifm-color-emphasis-300: #c9c5ef;
+  --ifm-color-emphasis-200: #b4afe2;
+  --ifm-menu-color: #3a2c55;
+}
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
-  /* --ifm-color-primary: #25c2a0;
+html[data-theme="dark"] {
+  --ifm-color-emphasis-300: #343152;
+  --ifm-color-emphasis-200: #252432;
+  --ifm-background-color: #181723;
+  --ifm-background-surface-color: #151420;
+  --ifm-color-primary: #845bff;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf; */
-  --ifm-color-primary: #00bad4;
-  --ifm-color-primary-dark: #00a7bf;
-  --ifm-color-primary-darker: #009eb4;
-  --ifm-color-primary-darkest: #008294;
-  --ifm-color-primary-light: #00cde9;
-  --ifm-color-primary-lighter: #00d6f4;
-  --ifm-color-primary-lightest: #15e2ff;
+  --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-.footer {
-  background-color: #232627;
+
+.footer--dark {
+  --ifm-footer-background-color: #14131f;
 }
-.hidecategory {
-  display: none;
+.container-s {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Change this */
+  grid-gap: 20px 25px;
+  justify-items: center;
+  align-items: center;
+  /* background-color: indigo; */
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
+
+.container-s div {
+  width: 8rem;
+  height: 8rem;
+  /* background-color: purple; */
+}
+
+@media (min-width: 600px) {
+  .container-s {
+    grid-template-columns: repeat(4, 1fr); /* Add this */
+  }
+}
+.container-k {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  padding: 15px;
+  max-height: 740px;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+}
+
+.container-k div {
+  flex: 1;
+
+  /* margin: 10px; */
+
+  /* background-color: rgb(239, 136, 239); */
+  color: white;
+  height: 100%;
+  text-align: center;
+}
+.card-link {
+  height: 100%;
+  flex: 1; /* This will make the items take up equal width */
+}
+
+@media (max-width: 600px) {
+  .container-k {
+    flex-direction: column;
+  }
+}
+/* html[data-theme="dark"] { */
+
+html[data-theme="dark"] .navbar {
+  border-width: 0px;
+  border-color: #2a274b;
+  border-style: solid;
+  border-bottom-width: 1px;
+}
+html[data-theme="dark"] .card-desc {
+  color: #8d84eb;
+}
+html[data-theme="dark"] .label-featured {
+  background-color: rgb(84, 61, 111);
+  color: #e665aa;
+}
+html[data-theme="dark"] path.card-logo {
+  fill: #e665aa;
+}
+html[data-theme="dark"] h1.title {
+  color: #fff;
+}
+html[data-theme="dark"] span {
+  color: #fff;
+}
+html[data-theme="dark"] .description {
+  color: #a49cff;
+}
+html[data-theme="dark"] .num {
+  color: #dad7f8;
+}
+html[data-theme="dark"] div.card-link {
+  background-color: #2a274b;
+}
+html[data-theme="dark"] .title-card {
+  color: #fff;
+}
+html[data-theme="dark"] .label {
+  color: #ffffff;
+}
+html[data-theme="dark"] div.sem {
+  background-color: #151420;
+  border: solid 1px #252432;
+}
+html[data-theme="dark"] .line {
+  background-color: #252432;
+}
+/* } */
+div.sem {
+  background-color: #dad7f8;
+  border: solid 1px #cabdca;
+}
+.line {
+  background-color: #cabdca;
+}
+div.card-link {
+  background-color: #bebbe4;
+}
+.title-card {
+  color: #4e2e89;
+}
+.label-featured {
+  background-color: #8565e64d;
+  color: #8001c5;
+}
+path.card-logo {
+  fill: #8001c5;
+}
+.card-desc {
+  color: #6d4a7f;
+}
+.no-underline {
+  transition: all 0.2s ease-in-out;
+}
+.no-underline:hover {
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  scale: 1.035;
+}
+.hero-section {
+  min-height: 315px;
+}
+.sem {
+  min-width: 140px;
+}
+/* .navbar__search-input {
+  background-color: rgb(237, 232, 247);
+  color: #14131f;
+} */
+/* input[placeholder="Search"] {
+  background-color: rgb(237, 232, 247);
+  color: #0a0914;
+} */
