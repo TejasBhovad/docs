@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[896],{1652:e=>{e.exports=JSON.parse('{"title":"SQL","slug":"/category/sql","permalink":"/docs/category/sql","navigation":{"previous":{"title":"Experiment 6","permalink":"/docs/R/Experiment_6"},"next":{"title":"Basic SQL commands","permalink":"/docs/sql/basics"}}}')}}]);
