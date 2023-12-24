@@ -7,6 +7,7 @@ import Fire from "../components/Fire";
 import { content } from "../../content";
 import posthog from "posthog-js";
 
+
 posthog.init("phc_FHWJnR3TU7aAP9GLzbFo6l37YXY4P95mkZFyspEq9LP", {
   api_host: "https://us.posthog.com",
 });

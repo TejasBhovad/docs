@@ -20,7 +20,7 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   trailingSlash: false,
-
+  clientModules: [require.resolve("./src/analytics.js")],
   favicon: "img/favicon.ico",
 
   i18n: {
@@ -54,6 +54,14 @@ const config = {
     ],
   ],
   plugins: [
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: "phc_FHWJnR3TU7aAP9GLzbFo6l37YXY4P95mkZFyspEq9LP",
+        enableInDevelopment: true, // optional
+        // other options are passed to posthog-js init as is
+      },
+    ],
     [
       "@easyops-cn/docusaurus-search-local",
       {
