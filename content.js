@@ -1,13 +1,13 @@
 export const content = {
   announcement: {
     label: "NEW",
-    text: "Docs v2 Release",
-    link: "/blog/docs-v2-release",
+    text: "Create your own Docs",
+    link: "/blog/docusaurus-search",
   },
   featured: {
-    title: "Basic SQL Commands",
-    desc: "Use the following commands to create a database, create a table, insert data, and select data",
-    link: "/three/sql/basics",
+    title: "Docs v2",
+    desc: "Features, year in review, and showcase of the all new Docs v2 site.",
+    link: "blog/docs-v2-release",
   },
   popular: {
     title: "Java Inheritance",
