@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocsv_2=self.webpackChunkdocsv_2||[]).push([[2535],{5641:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Building a Searchable Docs Site with Docusaurus","permalink":"/docs/blog/docusaurus-search","unlisted":false},{"title":"Annoucing Docs v2.0","permalink":"/docs/blog/docs-v2-release","unlisted":false}]}')}}]);

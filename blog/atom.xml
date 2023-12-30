@@ -2,18 +2,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tejasbhovad.github.io/docs/blog</id>
     <title>Docs Blog</title>
-    <updated>2023-12-20T00:00:00.000Z</updated>
+    <updated>2023-12-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tejasbhovad.github.io/docs/blog"/>
     <subtitle>Docs Blog</subtitle>
     <icon>https://tejasbhovad.github.io/docs/img/favicon.ico</icon>
     <entry>
+        <title type="html"><![CDATA[Building a Searchable Docs Site with Docusaurus]]></title>
+        <id>https://tejasbhovad.github.io/docs/blog/docusaurus-search</id>
+        <link href="https://tejasbhovad.github.io/docs/blog/docusaurus-search"/>
+        <updated>2023-12-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Thumbnail]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_3-c6beb1d926b03051f8ddc50c87bc8a0b.jpeg" width="1280" height="720" class="img_ev3q"></p>
+<p>Docusaurous is an easy to use documentation tool bey Meta. In this article we will look into how to build a basic Docusaurous site and add Search bar to it.</p>
+<p>If you prefer a video tutorial, I have a 3 minute video on the same</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fIJxcaqeUBE?si=R5y9xwdtubzuITAy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-basic-docs-setup">Step 1: Basic Docs Setup<a href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-1-basic-docs-setup" class="hash-link" aria-label="Direct link to Step 1: Basic Docs Setup" title="Direct link to Step 1: Basic Docs Setup">​</a></h2>
+<p>Head to <a href="https://docusaurus.io/docs#fast-track" target="_blank" rel="noopener noreferrer">https://docusaurus.io/docs#fast-track</a>
+Copy the installation command from the above page.</p>
+<p><img loading="lazy" alt="website" src="https://tejasbhovad.github.io/docs/assets/images/image_1-70d44c45960cff05cc6e99045008ac19.jpeg" width="1814" height="1038" class="img_ev3q"></p>
+<p>Open VS Code, and open the terminal, paste the copied command and let the site build</p>
+<p>If the installation doesn't proceed and is stuck, press <code>ctr+c</code> to terminate current session and run <code>npm i</code> to install the node modules</p>
+<p>run <code>npm run start</code> to start development server, a window will automatically appear in your default web browser</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-setting-up-local-search">Step 2: Setting up Local Search<a href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-2-setting-up-local-search" class="hash-link" aria-label="Direct link to Step 2: Setting up Local Search" title="Direct link to Step 2: Setting up Local Search">​</a></h2>
+<p>Now, Docusaurous doesn't have a built in search bar, it does officially have partnership with Algolia search, but it requires a particular checklist to be satisfied. We will be using an open source alternative: <a href="https://github.com/easyops-cn/docusaurus-search-local" target="_blank" rel="noopener noreferrer">https://github.com/easyops-cn/docusaurus-search-local</a>
+<img loading="lazy" alt="repository" src="https://tejasbhovad.github.io/docs/assets/images/image_2-ab02abcd6c5c4619c9dee2e8c5d8bfe9.jpeg" width="1780" height="1012" class="img_ev3q">
+Head to <a href="https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#installation" target="_blank" rel="noopener noreferrer">https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#installation</a> and copy installation code, and paste it in the terminal</p>
+<p>Now in the usage section <a href="https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#usage" target="_blank" rel="noopener noreferrer">https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#usage</a>, copy the following code</p>
+<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      require</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token method function property-access" style="color:rgb(80, 250, 123)">resolve</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token string" style="color:rgb(255, 121, 198)">"@easyops-cn/docusaurus-search-local"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token literal-property property">hashed</span><span class="token operator">:</span><span class="token plain"> </span><span class="token boolean">true</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>And paste it into the config section in <code>docusaurus.config.js</code> file
+Restart the dev server and search bar should appear in the top right</p>
+<p>The Search will not work in development server, to test it, you need to build the site.</p>
+<p>Build the site</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm run build</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Serve the site</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">npm run serve</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<blockquote>
+<p>Thanks for reading.</p>
+</blockquote>]]></content>
+        <author>
+            <name>Tejas Bhovad</name>
+            <uri>https://github.com/TejasBhovad</uri>
+        </author>
+        <category label="tutorial" term="tutorial"/>
+        <category label="article" term="article"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Annoucing Docs v2.0]]></title>
         <id>https://tejasbhovad.github.io/docs/blog/docs-v2-release</id>
         <link href="https://tejasbhovad.github.io/docs/blog/docs-v2-release"/>
         <updated>2023-12-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus Plushie]]></summary>
-        <content type="html"><![CDATA[<p><img loading="lazy" alt="Docusaurus Plushie" src="https://tejasbhovad.github.io/docs/assets/images/display-d1c71cc1c692a54586705eabf4cce2be.jpeg" width="3426" height="1986" class="img_ev3q">
+        <summary type="html"><![CDATA[Docs site]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="Docs site" src="https://tejasbhovad.github.io/docs/assets/images/display-d1c71cc1c692a54586705eabf4cce2be.jpeg" width="3426" height="1986" class="img_ev3q">
 Today, I am excited to announce <strong>Docs 2.0 🥳</strong></p>
 <p>Docs 2.0 is a complete rewrite of the Old Docs site and has added a lot of new features and improvements.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
