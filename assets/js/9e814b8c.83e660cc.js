@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocsv_2=self.webpackChunkdocsv_2||[]).push([[8821],{7121:e=>{e.exports=JSON.parse('{"title":"Python","slug":"/category/python","permalink":"/docs/four/category/python","navigation":{"previous":{"title":"Semester Four","permalink":"/docs/four/"},"next":{"title":"Basics","permalink":"/docs/four/python/Basics"}}}')}}]);
