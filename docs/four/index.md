@@ -10,3 +10,5 @@ This is the introduction to the fourth semester.
 Table of Contents
 
 <!-- - [Java](/docs/three/category/java) -->
+
+[Python](/docs/four/category/python)

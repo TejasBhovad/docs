@@ -1,8 +1,8 @@
 export const content = {
   announcement: {
     label: "NEW",
-    text: "Create your own Docs",
-    link: "/blog/docusaurus-search",
+    text: "ProductHunt Launch 🚀",
+    link: "https://www.producthunt.com/products/soundxlr",
   },
   featured: {
     title: "Docs v2",
@@ -10,8 +10,8 @@ export const content = {
     link: "blog/docs-v2-release",
   },
   popular: {
-    title: "Java Inheritance",
-    desc: "Inheritance is an important pillar of OOP(Object Oriented Programming)",
-    link: "/three/java/Inheritance",
+    title: "Python",
+    desc: "Comprehensive code snippets for Python as taught in College with detailed explanations.",
+    link: "/four/category/python",
   },
 };

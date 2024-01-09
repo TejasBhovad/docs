@@ -1,0 +1,230 @@
+---
+title: "Basics"
+sidebar_position: 2
+description: "variables declaration and more"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Basics">Python</Heading>
+
+## Variables
+
+```python
+x = 10
+y = 15
+print(x + y)
+```
+
+> output
+
+```bash
+25
+```
+
+## Comments
+
+```python
+# This is a comment
+print("Hello, World!")
+```
+
+> output
+
+```bash
+Hello, World!
+```
+
+## Data Types
+
+```python
+x = 5
+print(type(x))
+```
+
+> output
+
+```bash
+<class 'int'>
+```
+
+## Casting
+
+```python
+x = int(1)   # x will be 1
+y = int(2.8) # y will be 2
+z = int("3") # z will be 3
+```
+
+## Strings
+
+```python
+a = "Hello, World!"
+print(a)
+print(a[1]) # print character at index 1
+```
+
+> output
+
+```bash
+Hello, World!
+e
+```
+
+## If statement
+
+```python
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+```
+
+> output
+
+```bash
+b is greater than a
+```
+
+## Elif
+
+```python
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+```
+
+> output
+
+```bash
+a and b are equal
+```
+
+## Loops
+
+### While loop
+
+```python
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+```
+
+> output
+
+```bash
+1
+2
+3
+4
+5
+```
+
+### For loop
+
+syntax: `for x in range(start,stop,step)`
+
+```python
+i = 1
+for i in range(6):
+  print(i)
+```
+
+> output
+
+```bash
+1
+2
+3
+4
+5
+```
+
+### Nested loop
+
+```python
+i = 1
+j = 1
+for i in range(2):
+  for j in range(2):
+    print(i, j)
+```
+
+> output
+
+```bash
+0 0
+0 1
+1 0
+1 1
+```
+
+### Break statement
+
+```python
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+  i += 1
+```
+
+> output
+
+```bash
+1
+2
+3
+```
+
+## Functions
+
+```python
+def my_function():
+  print("Hello from a function")
+
+my_function()
+```
+
+> output
+
+```bash
+Hello from a function
+```
+
+### Functions with arguments
+
+```python
+def my_function(fname):
+  print("Hello "+fname)
+
+my_function("Name")
+
+```
+
+> output
+
+```bash
+Hello Name
+```
+
+### Functions with return
+
+```python
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))
+
+```
+
+> output
+
+```bash
+15
+```
