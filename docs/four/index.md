@@ -12,3 +12,5 @@ Table of Contents
 <!-- - [Java](/docs/three/category/java) -->
 
 [Python](/docs/four/category/python)
+
+[Operating System](/docs/four/category/operating-system)
