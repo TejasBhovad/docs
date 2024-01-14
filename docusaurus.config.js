@@ -149,7 +149,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://tejasbhovad.vercel.app/",
+            href: "https://tejasbhovad.com",
             label: "Website",
             position: "right",
           },
@@ -202,7 +202,7 @@ const config = {
               },
               {
                 label: "Website",
-                href: "https://tejasbhovad.vercel.app/",
+                href: "https://tejasbhovad.com",
               },
             ],
           },
