@@ -1,0 +1,195 @@
+---
+title: "Lists"
+sidebar_position: 3
+description: "list operations"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Lists">Python</Heading>
+
+## List Operations
+
+### List Creation
+
+```python
+# empty list
+empty_list = []
+
+# list of integers
+int_list = [1, 2, 3]
+
+# list of strings
+str_list = ["a", "b", "c"]
+
+# list of mixed data types
+mixed_list = [1, "a", 2, "b", 3, "c"]
+```
+
+### List Access
+
+```python
+# access first element
+first_element = mixed_list[0]
+
+# access last element
+last_element = mixed_list[-1]
+
+# access elements from index 1 to 3
+sub_list = mixed_list[1:4]
+
+# access elements from index 1 to end
+sub_list = mixed_list[1:]
+
+# access elements from start to index 3
+sub_list = mixed_list[:4]
+
+# access elements from index 1 to 3 with step 2
+sub_list = mixed_list[1:4:2]
+
+# access elements from index 1 to end with step 2
+sub_list = mixed_list[1::2]
+
+# access elements from start to index 3 with step 2
+sub_list = mixed_list[:4:2]
+
+# access elements from start to end with step 2
+sub_list = mixed_list[::2]
+```
+
+### List Update
+
+```python
+# update first element
+mixed_list[0] = 4
+
+# update last element
+mixed_list[-1] = "d"
+
+# update elements from index 1 to 3
+mixed_list[1:4] = [5, "e", 6]
+
+# update elements from index 1 to end
+mixed_list[1:] = [5, "e", 6]
+
+# update elements from start to index 3
+mixed_list[:4] = [5, "e", 6]
+
+```
+
+### List Delete
+
+```python
+# delete first element
+del mixed_list[0]
+
+# delete last element
+del mixed_list[-1]
+
+# delete elements from index 1 to 3
+del mixed_list[1:4]
+
+...
+
+# delete entire list
+del mixed_list
+```
+
+### List Methods
+
+```python
+# append element to end of list
+mixed_list.append(4)
+
+# insert element at index 1
+mixed_list.insert(1, 5)
+
+# remove first occurence of element
+mixed_list.remove(5)
+
+# remove element at index 1
+mixed_list.pop(1)
+
+# remove last element
+mixed_list.pop()
+
+# reverse list
+mixed_list.reverse()
+
+# sort list
+mixed_list.sort()
+
+# clear list
+mixed_list.clear()
+
+# copy list
+mixed_list.copy()
+```
+
+### List Functions
+
+```python
+# get length of list
+len(mixed_list)
+
+# get maximum element
+max(mixed_list)
+
+# get minimum element
+min(mixed_list)
+
+# get sum of elements
+sum(mixed_list)
+
+# get index of first occurence of element
+mixed_list.index(5)
+
+# count occurences of element
+mixed_list.count(5)
+
+# check if element exists in list
+5 in mixed_list
+
+# check if element does not exist in list
+5 not in mixed_list
+```
+
+### List Comprehension
+
+```python
+# create list of squares of numbers from 1 to 10
+squares = [x**2 for x in range(1, 11)]
+
+# create list of even numbers from 1 to 10
+even_numbers = [x for x in range(1, 11) if x % 2 == 0]
+
+# create list of tuples of numbers from 1 to 10
+# where first element is number and second element is square of number
+number_squares = [(x, x**2) for x in range(1, 11)]
+```
+
+### List Sorting
+
+```python
+list = [1,4,2,3,5 ]
+list.sort(key=None, reverse=False)
+```
+
+> output: [1, 2, 3, 4, 5]
+
+```python
+list = [1,4,2,3,5 ]
+list.sort(key=None, reverse=True)
+```
+
+> output: [5, 4, 3, 2, 1]
+
+### List Reversing
+
+```python
+list = [1,4,2,3,5 ]
+list.reverse()
+```
+
+> output: [5, 3, 2, 4, 1]
+
