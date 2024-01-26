@@ -1,0 +1,96 @@
+---
+title: "Shell script"
+sidebar_position: 3
+description: "scripting language for Linux"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Shellscript">Operating System</Heading>
+
+## Shell script
+
+- Shell script is a computer program designed to be run by the Unix/Linux shell which could be one of the following:
+
+  - The Bourne Shell
+  - The C Shell
+  - The Korn Shell
+  - The GNU Bourne-Again Shell
+
+- A shell is a command-line interpreter and typical operations performed by shell scripts include file manipulation, program execution, and printing text.
+
+- Shell scripts are also employed extensively in the default installations of Unix-like operating systems.
+
+- Shell scripts are executed by a shell process.
+
+- Shell scripts often serve as convenient wrappers around UNIX commands.
+
+- They automate sequences of UNIX commands that would otherwise be time-consuming to type into the keyboard.
+
+- A shell script is a text file containing shell commands.
+
+## Shell Script Example
+
+```sh
+# This is a comment!
+echo Hello World        # This is a comment, too!
+```
+
+- The first line tells Unix that the file is to be executed by /bin/bash.
+
+- This is a comment. The second line is also a comment.
+
+- The third line actually does something. It asks that the words Hello World be printed.
+
+- The #! characters are magic to Unix. They are the characters that tell Unix that what follows is the name of the program (or programs in the case of a pipeline).
+
+- The # character begins a comment, and Unix ignores the rest of the line.
+
+- The echo command prints its arguments, in this case, the words "Hello World".
+
+- The echo command is one of the most basic and frequently used commands in Linux.
+
+## Executing Shell Scripts
+
+- To execute the script from the current directory, you can run:
+
+```sh
+$ ./hello.sh
+```
+
+- this wont run unless you give it permission to run
+
+```sh
+$ chmod +x hello.sh
+```
+
+## Shell Variables
+
+- A shell variable is a special variable that is set by the shell and is required by the shell in order to function correctly.
+
+- Some of these variables are environment variables whereas others are local variables.
+
+- A local variable is a variable that is present within the current instance of the shell.
+
+- It is not available to programs that are started by the shell.
+
+- They are set at the command prompt.
+
+- To set a local variable, use the following syntax −
+
+```sh
+variable_name=variable_value
+```
+
+- To access a local variable, use the following syntax −
+
+```sh
+$variable_name
+```
+
+- Example
+
+```sh
+NAME="Zara Ali"
+echo $NAME
+```

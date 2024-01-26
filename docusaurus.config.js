@@ -212,7 +212,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ["java", "python"],
+        additionalLanguages: ["java", "python", "bash"],
       },
     }),
 };

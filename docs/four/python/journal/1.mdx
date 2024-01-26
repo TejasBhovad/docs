@@ -1,0 +1,31 @@
+---
+title: "arithmetic operations"
+sidebar_position: 1
+description: "experiment to perform arithmetic operations in python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Arithmetic Operations">Python</Heading>
+
+> Title: Write a Program in python to show result of arithmetic operations. Use conditional statements for displaying the addition is greater than 100 or not. & use function to find square of addition result.
+
+```python
+def add(a, b):
+return a + b
+
+def square(a):
+return a \* a
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+result = add(a, b)
+
+if result > 100:
+print("Addition is greater than 100")
+else:
+print("Addition is not greater than 100")
+
+print("Square of addition is: ", square(result))
+```

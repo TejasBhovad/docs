@@ -1,0 +1,113 @@
+---
+title: "String Operations"
+sidebar_position: 2
+description: "String Operations in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="String Operations">Python</Heading>
+
+> Write python programs to understand Strings: Basic String Operations, String Methods and List.
+
+```python
+# basic string operations
+
+# 1. Concatenation
+str = "Hello" + " " + "World"
+print(str)
+
+# 2. Repetition
+str = "Hello" * 3
+print(str)
+
+# 3. Membership
+str = "Hello World"
+print("Hello" in str)
+print("Hello" not in str)
+
+# 4. Slicing
+str = "Hello World"
+print(str[0:5])
+print(str[6:])
+print(str[:5])
+print(str[-5:-1])
+print(str[0:5:2])
+
+# 5. Length
+str = "Hello World"
+print(len(str))
+
+# 6. Iteration
+str = "Hello World"
+for i in str:
+    print(i)
+
+# 7. Comparison
+str1 = "Hello"
+str2 = "Hello"
+print(str1 == str2)
+print(str1 != str2)
+print(str1 > str2)
+print(str1 < str2)
+
+# 8. String Formatting
+str = "Hello World"
+print("String is: %s" % str)
+print("String is: %10s" % str)
+print("String is: %-10s" % str)
+
+# 9. Escape Sequence
+print("Hello \"World\"")
+print("Hello \'World\'")
+print("Hello \\World\\")
+
+# 10. Raw String
+print(r"Hello \n World")
+
+# 11. Triple Quotes
+print("""Hello
+World""")
+
+# 12. String as Sequence
+str = "Hello World"
+print(str[0])
+print(str[1])
+
+# 13. String as Mutable
+str = "Hello World"
+str[0] = "h"
+print(str)
+
+# 14. String as Object
+str = "Hello World"
+print(str.upper())
+
+# 15. String as Iterator
+str = "Hello World"
+it = iter(str)
+print(next(it))
+
+# 16. String as Argument
+str = "Hello World"
+print(str)
+
+# 17. String as Return Value
+def str():
+    return "Hello World"
+
+print(str())
+
+# 18. String as Variable
+str = "Hello World"
+print(str)
+
+# 19. String as Expression
+str = "Hello World"
+print(str)
+
+# 20. String as Index
+str = "Hello World"
+print(str[0])
+
+```

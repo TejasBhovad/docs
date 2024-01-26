@@ -1,0 +1,54 @@
+---
+title: "Shell Commands"
+sidebar_position: 2
+description: "Shell Commands"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Shellscript">Operating System</Heading>
+
+# Commands
+
+## get current OS version
+
+```bash
+echo "Current OS version"
+echo "OS version"
+uname -a
+```
+
+## ten processes in descending order
+
+```bash
+echo "Top 10 processes"
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+```
+
+## highest memory consuming process
+
+```bash
+echo "Highest memory usage"
+ps aux | sort -nk +4 | tail
+```
+
+## curent user
+
+```bash
+echo "Current user and logname"
+whoami
+id -nu
+```
+
+## path
+
+```bash
+echo "Current shell"
+echo $SHELL
+echo "Current Home directory"
+echo $HOME
+echo "Current Path"
+echo $PATH
+echo "Current working directory"
+pwd
+```
