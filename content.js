@@ -1,8 +1,8 @@
 export const content = {
   announcement: {
     label: "NEW",
-    text: "ProductHunt Launch 🚀",
-    link: "https://www.producthunt.com/products/soundxlr",
+    text: "Notion Gradients is Live 🚀",
+    link: "https://www.producthunt.com/products/notion-gradients",
   },
   featured: {
     title: "Docs v2",
