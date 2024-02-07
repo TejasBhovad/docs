@@ -1,0 +1,79 @@
+---
+title: "Inheritance in Python"
+sidebar_position: 4
+description: "Inheritance in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Inheritance in Python">Python</Heading>
+
+> Write python programs to understand different Object oriented features in Python programs based on Inheritance using animals and birds.
+
+```python
+class Animal:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+    def display(self):
+        print("Name: ", self.name)
+        print("Color: ", self.color)
+
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def __init__(self, name, color, breed):
+        super().__init__(name, color)
+        self.breed = breed
+
+    def display(self):
+        super().display()
+        print("Breed: ", self.breed)
+
+    def speak(self):
+        print("Dog barks")
+
+class Cat(Animal):
+    def __init__(self, name, color, breed):
+        super().__init__(name, color)
+        self.breed = breed
+
+    def display(self):
+        super().display()
+        print("Breed: ", self.breed)
+
+    def speak(self):
+        print("Cat meows")
+
+class Bird(Animal):
+    def __init__(self, name, color, breed):
+        super().__init__(name, color)
+        self.breed = breed
+
+    def display(self):
+        super().display()
+        print("Breed: ", self.breed)
+
+    def speak(self):
+        print("Bird chirps")
+
+print("\nDog 1:")
+d1 = Dog("Buddy", "Brown", "Pug")
+d1.display()
+d1.speak()
+print("\nCat 1:")
+c1 = Cat("Whiskers", "White", "Persian")
+c1.display()
+c1.speak()
+print("\nBird 1:")
+b1 = Bird("Tweety", "Yellow", "Canary")
+b1.display()
+b1.speak()
+print("\nAnimal 1:")
+a1 = Animal("Tiger", "Orange")
+a1.display()
+a1.speak()
+
+```
