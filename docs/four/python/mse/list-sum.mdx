@@ -1,0 +1,48 @@
+---
+title: "Sum of list"
+sidebar_position: 1
+description: "WAP to find the sum of elements in a list (user input)"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="List Sum">Python</Heading>
+
+> Title: WAP to find the sum of elements in a list (user input)
+
+```python
+# WAP to find the sum of elements in a list (user input)
+
+list = []
+
+n = int(input("Enter the number of elements in the list: "))
+
+#  USING FOR LOOP
+# for i in range(0, n):
+#     element = int(input("Enter element: "))
+#     list.append(element)
+
+# USING WHILE LOOP
+i = 0
+while i < n:
+    element = int(input("Enter element: "))
+    list.append(element)
+    i = i + 1
+
+print("The list is: ", list)
+
+# FINDING SUM OF ELEMENTS IN THE LIST
+sum = 0
+for i in list:
+    sum = sum + i
+print("The sum of the elements in the list is: ", sum)
+
+# Output:
+# Enter the number of elements in the list: 3
+# Enter element: 10
+# Enter element: 20
+# Enter element: 30
+# The list is:  [10, 20, 30]
+# The sum of the elements in the list is:  60
+
+```

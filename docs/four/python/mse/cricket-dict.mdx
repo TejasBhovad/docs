@@ -1,0 +1,46 @@
+---
+title: "Cricket Dictionary"
+sidebar_position: 4
+description: "WAP to create dictionary to store cricket player names and their scores. The program should be able to retrieve the runs by entering player name."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Cricket Dictionary">Python</Heading>
+
+> Title: WAP to create dictionary to store cricket player names and their scores. The program should be able to retrieve the runs by entering player name.
+
+```python
+# WAP to create dictionary to store cricket player names and their scores. The program should be able to retrieve the runs by entering player name.
+
+cricket_dict = {}
+
+n = int(input("Enter the number of players: "))
+for i in range(0, n):
+    name = input("Enter player name: ")
+    score = int(input("Enter player score: "))
+    cricket_dict[name] = score
+
+print("The dictionary is: ", cricket_dict)
+
+search = input("Enter the player name to be searched: ")
+if search in cricket_dict:
+    print("The score of", search, "is", cricket_dict[search])
+else:
+    print("Player not found")
+
+# Output:
+# Enter the number of players: 3
+# Enter player name: Sachin
+# Enter player score: 100
+# Enter player name: Dhoni
+# Enter player score: 50
+# Enter player name: Kohli
+# Enter player score: 75
+# The dictionary is:  {'Sachin': 100, 'Dhoni': 50, 'Kohli': 75}
+# Enter the player name to be searched: Dhoni
+# The score of Dhoni is 50
+
+
+
+```

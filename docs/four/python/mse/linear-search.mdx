@@ -1,0 +1,47 @@
+---
+title: "Linear Search"
+sidebar_position: 2
+description: "WAP to find an element in a list (user input)
+"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Linear Search">Python</Heading>
+
+> Title: WAP to find an element in a list (user input)
+
+```python
+# WAP to find an element in a list (user input)
+
+list = []
+
+n = int(input("Enter the number of elements in the list: "))
+
+for i in range(0, n):
+    element = int(input("Enter element: "))
+    list.append(element)
+
+print("The list is: ", list)
+
+search = int(input("Enter the element to be searched: "))
+flag = 0
+for i in list:
+    if i == search:
+        print("Element found at position: ", list.index(i) + 1)
+        flag = 1
+        break
+
+if flag == 0:
+    print("Element not found")
+
+# Output:
+# Enter the number of elements in the list: 3
+# Enter element: 10
+# Enter element: 20
+# Enter element: 30
+# The list is:  [10, 20, 30]
+# Enter the element to be searched: 20
+# Element found at position:  2
+
+```

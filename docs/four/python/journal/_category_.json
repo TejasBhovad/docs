@@ -1,8 +1,9 @@
 {
-  "label": "Journal",
+  "label": "Journal-Python",
   "position": 10,
   "link": {
     "type": "generated-index",
-    "description": "Journal for OS"
+    "description": "Journal for OS",
+    "title": "Journal"
   }
 }

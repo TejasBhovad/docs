@@ -1,0 +1,38 @@
+---
+title: "Single Inheritance"
+sidebar_position: 6
+description: "WAP to implement single inheritance"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Single Inheritance">Python</Heading>
+
+> Title: WAP to implement single inheritance
+
+```python
+# WAP to implement single inheritance
+
+class A:
+    def __init__(self):
+        print("Class A")
+
+
+class B(A):
+    def __init__(self):
+        print("Class B")
+        super().__init__()
+
+
+b = B()
+# Output:
+# Class B
+# Class A
+
+```
+
+:::note
+
+Single inheritance cannot have two base classes
+
+:::

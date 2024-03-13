@@ -1,0 +1,43 @@
+---
+title: "Sum and Average"
+sidebar_position: 3
+description: "WAP to calculate sum and average of strings"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Sum and Average">Python</Heading>
+
+> Title: WAP to calculate sum and average of strings
+
+```python
+# WAP to calculate sum and average of strings
+
+list = []
+
+n = int(input("Enter the number of elements in the list: "))
+
+for i in range(0, n):
+    element = int(input("Enter element: "))
+    list.append(element)
+
+print("The list is: ", list)
+
+sum = 0
+for i in list:
+    sum = sum + i
+print("The sum of the elements in the list is: ", sum)
+
+avg = sum / n
+print("The average of the elements in the list is: ", avg)
+
+# Output:
+# Enter the number of elements in the list: 3
+# Enter element: 10
+# Enter element: 20
+# Enter element: 30
+# The list is:  [10, 20, 30]
+# The sum of the elements in the list is:  60
+# The average of the elements in the list is:  20.0
+
+```

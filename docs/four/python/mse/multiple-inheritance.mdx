@@ -1,0 +1,41 @@
+---
+title: "Multiple Inheritance"
+sidebar_position: 5
+description: "WAP to implement multiple inheritance with two base classes"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Multiple Inheritance">Python</Heading>
+
+> Title: WAP to implement multiple inheritance with two base classes
+
+```python
+# WAP to implement multiple inheritance with two base classes
+
+class A:
+    def __init__(self):
+        print("Class A")
+
+
+class B:
+    def __init__(self):
+        print("Class B")
+
+
+class C(A, B):
+    def __init__(self):
+        print("Class C")
+        super().__init__()
+        # by default super() calls the first base class
+        # use A.__init__() to call the __init__ method of class A
+        # use B.__init__() to call the __init__ method of class B
+
+
+c = C()
+
+# Output:
+# Class C
+# Class A
+
+```
