@@ -1,8 +1,8 @@
 export const content = {
   announcement: {
-    label: "NEW",
-    text: "Notion Gradients is Live 🚀",
-    link: "https://www.producthunt.com/products/notion-gradients",
+    label: "📚",
+    text: "All the best for MSE",
+    link: "https://github.com/TejasBhovad",
   },
   featured: {
     title: "Docs v2",
@@ -11,7 +11,7 @@ export const content = {
   },
   popular: {
     title: "Python",
-    desc: "Comprehensive code snippets for Python as taught in College with detailed explanations.",
-    link: "/four/category/python",
+    desc: "Solved problems from Python MSE Question bank",
+    link: "/four/category/mse-qb",
   },
 };

@@ -1,43 +1,27 @@
 ---
-title: "Sum and Average"
+title: "String Sum and Average"
 sidebar_position: 3
-description: "WAP to calculate sum and average of strings"
+description: "WAP to input string of numbers separated by spaces and print avg and sum"
 ---
 
 import Heading from "../../../../components/Heading";
 
-# <Heading name="banner" description="Sum and Average">Python</Heading>
+# <Heading name="banner" description="String Sum and Average">Python</Heading>
 
 > Title: WAP to calculate sum and average of strings
 
 ```python
-# WAP to calculate sum and average of strings
+# WAP to input string of numbers separated by spaces and print avg and sum
 
-list = []
-
-n = int(input("Enter the number of elements in the list: "))
-
-for i in range(0, n):
-    element = int(input("Enter element: "))
-    list.append(element)
-
-print("The list is: ", list)
-
-sum = 0
-for i in list:
-    sum = sum + i
-print("The sum of the elements in the list is: ", sum)
-
-avg = sum / n
-print("The average of the elements in the list is: ", avg)
-
+str = input("Enter numbers separated by spaces: ")
+# belowline of code splits a string into a list of substrings and converts each substring to an integer, and returns the list of integers.
+nums = list(map(int, str.split()))
+print("Sum:", sum(nums))
+print("Avg:", sum(nums)/len(nums))
 # Output:
-# Enter the number of elements in the list: 3
-# Enter element: 10
-# Enter element: 20
-# Enter element: 30
-# The list is:  [10, 20, 30]
-# The sum of the elements in the list is:  60
-# The average of the elements in the list is:  20.0
+# Enter numbers separated by spaces: 10 20 30 40 50
+# Sum: 150
+# Avg: 30.0
+
 
 ```
