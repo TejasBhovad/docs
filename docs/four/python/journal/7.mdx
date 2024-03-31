@@ -1,0 +1,29 @@
+---
+title: "File handling in Python"
+sidebar_position: 7
+description: "File handling in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="File handling in Python">Python</Heading>
+
+> WAP toto show the file handling in python
+
+```python
+try:
+    f = open("file.txt", "r")
+    # there should be a file named file.txt in the same directory as this file
+    print(f.read())
+except FileNotFoundError:
+    print("File not found")
+else:
+    print("File read successfully")
+finally:
+    print("End of program")
+
+# Output:
+# Hello, World!
+# File read successfully
+# End of program
+```

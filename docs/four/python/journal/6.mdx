@@ -1,0 +1,29 @@
+---
+title: "Exception handling in Python"
+sidebar_position: 6
+description: "Exception handling in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Exception handling in Python">Python</Heading>
+
+> WAP to show the use of exception handling in python wit the help of try, except, else and finally block.
+
+```python
+try:
+    a = 10
+    b = 0
+    c = a/b
+    print(c)
+except ZeroDivisionError:
+    print("Division by zero is not allowed")
+else:
+    print("Division is successful")
+finally:
+    print("End of program")
+
+# Output:
+# Division by zero is not allowed
+# End of program
+```
