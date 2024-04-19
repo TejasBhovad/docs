@@ -1,0 +1,150 @@
+---
+title: "Banker's Algorithm"
+sidebar_position: 11
+description: "fork command"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Banker's Algo">Operating System</Heading>
+
+## Banker's Algorithm
+
+The Banker's algorithm is a deadlock avoidance algorithm that is used to prevent deadlock in a system. The Banker's algorithm is used to allocate resources to processes in a way that prevents deadlock. The Banker's algorithm is based on the concept of a safe state. A safe state is a state in which the system can allocate resources to processes in such a way that no process will be left waiting indefinitely for resources.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int need[2][3] = {{3, 2, 2}, {2, 1, 1}};
+    int max[2][3] = {{7, 5, 3}, {4, 3, 2}};
+    int avail[3] = {3, 2, 2};
+
+    int safe = 1;
+    for (int i = 0; i < 2; i++) {
+        int can_finish = 1;
+        for (int j = 0; j < 3; j++) {
+            if (need[i][j] > avail[j]) {
+                can_finish = 0;
+                break;
+            }
+        }
+        if (can_finish) {
+            printf("Process %d can finish safely.\n", i + 1);
+            for (int j = 0; j < 3; j++) {
+                avail[j] += max[i][j];
+            }
+        } else {
+            safe = 0;
+        }
+    }
+
+    if (safe) {
+        printf("The system is in a safe state.\n");
+    } else {
+        printf("The system is in an unsafe state (deadlock possible).\n");
+    }
+
+    return 0;
+}
+
+```
+
+## Compiling and Running the Banker's Algorithm
+
+To compile and run the Banker's algorithm, you can use the following commands:
+
+```bash
+gcc -o banker banker.c
+./banker
+```
+
+### Output
+
+```bash
+Process 1 can finish safely.
+Process 2 can finish safely.
+The system is in a safe state.
+```
+
+The output of the program shows that the system is in a safe state and that both processes can finish safely. This means that the system can allocate resources to the processes in such a way that no process will be left waiting indefinitely for resources.
+
+# Questions
+
+<details>
+  <summary>What is the Banker's algorithm?</summary>
+  <div>
+    The Banker's algorithm is a deadlock avoidance algorithm that is used to
+    prevent deadlock in a system.
+  </div>
+</details>
+
+<details>
+  <summary>What is a safe state?</summary>
+  <div>
+    A safe state is a state in which the system can allocate resources to
+    processes in such a way that no process will be left waiting indefinitely
+    for resources.
+  </div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>
+    The output of the program shows that the system is in a safe state and that both processes can finish safely.
+  </div>
+
+</details>
+<details>
+  <summary>What is the purpose of the `safe` variable?</summary>
+  <div>
+    The `safe` variable is used to determine whether the system is in a safe state or not.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `can_finish` variable?</summary>
+  <div>
+    The `can_finish` variable is used to determine whether a process can finish
+    safely or not.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `need` array?</summary>
+  <div>
+    The `need` array is used to store the resource needs of processes.
+  </div>
+
+</details>
+
+<details>
+  <summary>What is the use of the `max` array?</summary>
+  <div>
+    The `max` array is used to store the maximum resource requirements of
+    processes.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `avail` array?</summary>
+  <div>
+    The `avail` array is used to store the available resources in the system.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `i` and `j` variables in the loops?</summary>
+  <div>
+    The `i` variable is used to iterate over the processes, and the `j` variable
+    is used to iterate over the resources.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `break` statement in the loop?</summary>
+  <div>
+    The `break` statement is used to exit the loop early if a condition is met.
+  </div>
+
+</details>

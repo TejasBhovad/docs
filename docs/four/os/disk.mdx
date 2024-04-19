@@ -1,0 +1,256 @@
+---
+title: "Disk Partition"
+sidebar_position: 10
+description: "Disk Partition"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Disk Partitioning Algorithm">Operating System</Heading>
+
+## Disk Partition
+
+Disk partitioning is the process of dividing the disk into multiple logical storage units called partitions. Each partition can be used to store data and files. Disk partitioning is done to organize the data and improve the performance of the disk.
+
+### Types of Disk Partitioning
+
+- FCFS
+- SSTF
+- SCAN
+- C-SCAN
+- LOOK
+- C-LOOK
+
+### FCFS (First Come First Serve)
+
+In the FCFS disk scheduling algorithm, the disk head moves from one end of the disk to the other end, serving the requests in the order they arrive. The disk head moves in the direction of the request and serves the requests in the order they arrive.
+
+### SSTF (Shortest Seek Time First)
+
+In the SSTF disk scheduling algorithm, the disk head moves to the request that is closest to the current position of the disk head. The disk head moves to the request that is closest to the current position of the disk head.
+
+### SCAN
+
+In the SCAN disk scheduling algorithm, the disk head moves from one end of the disk to the other end, serving the requests in the order they arrive. When the disk head reaches the end of the disk, it reverses direction and moves to the other end of the disk.
+
+### C-SCAN (Circular SCAN)
+
+In the C-SCAN disk scheduling algorithm, the disk head moves from one end of the disk to the other end, serving the requests in the order they arrive. When the disk head reaches the end of the disk, it moves to the other end of the disk without serving any requests.
+
+### LOOK
+
+In the LOOK disk scheduling algorithm, the disk head moves to the request that is closest to the current position of the disk head. The disk head moves to the request that is closest to the current position of the disk head.
+
+### C-LOOK (Circular LOOK)
+
+In the C-LOOK disk scheduling algorithm, the disk head moves to the request that is closest to the current position of the disk head. The disk head moves to the request that is closest to the current position of the disk head.
+
+````c
+#include <stdio.h>
+#include <stdlib.h>
+
+int abs(int x) {
+    return x > 0 ? x : -x;
+}
+
+void fcfs(int requests[], int n, int head) {
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        total += abs(head - requests[i]);
+        head = requests[i];
+    }
+    printf("Total head movement (FCFS): %d\n", total);
+}
+
+void sstf(int requests[], int n, int head) {
+    int total = 0;
+    int done[n];
+    for (int i = 0; i < n; i++) {
+        done[i] = 0;
+    }
+    for (int i = 0; i < n; i++) {
+        int min_dist = 1e9;
+        int min_idx = -1;
+        for (int j = 0; j < n; j++) {
+            if (!done[j] && abs(head - requests[j]) < min_dist) {
+                min_dist = abs(head - requests[j]);
+                min_idx = j;
+            }
+        }
+        total += min_dist;
+        head = requests[min_idx];
+        done[min_idx] = 1;
+    }
+    printf("Total head movement (SSTF): %d\n", total);
+}
+
+void scan(int requests[], int n, int head, int max_cylinder) {
+    int total = 0;
+    int done[n];
+    for (int i = 0; i < n; i++) {
+        done[i] = 0;
+    }
+    int direction = 1;
+    for (int i = 0; i < n; i++) {
+        int min_dist = 1e9;
+        int min_idx = -1;
+        for (int j = 0; j < n; j++) {
+            if (!done[j] && abs(head - requests[j]) < min_dist) {
+                if (direction == 1 && requests[j] >= head) {
+                    min_dist = abs(head - requests[j]);
+                    min_idx = j;
+                } else if (direction == -1 && requests[j] <= head) {
+                    min_dist = abs(head - requests[j]);
+                    min_idx = j;
+                }
+            }
+        }
+        if (min_idx == -1) {
+            direction *= -1;
+            continue;
+        }
+        total += min_dist;
+        head = requests[min_idx];
+        done[min_idx] = 1;
+    }
+    total += abs(head - (direction == 1 ? max_cylinder : 0));
+    printf("Total head movement (SCAN): %d\n", total);
+}
+
+void cscan(int requests[], int n, int head, int max_cylinder) {
+    int total = 0;
+    int done[n];
+    for (int i = 0; i < n; i++) {
+        done[i] = 0;
+    }
+    for (int i = 0; i < n; i++) {
+        int min_dist = 1e9;
+        int min_idx = -1;
+        for (int j = 0; j < n; j++) {
+            if (!done[j] && abs(head - requests[j]) < min_dist) {
+                min_dist = abs(head - requests[j]);
+                min_idx = j;
+            }
+        }
+        total += min_dist;
+        head = requests[min_idx];
+        done[min_idx] = 1;
+    }
+    total += abs(head - max_cylinder) + max_cylinder;
+    printf("Total head movement (C-SCAN): %d\n", total);
+}
+
+void look(int requests[], int n, int head) {
+    int total = 0;
+    int done[n];
+    for (int i = 0; i < n; i++) {
+        done[i] = 0;
+    }
+    int direction = 1;
+    for (int i = 0; i < n; i++) {
+        int min_dist = 1e9;
+        int min_idx = -1;
+        for (int j = 0; j < n; j++) {
+            if (!done[j] && abs(head - requests[j]) < min_dist) {
+                if (direction == 1 && requests[j] >= head) {
+                    min_dist = abs(head - requests[j]);
+                    min_idx = j;
+                } else if (direction == -1 && requests[j] <= head) {
+                    min_dist = abs(head - requests[j]);
+                    min_idx = j;
+                }
+            }
+        }
+        if (min_idx == -1) {
+            direction *= -1;
+            continue;
+        }
+        total += min_dist;
+        head = requests[min_idx];
+        done[min_idx] = 1;
+    }
+    printf("Total head movement (LOOK): %d\n", total);
+}
+
+void clook(int requests[], int n, int head) {
+    int total = 0;
+    int done[n];
+    for (int i = 0; i < n; i++) {
+        done[i] = 0;
+    }
+    for (int i = 0; i < n; i++) {
+        int min_dist = 1e9;
+        int min_idx = -1;
+        for (int j = 0; j < n; j++) {
+            if (!done[j] && abs(head - requests[j]) < min_dist) {
+                min_dist = abs(head - requests[j]);
+                min_idx = j;
+            }
+        }
+        total += min_dist;
+        head = requests[min_idx];
+        done[min_idx] = 1;
+    }
+    printf("Total head movement (C-LOOK): %d\n", total);
+}
+
+int main() {
+    int n, head, max_cylinder;
+    printf("Enter number of requests: ");
+    scanf("%d", &n);
+    int requests[n];
+    printf("Enter requests: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &requests[i]);
+    }
+    printf("Enter head position: ");
+    scanf("%d", &head);
+    printf("Enter maximum cylinder: ");
+    scanf("%d", &max_cylinder);
+    fcfs(requests, n, head);
+    sstf(requests, n, head);
+    scan(requests, n, head, max_cylinder);
+    cscan(requests, n, head, max_cylinder);
+    look(requests, n, head);
+    clook(requests, n, head);
+    return 0;
+}
+
+## Compiling and Running
+
+```bash
+$ gcc disk.c -o disk
+$ ./disk
+````
+
+````
+
+### Output
+
+```bash
+Enter number of requests: 5
+Enter requests: 98 183 37 122 14
+Enter head position: 53
+Enter maximum cylinder: 199
+Total head movement (FCFS): 640
+Total head movement (SSTF): 236
+Total head movement (SCAN): 208
+Total head movement (C-SCAN): 236
+Total head movement (LOOK): 208
+Total head movement (C-LOOK): 236
+````
+
+### Questions
+
+<details>
+  <summary>What is the use of disk partitioning?</summary>
+  <div>
+    Disk partitioning is done to organize the data and improve the performance
+    of the disk.
+  </div>
+</details>
+
+<details>
+  <summary>What are the types of disk partitioning algorithms?</summary>
+  <div>FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK</div>
+</details>

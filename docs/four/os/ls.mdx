@@ -1,0 +1,80 @@
+---
+title: "LS file"
+sidebar_position: 5
+description: "List files in directory"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="LS command">Operating System</Heading>
+
+## LS
+
+`ls` - list files in folder
+
+```bash
+ls
+```
+
+We use C program to list files in a directory. The program is as follows:
+
+```c
+#include <stdio.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <string.h>
+
+int main(int argc, char *argv[]) {
+    char *dir_path = argv[1];
+    DIR *dir = opendir(dir_path);
+    if (dir == NULL) {
+        perror("opendir failed");
+        return 1;
+    }
+    struct dirent *entry;
+    while ((entry = readdir(dir)) != NULL) {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+            continue;
+        }
+        printf("%s\n", entry->d_name);
+    }
+    closedir(dir);
+    return 0;
+}
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc ls.c -o ls
+$ ./ls /path/to/directory
+```
+
+> This will list all the files in the directory specified.
+
+## Questions
+
+<details>
+  <summary>What is the use of `ls` command?</summary>
+  <div>`ls` command is used to list files in a directory.</div>
+</details>
+
+<details>
+  <summary>What is the difference between `ls` and `ls -a` command?</summary>
+  <div>
+    `ls` command lists all files in a directory whereas `ls -a` lists all files
+    including hidden files.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `opendir` function?</summary>
+  <div>`opendir` function is used to open a directory stream.</div>
+</details>
+
+<details>
+  <summary>What is the use of `readdir` function?</summary>
+  <div>
+    `readdir` function is used to read the next entry in the directory stream.
+  </div>
+</details>

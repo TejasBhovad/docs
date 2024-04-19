@@ -42,6 +42,21 @@ html[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* html[data-theme="light"].alert {
+  --docusaurus-details-decoration-color: #5631c5;
+  --ifm-alert-background-color: #f0e9ff;
+  --ifm-alert-border-color: #c9c5ef;
+  --ifm-alert-text-color: #5631c5;
+} */
+
+.alert {
+  --docusaurus-details-decoration-color: #6d4a7f;
+  --ifm-alert-background-color: #7671b83d;
+  --ifm-alert-border-color: #6e68bf;
+  --ifm-alert-text-color: #6d4a7f;
+  --ifm-code-background: #7671b83d;
+}
+
 .footer--dark {
   --ifm-footer-background-color: #14131f;
 }

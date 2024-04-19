@@ -1,0 +1,187 @@
+---
+title: "Page replacenent Algorithm"
+sidebar_position: 9
+description: "Page replacement Algorithm"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Page replacement Algorithm">Operating System</Heading>
+
+## Page replacement Algorithm
+
+Page replacement algorithms are used to replace pages in memory when the memory is full. There are several page replacement algorithms, some of which are:
+
+1. FIFO (First In First Out)
+2. LRU (Least Recently Used)
+
+### FIFO (First In First Out)
+
+In the FIFO algorithm, the page that has been in memory the longest is replaced. The page that has been in memory the longest is the one that was first loaded into memory.
+
+### LRU (Least Recently Used)
+
+In the LRU algorithm, the page that has not been used for the longest time is replaced. The page that has not been used for the longest time is the one that was least recently used.
+
+```c
+#include <stdio.h>
+
+#define MAX_FRAMES 3  // Number of page frames
+#define MAX_REFERENCES 10  // Number of memory references (example)
+
+int page_faults = 0;
+
+// Function prototypes
+int FIFO(int page_references[], int n, int frames);
+int LRU(int page_references[], int n, int frames);
+
+int main() {
+    int page_references[MAX_REFERENCES] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3};  // Example reference string
+
+    printf("** FIFO Page Replacement Algorithm **\n");
+    page_faults = 0;
+    FIFO(page_references, MAX_REFERENCES, MAX_FRAMES);
+    printf("Total Page Faults: %d\n\n", page_faults);
+
+    printf("** LRU Page Replacement Algorithm **\n");
+    page_faults = 0;
+    LRU(page_references, MAX_REFERENCES, MAX_FRAMES);
+    printf("Total Page Faults: %d\n", page_faults);
+
+    return 0;
+}
+
+// FIFO (First-In-First-Out) Algorithm
+int FIFO(int page_references[], int n, int frames) {
+    int frame[frames];
+    int front = 0, rear = 0;  // Pointers for queue implementation
+
+    for (int i = 0; i < frames; i++) {
+        frame[i] = -1;  // Initialize frames as empty
+    }
+
+    for (int i = 0; i < n; i++) {
+        int found = 0;
+        // Check if page is already in a frame
+        for (int j = 0; j < frames; j++) {
+            if (frame[j] == page_references[i]) {
+                found = 1;
+                break;
+            }
+        }
+
+        if (found) {
+            continue;  // Page hit, no need for replacement
+        }
+
+        // Page fault, replace the page at the front (FIFO)
+        page_faults++;
+        frame[rear] = page_references[i];
+        rear = (rear + 1) % frames;  // Circular queue for FIFO
+    }
+
+    return 0;
+}
+
+// LRU (Least Recently Used) Algorithm (Simplified version)
+int LRU(int page_references[], int n, int frames) {
+    int frame[frames];
+
+    for (int i = 0; i < frames; i++) {
+        frame[i] = -1;  // Initialize frames as empty
+    }
+
+    for (int i = 0; i < n; i++) {
+        int found = 0;
+        // Check if page is already in a frame
+        for (int j = 0; j < frames; j++) {
+            if (frame[j] == page_references[i]) {
+                found = 1;
+                // Simpler LRU: Move the found page to the end (not optimal)
+                for (int k = j; k < frames - 1; k++) {
+                    frame[k] = frame[k + 1];
+                }
+                frame[frames - 1] = page_references[i];
+                break;
+            }
+        }
+
+        if (found) {
+            continue;  // Page hit, no need for replacement
+        }
+
+        // Page fault, replace the last page (simplified LRU)
+        page_faults++;
+        frame[frames - 1] = page_references[i];
+    }
+
+    return 0;
+}
+
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+
+$ gcc page_replacement.c -o page_replacement
+
+$ ./page_replacement
+
+```
+
+## Questions
+
+<details>
+  <summary>What is the use of page replacement algorithms?</summary>
+  <div>
+    Page replacement algorithms are used to replace pages in memory when the
+    memory is full.
+  </div>
+</details>
+
+<details>
+  <summary>What is the difference between FIFO and LRU algorithms?</summary>
+  <div>
+    - FIFO: The page that has been in memory the longest is replaced. - LRU: The
+    page that has not been used for the longest time is replaced.
+  </div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>
+    The program will demonstrate the FIFO and LRU page replacement algorithms.
+  </div>
+</details>
+
+<details>
+  <summary>What is the purpose of the `page_faults` variable?</summary>
+  <div>
+    The `page_faults` variable is used to count the number of page faults that
+    occur during the page replacement process.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of circular queue in FIFO algorithm?</summary>
+  <div>
+    The circular queue is used to implement the FIFO algorithm, where the front
+    and rear pointers wrap around the queue.
+  </div>
+</details>
+
+<details>
+  <summary>
+    What is the purpose of the `found` variable in the algorithms?
+  </summary>
+  <div>
+    The `found` variable is used to check if the page is already in a frame or
+    not.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of the `frame` array in the algorithms?</summary>
+  <div>The `frame` array is used to store the pages in memory frames.</div>
+</details>

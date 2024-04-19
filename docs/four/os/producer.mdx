@@ -1,0 +1,135 @@
+---
+title: "Producer Consumer Problem"
+sidebar_position: 8
+description: "fork command"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Producer Consumer">Operating System</Heading>
+
+## Producer Consumer Problem
+
+Producer Consumer Problem is a synchronization problem where there are two processes, a producer and a consumer, sharing a common buffer. The producer produces data and puts it into the buffer, and the consumer consumes the data from the buffer. The problem arises when the producer produces data faster than the consumer can consume it, or the consumer consumes data faster than the producer can produce it.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 3
+
+int buffer[BUFFER_SIZE];
+int in = 0, out = 0;
+int mutex = 1;
+
+void producer() {
+    while (in == (out + 1) % BUFFER_SIZE) {
+        printf("Buffer is full!\n");
+    }
+
+    mutex--;
+
+    int item = rand() % 100;
+    buffer[in] = item;
+    in = (in + 1) % BUFFER_SIZE;
+
+    printf("Producer produced item %d\n", item);
+
+    mutex++;
+}
+
+void consumer() {
+    while (in == out) {
+        printf("Buffer is empty!\n");
+    }
+
+    mutex--;
+
+    int item = buffer[out];
+    out = (out + 1) % BUFFER_SIZE;
+
+    printf("Consumer consumed item %d\n", item);
+
+    mutex++;
+}
+
+int main() {
+    while (1) {
+        int choice;
+        printf("\n1. Producer\n2. Consumer\n3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                producer();
+                break;
+            case 2:
+                consumer();
+                break;
+            case 3:
+                exit(0);
+            default:
+                printf("Invalid choice!\n");
+        }
+    }
+
+    return 0;
+}
+
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc producer_consumer.c -o producer_consumer
+$ ./producer_consumer
+```
+
+> This will create a producer and consumer process that share a common buffer. The producer produces data and puts it into the buffer, and the consumer consumes the data from the buffer.
+
+## Questions
+
+<details>
+  <summary>What is the Producer Consumer Problem?</summary>
+  <div>
+    Producer Consumer Problem is a synchronization problem where there are two
+    processes, a producer and a consumer, sharing a common buffer. The producer
+    produces data and puts it into the buffer, and the consumer consumes the
+    data from the buffer.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `mutex`?</summary>
+  <div>
+    `mutex` is used to provide mutual exclusion between the producer and
+    consumer processes. It ensures that only one process can access the buffer
+    at a time.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `rand` function?</summary>
+  <div>
+    `rand` function is used to generate a random number. In the program, it is
+    used to generate a random item to be produced by the producer.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `exit` function?</summary>
+  <div>
+    `exit` function is used to terminate the program. In the program, it is used
+    to exit the program when the user chooses to exit.
+  </div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>
+    The program will create a producer and consumer process that share a common
+    buffer. The producer produces data and puts it into the buffer, and the
+    consumer consumes the data from the buffer.
+  </div>
+</details>

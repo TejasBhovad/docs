@@ -1,0 +1,82 @@
+---
+title: "MOV file"
+sidebar_position: 4
+description: "copy one file to another"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="MOV command">Operating System</Heading>
+
+## MOV
+
+`mov` command is used to move a file from one location to another. It is similar to the `cp` command but it deletes the original file after copying it to the new location.
+
+```bash
+mov file1 file2
+```
+
+We will create a program in C to implement the `mov` command.
+
+```c
+#include <stdio.h>
+#include <sys/fcntl.h>
+#include <unistd.h>
+
+int main(int argc, char *argv[]) {
+    int fd1 = open(argv[1], O_RDONLY);
+    int fd2 = creat(argv[2], 0666);
+    char buffer[1024];
+    ssize_t bytes_read;
+    while ((bytes_read = read(fd1, buffer, sizeof(buffer))) > 0) {
+        write(fd2, buffer, bytes_read);
+    }
+    close(fd1);
+    close(fd2);
+    printf("File copied from %s to %s\n", argv[1], argv[2]);
+    return 0;
+}
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc mov.c -o mov
+$ ./mov file1 file2
+```
+
+> This will copy the contents of `file1` to `file2` and delete `file1` after copying.
+
+## Questions
+
+<details>
+  <summary>What is the difference between `mov` and `cp` command?</summary>
+  <div>
+    `mov` command deletes the original file after copying it to the new location
+    whereas `cp` command does not delete the original file.
+  </div>
+</details>
+
+<details>
+  <summary>What is use of header file `fcntl.h`?</summary>
+  <div>`fcntl.h` is a header file that provides the file control options.</div>
+</details>
+
+<details>
+  <summary>What is the use of `creat` function?</summary>
+  <div>
+    `creat` function is used to create a new file or truncate an existing file.
+  </div>
+</details>{" "}
+
+<details>
+  <summary>What is the use of `O_RDONLY` flag?</summary>
+  <div>`O_RDONLY` flag is used to open the file in read-only mode.</div>
+</details>
+
+<details>
+  <summary>What is the use of `0666` permission?</summary>
+  <div>
+    `0666` permission is used to give read and write permission to the file.
+  </div>
+</details>

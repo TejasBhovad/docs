@@ -1,0 +1,59 @@
+---
+title: "Fork"
+sidebar_position: 6
+description: "fork command"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="fork command">Operating System</Heading>
+
+## Fork
+
+`fork` - create a new process
+
+```bash
+fork
+```
+
+We use C program to create a new process. The program is as follows:
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main() {
+  fork();
+  printf("Hello world!\n");
+  return 0;
+}
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc fork.c -o fork
+$ ./fork
+```
+
+> This will create a new process and print "Hello world!" twice. The `fork` system call is used to create a new process.
+
+## Questions
+
+<details>
+  <summary>What is the use of `fork` system call?</summary>
+  <div>`fork` system call is used to create a new process.</div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>The program will print "Hello world!" twice.</div>
+</details>
+
+<details>
+  <summary>What is the return value of `fork` system call?</summary>
+  <div>
+    The return value of `fork` system call is the process ID of the child
+    process.
+  </div>
+</details>

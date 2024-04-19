@@ -1,0 +1,190 @@
+---
+title: "Partitioning Algorithms"
+sidebar_position: 8
+description: "Partitioning Algorithm"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Partitioning Algorithm">Operating System</Heading>
+
+## Partitioning Algorithms
+
+Partitioning algorithms are used to divide the memory into partitions to allocate memory to processes. There are two types of partitioning algorithms:
+
+1. First Fit
+2. Best Fit
+3. Worst Fit
+
+### First Fit
+
+In the first fit algorithm, the memory is divided into partitions and the first partition that is large enough to fit the process is allocated to the process. The process is allocated to the first partition that is large enough to fit the process.
+
+### Best Fit
+
+In the best fit algorithm, the memory is divided into partitions and the partition that is closest in size to the process is allocated to the process. The process is allocated to the partition that is closest in size to the process.
+
+### Worst Fit
+
+In the worst fit algorithm, the memory is divided into partitions and the largest partition that is large enough to fit the process is allocated to the process. The process is allocated to the largest partition that is large enough to fit the process.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_PROCESSES 10
+#define MAX_MEMORY 100
+
+struct Process {
+    int pid;
+    int size;
+};
+
+void firstFit(struct Process processes[], int n, int memory[], int m) {
+    for (int i = 0; i < n; i++) {
+        int found = 0;
+        for (int j = 0; j < m; j++) {
+            if (memory[j] >= processes[i].size) {
+                memory[j] -= processes[i].size;
+                printf("Process %d allocated to memory block %d\n", processes[i].pid, j);
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
+            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+        }
+    }
+}
+
+void bestFit(struct Process processes[], int n, int memory[], int m) {
+    int best_idx = -1;
+    for (int i = 0; i < n; i++) {
+        best_idx = -1;
+        for (int j = 0; j < m; j++) {
+            if (memory[j] >= processes[i].size) {
+                if (best_idx == -1 || memory[j] < memory[best_idx]) {
+                    best_idx = j;
+                }
+            }
+        }
+        if (best_idx != -1) {
+            memory[best_idx] -= processes[i].size;
+            printf("Process %d allocated to memory block %d\n", processes[i].pid, best_idx);
+        } else {
+            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+        }
+    }
+}
+
+void worstFit(struct Process processes[], int n, int memory[], int m) {
+    int worst_idx = -1;
+    for (int i = 0; i < n; i++) {
+        worst_idx = -1;
+        for (int j = 0; j < m; j++) {
+            if (memory[j] >= processes[i].size) {
+                if (worst_idx == -1 || memory[j] > memory[worst_idx]) {
+                    worst_idx = j;
+                }
+            }
+        }
+        if (worst_idx != -1) {
+            memory[worst_idx] -= processes[i].size;
+            printf("Process %d allocated to memory block %d\n", processes[i].pid, worst_idx);
+        } else {
+            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+        }
+    }
+}
+
+int main() {
+    struct Process processes[] = {{1, 20}, {2, 15}, {3, 10}, {4, 30}};
+    int n = sizeof(processes) / sizeof(processes[0]);
+
+    int memory[MAX_MEMORY];
+    for (int i = 0; i < MAX_MEMORY; i++) {
+        memory[i] = 10; // Simulate memory blocks of size 10
+    }
+    int m = sizeof(memory) / sizeof(memory[0]);
+
+    printf("** First Fit Allocation **\n");
+    firstFit(processes, n, memory, m);
+
+    for (int i = 0; i < m; i++) {
+        memory[i] = 10; // Reset memory for next algorithm
+    }
+
+    printf("\n** Best Fit Allocation **\n");
+    bestFit(processes, n, memory, m);
+
+    for (int i = 0; i < m; i++) {
+        memory[i] = 10; // Reset memory for next algorithm
+    }
+
+    printf("\n** Worst Fit Allocation **\n");
+    worstFit(processes, n, memory, m);
+
+    return 0;
+}
+
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc partition.c -o partition
+$ ./partition
+```
+
+> This program demonstrates the first fit, best fit, and worst fit partitioning algorithms to allocate memory to processes.
+
+## Questions
+
+<details>
+  <summary>What is the use of partitioning algorithms?</summary>
+  <div>
+    Partitioning algorithms are used to divide the memory into partitions to
+    allocate memory to processes.
+  </div>
+</details>
+
+<details>
+  <summary>
+    What is the difference between first fit, best fit, and worst fit
+    algorithms?
+  </summary>
+  <div>
+    - First Fit: The first partition that is large enough to fit the process is
+    allocated to the process. - Best Fit: The partition that is closest in size
+    to the process is allocated to the process. - Worst Fit: The largest
+    partition that is large enough to fit the process is allocated to the
+    process.
+  </div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>
+    The program will allocate memory to processes using first fit, best fit, and
+    worst fit algorithms.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `memory` array?</summary>
+  <div>The `memory` array is used to simulate memory blocks of size 10.</div>
+</details>
+
+<details>
+  <summary>What is the use of `processes` array?</summary>
+  <div>
+    The `processes` array contains the processes to be allocated memory.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `n` and `m` variables?</summary>
+  <div>
+    `n` is the number of processes and `m` is the number of memory blocks.
+  </div>
+</details>

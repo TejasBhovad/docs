@@ -62,7 +62,7 @@ void _ls(const char *dir, int op_a, int op_l) {
         // If hidden files are found and op_a is not set, skip
         if (!op_a && d->d_name[0] == '.')
             continue;
-       
+
         printf("%s ", d->d_name);
         if (op_l) printf("\n");
     }

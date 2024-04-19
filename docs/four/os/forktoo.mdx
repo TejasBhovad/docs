@@ -1,0 +1,116 @@
+---
+title: "Fork Processes"
+sidebar_position: 7
+description: "fork command"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="fork command">Operating System</Heading>
+
+## Fork
+
+`fork` - create a new process
+
+```bash
+fork
+```
+
+We use C program to create a new process. The program is as follows:
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main() {
+  pid_t pid, mypid, myppid;
+  pid = getpid();
+  printf("Before fork: Process id is %d\n", pid);
+  pid = fork();
+
+  if (pid < 0) {
+    perror("fork() failure\n");
+    return 1;
+  }
+
+  // Child process
+  if (pid == 0) {
+    printf("This is child process\n");
+    mypid = getpid();
+    myppid = getppid();
+    printf("Process id is %d and PPID is %d\n", mypid, myppid);
+  } else { // Parent process
+    sleep(2);
+    printf("This is parent process\n");
+    mypid = getpid();
+    myppid = getppid();
+    printf("Process id is %d and PPID is %d\n", mypid, myppid);
+    printf("Newly created process id or child pid is %d\n", pid);
+  }
+
+  return 0;
+}
+
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc fork.c -o fork
+$ ./fork
+```
+
+> This will create a new process and print the process id of the parent and child process. The `fork` system call is used to create a new process.
+
+## Questions
+
+<details>
+  <summary>What is the use of `fork` system call?</summary>
+  <div>`fork` system call is used to create a new process.</div>
+</details>
+
+<details>
+  <summary>What is the output of the program?</summary>
+  <div>
+    The program will print the process id of the parent and child process.
+  </div>
+</details>
+
+<details>
+  <summary>What is the return value of `fork` system call?</summary>
+  <div>
+    The return value of `fork` system call is the process ID of the child
+    process.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `getpid` and `getppid` functions?</summary>
+  <div>
+    `getpid` function is used to get the process ID of the current process and
+    `getppid` function is used to get the parent process ID.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `sleep` function?</summary>
+  <div>
+    `sleep` function is used to make the process sleep for a specified number of
+    seconds.
+  </div>
+</details>
+
+<details>
+  <summary>What is the use of `perror` function?</summary>
+  <div>
+    `perror` function is used to print the error message to the standard error
+    stream.
+  </div>
+
+</details>
+
+<details>
+  <summary>What is the use of `pid_t` data type?</summary>
+  <div>`pid_t` data type is used to represent process IDs.</div>
+</details>
