@@ -14,3 +14,5 @@ Table of Contents
 [Python](/docs/four/category/python)
 
 [Operating System](/docs/four/category/operating-system)
+
+[Artificial Intelligence](/docs/four/category/artificial-intelligence)
