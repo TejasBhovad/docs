@@ -1,0 +1,51 @@
+---
+title: "Object and Class"
+sidebar_position: 3
+description: "Write a program that demonstrates the creation of objects from a class, and shows how to access and modify the attributes and methods of the objects"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Object and Classes">Python</Heading>
+
+> Write a program that demonstrates the creation of objects from a class, and shows how to access and modify the attributes and methods of the objects
+
+```python
+class Car:
+    def __init__(self, color, model):
+        self.color = color
+        self.model = model
+    def car_method(self):
+        print("Car Method")
+
+class Audi(Car):
+    def __init__(self, color, model):
+        print("Audi Constructor")
+        super().__init__(color, model)
+    def audi_method(self):
+        print("Audi Method")
+
+audi = Audi("Black", "A6")
+audi.car_method()
+audi.audi_method()
+print(audi.color)
+print(audi.model)
+
+# Output:
+# Audi Constructor
+# Car Method
+# Audi Method
+# Black
+# A6
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

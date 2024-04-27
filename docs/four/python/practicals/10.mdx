@@ -1,0 +1,40 @@
+---
+title: "pandas dataframe"
+sidebar_position: 10
+description: "Write a Python script that uses the Pandas library to create a DataFrame from a given dictionary and display the resulting DataFrame"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="pandas dataframe">Python</Heading>
+
+> Write a Python script that uses the Pandas library to create a DataFrame from a given dictionary and display the resulting DataFrame
+
+```python
+import pandas as pd
+
+data = {
+    'Name': ['John', 'Jane', 'Sue', 'Fred'],
+    'Age': [23, 29, 21, 18],
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# Output:
+    # Name  Age
+    # 0  John   23
+    # 1  Jane   29
+    # 2   Sue   21
+    # 3  Fred   18
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

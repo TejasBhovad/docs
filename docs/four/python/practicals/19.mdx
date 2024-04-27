@@ -1,0 +1,44 @@
+---
+title: "function overriding"
+sidebar_position: 19
+description: "Implement function overriding in Python, where a child class provides its own implementation of a method that is already defined in the parent class."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Function overriding">Python</Heading>
+
+> Implement function overriding in Python, where a child class provides its own implementation of a method that is already defined in the parent class.
+
+```python
+class Parent:
+    def method(self):
+        print("Parent Method")
+
+class Child(Parent):
+    def method(self):
+        print("Child Method")
+
+child = Child()
+child.method()
+
+# Output:
+    # Child Method
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::
+
+:::note
+
+Yes it is same as the previous practical, but it is a good practice to repeat the same practicals to get a better understanding.
+Also we coudnt find any other practicals to add here.
+
+:::

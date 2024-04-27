@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6737f8;
+  --ifm-color-primary: #6842da;
   --ifm-color-primary-dark: #141414;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -28,11 +28,11 @@ html[data-theme="light"] {
 }
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-emphasis-300: #343152;
+  --ifm-color-emphasis-300: #28254b;
   --ifm-color-emphasis-200: #252432;
   --ifm-background-color: #181723;
   --ifm-background-surface-color: #151420;
-  --ifm-color-primary: #845bff;
+  --ifm-color-primary: #6d44e8;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -51,10 +51,10 @@ html[data-theme="dark"] {
 
 .alert {
   --docusaurus-details-decoration-color: #6d4a7f;
-  --ifm-alert-background-color: #7671b83d;
+  --ifm-alert-background-color: #3d3d3d3d;
   --ifm-alert-border-color: #6e68bf;
   --ifm-alert-text-color: #6d4a7f;
-  --ifm-code-background: #7671b83d;
+  --ifm-code-background: #9592c83d;
 }
 
 .footer--dark {

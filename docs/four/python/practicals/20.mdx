@@ -1,0 +1,31 @@
+---
+title: "factorial of a number"
+sidebar_position: 20
+description: "Implement a Python function that calculates the factorial of a given number."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Factorial of a number">Python</Heading>
+
+> Implement a Python function that calculates the factorial of a given number.
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5)) # 120
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

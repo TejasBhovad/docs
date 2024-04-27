@@ -1,0 +1,43 @@
+---
+title: "Append content to file"
+sidebar_position: 7
+description: "Implement a try-except block in Python that handles a specific exception, such as a ZeroDivisionError."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Append to file">Python</Heading>
+
+> Append content to file and print the contents of the file
+
+```python
+# Append content to file file.txt and print the contents of the file.
+content = 'hello'
+
+with open('file.txt', 'a') as file:
+    file.write(content)
+
+with open('file.txt', 'r') as file:
+    print(file.read())
+
+# Output:
+# og file content
+# hello
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::
+
+:::note
+
+file `file.txt` should be in the same directory as the script.
+
+:::

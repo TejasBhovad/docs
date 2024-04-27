@@ -1,0 +1,35 @@
+---
+title: "Overload Area"
+sidebar_position: 24
+description: "Write a program to calculate area of circle, rectangle and square using function overloading"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Overload Area">Python</Heading>
+
+> Write a program to calculate area of circle, rectangle and square using function overloading
+
+```python
+class Area:
+    def area(self, a, b=0):
+        if b == 0:
+             return a * a
+        else:
+            return a * b
+
+area = Area()
+print("Area of rectangle: ", area.area(5, 10))
+print("Area of square: ", area.area(5))
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

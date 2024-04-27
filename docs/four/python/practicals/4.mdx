@@ -1,0 +1,37 @@
+---
+title: "Tkinter button and label"
+sidebar_position: 4
+description: "Create a simple GUI using the Tkinter library in Python that displays a button and a label"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Button label">Python</Heading>
+
+> Create a simple GUI using the Tkinter library in Python that displays a button and a label
+
+```python
+from tkinter import Button, Label,Tk
+
+root = Tk()
+root.title("LabelButton")
+
+btn = Button(root, text="Button")
+btn.pack()
+
+lbl = Label(root, text="Label")
+lbl.pack()
+
+root.mainloop()
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

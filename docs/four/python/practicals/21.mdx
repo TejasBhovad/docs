@@ -1,0 +1,37 @@
+---
+title: "Prime numbers between 1 and 100"
+sidebar_position: 21
+description: "Write a Python program that prints all the prime numbers between 1 and 100."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Prime numbers between 1 and 100">Python</Heading>
+
+> Write a Python program that prints all the prime numbers between 1 and 100.
+
+```python
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+for i in range(1, 101):
+    if is_prime(i):
+        print(i)
+
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

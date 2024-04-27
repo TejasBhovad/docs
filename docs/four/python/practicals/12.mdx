@@ -1,0 +1,40 @@
+---
+title: "Constructors"
+sidebar_position: 12
+description: "Demonstrate the use of constructors and the __init__ method in a Python class"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Constructors">Python</Heading>
+
+> Demonstrate the use of constructors and the **init** method in a Python class
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+circle = Circle(5)
+print("Area: ", round(circle.area(),2))
+print("Perimeter: ", round(circle.perimeter(),2))
+
+# Output:
+    # Area:  78.5
+    # Perimeter:  31.4
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

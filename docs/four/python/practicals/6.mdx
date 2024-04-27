@@ -1,0 +1,40 @@
+---
+title: "Divide by Zero"
+sidebar_position: 6
+description: "Implement a try-except block in Python that handles a specific exception, such as a ZeroDivisionError."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="ZeroDivisionError">Python</Heading>
+
+> Implement a try-except block in Python that handles a specific exception, such as a ZeroDivisionError.
+
+```python
+try:
+    a = 10
+    b = 0
+    c = a/b
+    print(c)
+except ZeroDivisionError:
+    print("Divide by zero error")
+except:
+    print("Some error")
+finally:
+    print("Finally block")
+
+# Output:
+# Divide by zero error
+# Finally block
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

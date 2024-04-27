@@ -1,0 +1,47 @@
+---
+title: "Grades of Students"
+sidebar_position: 1
+description: ""
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Students grades">Python</Heading>
+
+> Write a program that takes a score as input and assigns a letter grade based on the following criteria:\
+> Score >= 90: Grade 'A'\
+> Score >= 80: Grade 'B'\
+> Score >= 70: Grade 'C'\
+> Score < 60: Grade 'F'
+
+```python
+marks = int(input("Enter your marks: "))
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 80:
+    print("Grade B")
+elif marks >= 70:
+    print("Grade C")
+elif marks >= 60:
+    print("Grade D")
+else:
+    print("Grade F")
+
+# Output:
+# Enter your marks: 85
+# Grade B
+# Enter your marks: 75
+# Grade C
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

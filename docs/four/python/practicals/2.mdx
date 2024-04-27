@@ -1,0 +1,54 @@
+---
+title: "Multiple Inheritance"
+sidebar_position: 2
+description: ""
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Multiple Inheritance">Python</Heading>
+
+> Create two parent classes, Parent1 and Parent2, and a child class Child that inherits from both parent classes. Demonstrate the use of methods from both parent classes in the child class.
+
+```python
+class ParentOne:
+    def __init__(self):
+        print("ParentOne Constructor")
+    def parent_one_method(self):
+        print("ParentOne Method")
+class ParentTwo:
+    def __init__(self):
+        print("ParentTwo Constructor")
+    def parent_two_method(self):
+        print("ParentTwo Method")
+
+class Child(ParentOne, ParentTwo):
+    def __init__(self):
+        print("Child Constructor")
+        super().__init__()
+    def child_method(self):
+        print("Child Method")
+
+child = Child()
+child.parent_one_method()
+child.parent_two_method()
+child.child_method()
+
+# Output:
+# Child Constructor
+# ParentOne Constructor
+# ParentOne Method
+# ParentTwo Method
+# Child Method
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

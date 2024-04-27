@@ -1,0 +1,44 @@
+---
+title: "Copy file content"
+sidebar_position: 8
+description: "Copy the content of one file to another file."
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Copy file content">Python</Heading>
+
+> Append content to file and print the contents of the file
+
+```python
+# Create a Python script that copies the content of one file to another file.
+#  copy from A.txt to B.txt
+fileA = 'A.txt'
+fileB = 'B.txt'
+
+with open(fileA, 'r') as file:
+    content = file.read()
+
+with open(fileB, 'w') as file:
+    file.write(content)
+
+with open(fileB, 'r') as file:
+    print(file.read())
+
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::
+
+:::note
+
+files `A.txt` and `B.txt` should be in the same directory as the script.
+
+:::
