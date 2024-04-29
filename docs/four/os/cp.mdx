@@ -1,0 +1,111 @@
+---
+title: "CP command"
+sidebar_position: 11
+description: "Implement CP command from linux API in c"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="copy command linux API">Operating System</Heading>
+
+## CP command
+
+The `cp` command in Linux is used to copy files and directories. The `cp` command is part of the GNU coreutils package and is available on most Linux distributions.
+
+The `cp` command syntax is as follows:
+
+```bash
+cp [OPTION]... SOURCE DEST
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#define BUFFER_SIZE 4096
+
+int main(int argc, char *argv[]) {
+    int src = open(argv[1], O_RDONLY);
+    int dst = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+
+    char buffer[BUFFER_SIZE];
+    ssize_t nread;
+
+    while ((nread = read(src, buffer, BUFFER_SIZE)) > 0) {
+        write(dst, buffer, nread);
+    }
+
+    close(src);
+    close(dst);
+
+    return 0;
+}
+
+```
+
+To compile and run the program, use the following commands(dont copy the `$` sign, it represents the terminal prompt):
+
+```bash
+$ gcc cp.c -o cp
+$ ./cp source.txt destination.txt
+```
+
+> There should be a file named `source.txt` and `destination.txt` in the same directory as the program.
+
+## Questions
+
+<details>
+  <summary>What is the use of the cp command?</summary>
+  <div>
+    The `cp` command is used to copy files and directories in Linux.
+  </div>
+
+</details>
+
+<details>
+  <summary>What are the options available with the cp command?</summary>
+  <div>
+    The `cp` command has several options that can be used to modify its behavior. Some of the common options are:
+    - `-r`: Copy directories recursively
+    - `-i`: Prompt before overwriting
+    - `-v`: Verbose output
+  </div>
+
+</details>
+
+<details>
+  <summary>How can you copy a directory using the cp command?</summary>
+  <div>
+    To copy a directory and its contents, you can use the `-r` option with the `cp` command. For example:
+    ```bash
+    cp -r source_dir destination_dir
+    ```
+  </div>
+
+</details>
+
+<details>
+  <summary>What is the difference between the cp command and the mv command?</summary>
+  <div>
+    The `cp` command is used to copy files and directories, while the `mv` command is used to move files and directories. When you copy a file, the original file remains intact, while moving a file removes it from its original location.
+  </div>
+
+</details>
+
+<details>
+  <summary>What is the use of the `open` system call in the program?</summary>
+  <div>
+    The `open` system call is used to open a file for reading or writing. In the program, we use the `open` system call to open the source and destination files.
+  </div>
+
+</details>
+
+<details>
+  <summary>What is the use of the `read` and `write` system calls in the program?</summary>
+  <div>
+    The `read` system call is used to read data from a file descriptor, and the `write` system call is used to write data to a file descriptor. In the program, we use the `read` and `write` system calls to copy data from the source file to the destination file.
+  </div>
+
+</details>
