@@ -35,71 +35,67 @@ In the worst fit algorithm, the memory is divided into partitions and the larges
 #define MAX_PROCESSES 10
 #define MAX_MEMORY 100
 
-struct Process {
-    int pid;
-    int size;
-};
-
-void firstFit(struct Process processes[], int n, int memory[], int m) {
+void firstFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
     for (int i = 0; i < n; i++) {
         int found = 0;
         for (int j = 0; j < m; j++) {
-            if (memory[j] >= processes[i].size) {
-                memory[j] -= processes[i].size;
-                printf("Process %d allocated to memory block %d\n", processes[i].pid, j);
+            if (memory[j] >= processSizes[i]) {
+                memory[j] -= processSizes[i];
+                printf("Process %d allocated to memory block %d\n", processIDs[i], j);
                 found = 1;
                 break;
             }
         }
         if (!found) {
-            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+            printf("Process %d not allocated (no fit)\n", processIDs[i]);
         }
     }
 }
 
-void bestFit(struct Process processes[], int n, int memory[], int m) {
+void bestFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
     int best_idx = -1;
     for (int i = 0; i < n; i++) {
         best_idx = -1;
         for (int j = 0; j < m; j++) {
-            if (memory[j] >= processes[i].size) {
+            if (memory[j] >= processSizes[i]) {
                 if (best_idx == -1 || memory[j] < memory[best_idx]) {
                     best_idx = j;
                 }
             }
         }
         if (best_idx != -1) {
-            memory[best_idx] -= processes[i].size;
-            printf("Process %d allocated to memory block %d\n", processes[i].pid, best_idx);
+            memory[best_idx] -= processSizes[i];
+            printf("Process %d allocated to memory block %d\n", processIDs[i], best_idx);
         } else {
-            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+            printf("Process %d not allocated (no fit)\n", processIDs[i]);
         }
     }
 }
 
-void worstFit(struct Process processes[], int n, int memory[], int m) {
+void worstFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
     int worst_idx = -1;
     for (int i = 0; i < n; i++) {
         worst_idx = -1;
         for (int j = 0; j < m; j++) {
-            if (memory[j] >= processes[i].size) {
+            if (memory[j] >= processSizes[i]) {
                 if (worst_idx == -1 || memory[j] > memory[worst_idx]) {
                     worst_idx = j;
                 }
             }
         }
         if (worst_idx != -1) {
-            memory[worst_idx] -= processes[i].size;
-            printf("Process %d allocated to memory block %d\n", processes[i].pid, worst_idx);
+            memory[worst_idx] -= processSizes[i];
+            printf("Process %d allocated to memory block %d\n", processIDs[i], worst_idx);
         } else {
-            printf("Process %d not allocated (no fit)\n", processes[i].pid);
+            printf("Process %d not allocated (no fit)\n", processIDs[i]);
         }
     }
 }
 
 int main() {
-    struct Process processes[] = {{1, 20}, {2, 15}, {3, 10}, {4, 30}};
-    int n = sizeof(processes) / sizeof(processes[0]);
+    int processSizes[] = {20, 15, 10, 30};
+    int processIDs[] = {1, 2, 3, 4};
+    int n = sizeof(processSizes) / sizeof(processSizes[0]);
 
     int memory[MAX_MEMORY];
     for (int i = 0; i < MAX_MEMORY; i++) {
@@ -108,21 +104,21 @@ int main() {
     int m = sizeof(memory) / sizeof(memory[0]);
 
     printf("** First Fit Allocation **\n");
-    firstFit(processes, n, memory, m);
+    firstFit(processSizes, processIDs, n, memory, m);
 
     for (int i = 0; i < m; i++) {
         memory[i] = 10; // Reset memory for next algorithm
     }
 
     printf("\n** Best Fit Allocation **\n");
-    bestFit(processes, n, memory, m);
+    bestFit(processSizes, processIDs, n, memory, m);
 
     for (int i = 0; i < m; i++) {
         memory[i] = 10; // Reset memory for next algorithm
     }
 
     printf("\n** Worst Fit Allocation **\n");
-    worstFit(processes, n, memory, m);
+    worstFit(processSizes, processIDs, n, memory, m);
 
     return 0;
 }
