@@ -20,9 +20,114 @@ Partitioning algorithms are used to divide the memory into partitions to allocat
 
 In the first fit algorithm, the memory is divided into partitions and the first partition that is large enough to fit the process is allocated to the process. The process is allocated to the first partition that is large enough to fit the process.
 
+```c
+#include <stdio.h>
+
+void firstFit(int bSize[], int bCount, int pSize[], int pCount) {
+    int bAlloc[pCount];
+    int bOccupied[bCount];
+
+    // Initialize block allocation and occupation arrays
+    for (int i = 0; i < pCount; i++) {
+        bAlloc[i] = -1;
+    }
+    for (int i = 0; i < bCount; i++) {
+        bOccupied[i] = 0;
+    }
+
+    // Allocate processes to blocks
+    for (int p = 0; p < pCount; p++) {
+        for (int b = 0; b < bCount; b++) {
+            if (!bOccupied[b] && bSize[b] >= pSize[p]) {
+                bAlloc[p] = b;
+                bOccupied[b] = 1;
+                break;
+            }
+        }
+    }
+
+    // Print the allocation results
+    printf("Process\tSize\tBlock\n");
+    for (int p = 0; p < pCount; p++) {
+        printf("%d\t%d\t", p + 1, pSize[p]);
+        if (bAlloc[p] != -1) {
+            printf("%d\n", bAlloc[p] + 1);
+        } else {
+            printf("Not Allocated\n");
+        }
+    }
+}
+
+int main() {
+    int bSize[] = {30, 5, 10};
+    int pSize[] = {10, 6, 9};
+    int bCount = sizeof(bSize) / sizeof(bSize[0]);
+    int pCount = sizeof(pSize) / sizeof(pSize[0]);
+
+    firstFit(bSize, bCount, pSize, pCount);
+    return 0;
+}
+
+```
+
 ### Best Fit
 
 In the best fit algorithm, the memory is divided into partitions and the partition that is closest in size to the process is allocated to the process. The process is allocated to the partition that is closest in size to the process.
+
+```c
+#include <stdio.h>
+
+void bestFit(int bSize[], int bCount, int pSize[], int pCount) {
+    int bAlloc[pCount];
+    int bOccupied[bCount];
+
+    // Initialize block allocation and occupation arrays
+    for (int i = 0; i < pCount; i++) {
+        bAlloc[i] = -1;
+    }
+    for (int i = 0; i < bCount; i++) {
+        bOccupied[i] = 0;
+    }
+
+    // Allocate processes to blocks using Best Fit
+    for (int p = 0; p < pCount; p++) {
+        int bestBlock = -1;
+        for (int b = 0; b < bCount; b++) {
+            if (!bOccupied[b] && bSize[b] >= pSize[p]) {
+                if (bestBlock == -1 || bSize[b] < bSize[bestBlock]) {
+                    bestBlock = b;
+                }
+            }
+        }
+        if (bestBlock != -1) {
+            bAlloc[p] = bestBlock;
+            bOccupied[bestBlock] = 1;
+        }
+    }
+
+    // Print the allocation results
+    printf("Process\tSize\tBlock\n");
+    for (int p = 0; p < pCount; p++) {
+        printf("%d\t%d\t", p + 1, pSize[p]);
+        if (bAlloc[p] != -1) {
+            printf("%d\n", bAlloc[p] + 1);
+        } else {
+            printf("Not Allocated\n");
+        }
+    }
+}
+
+int main() {
+    int bSize[] = {30, 5, 10};
+    int pSize[] = {10, 6, 9};
+    int bCount = sizeof(bSize) / sizeof(bSize[0]);
+    int pCount = sizeof(pSize) / sizeof(pSize[0]);
+
+    bestFit(bSize, bCount, pSize, pCount);
+    return 0;
+}
+
+```
 
 ### Worst Fit
 
@@ -30,96 +135,54 @@ In the worst fit algorithm, the memory is divided into partitions and the larges
 
 ```c
 #include <stdio.h>
-#include <stdlib.h>
 
-#define MAX_PROCESSES 10
-#define MAX_MEMORY 100
+void worstFit(int bSize[], int bCount, int pSize[], int pCount) {
+    int bAlloc[pCount];
+    int bOccupied[bCount];
 
-void firstFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
-    for (int i = 0; i < n; i++) {
-        int found = 0;
-        for (int j = 0; j < m; j++) {
-            if (memory[j] >= processSizes[i]) {
-                memory[j] -= processSizes[i];
-                printf("Process %d allocated to memory block %d\n", processIDs[i], j);
-                found = 1;
-                break;
-            }
-        }
-        if (!found) {
-            printf("Process %d not allocated (no fit)\n", processIDs[i]);
-        }
+    // Initialize block allocation and occupation arrays
+    for (int i = 0; i < pCount; i++) {
+        bAlloc[i] = -1;
     }
-}
+    for (int i = 0; i < bCount; i++) {
+        bOccupied[i] = 0;
+    }
 
-void bestFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
-    int best_idx = -1;
-    for (int i = 0; i < n; i++) {
-        best_idx = -1;
-        for (int j = 0; j < m; j++) {
-            if (memory[j] >= processSizes[i]) {
-                if (best_idx == -1 || memory[j] < memory[best_idx]) {
-                    best_idx = j;
+    // Allocate processes to blocks using Worst Fit
+    for (int p = 0; p < pCount; p++) {
+        int worstBlock = -1;
+        for (int b = 0; b < bCount; b++) {
+            if (!bOccupied[b] && bSize[b] >= pSize[p]) {
+                if (worstBlock == -1 || bSize[b] > bSize[worstBlock]) {
+                    worstBlock = b;
                 }
             }
         }
-        if (best_idx != -1) {
-            memory[best_idx] -= processSizes[i];
-            printf("Process %d allocated to memory block %d\n", processIDs[i], best_idx);
-        } else {
-            printf("Process %d not allocated (no fit)\n", processIDs[i]);
+        if (worstBlock != -1) {
+            bAlloc[p] = worstBlock;
+            bOccupied[worstBlock] = 1;
         }
     }
-}
 
-void worstFit(int processSizes[], int processIDs[], int n, int memory[], int m) {
-    int worst_idx = -1;
-    for (int i = 0; i < n; i++) {
-        worst_idx = -1;
-        for (int j = 0; j < m; j++) {
-            if (memory[j] >= processSizes[i]) {
-                if (worst_idx == -1 || memory[j] > memory[worst_idx]) {
-                    worst_idx = j;
-                }
-            }
-        }
-        if (worst_idx != -1) {
-            memory[worst_idx] -= processSizes[i];
-            printf("Process %d allocated to memory block %d\n", processIDs[i], worst_idx);
+    // Print the allocation results
+    printf("Process\tSize\tBlock\n");
+    for (int p = 0; p < pCount; p++) {
+        printf("%d\t%d\t", p + 1, pSize[p]);
+        if (bAlloc[p] != -1) {
+            printf("%d\n", bAlloc[p] + 1);
         } else {
-            printf("Process %d not allocated (no fit)\n", processIDs[i]);
+            printf("Not Allocated\n");
         }
     }
 }
 
 int main() {
-    int processSizes[] = {20, 15, 10, 30};
-    int processIDs[] = {1, 2, 3, 4};
-    int n = sizeof(processSizes) / sizeof(processSizes[0]);
+    int bSize[] = {30, 5, 10};
+    int pSize[] = {10, 6, 9};
+    int bCount = sizeof(bSize) / sizeof(bSize[0]);
+    int pCount = sizeof(pSize) / sizeof(pSize[0]);
 
-    int memory[MAX_MEMORY];
-    for (int i = 0; i < MAX_MEMORY; i++) {
-        memory[i] = 10; // Simulate memory blocks of size 10
-    }
-    int m = sizeof(memory) / sizeof(memory[0]);
-
-    printf("** First Fit Allocation **\n");
-    firstFit(processSizes, processIDs, n, memory, m);
-
-    for (int i = 0; i < m; i++) {
-        memory[i] = 10; // Reset memory for next algorithm
-    }
-
-    printf("\n** Best Fit Allocation **\n");
-    bestFit(processSizes, processIDs, n, memory, m);
-
-    for (int i = 0; i < m; i++) {
-        memory[i] = 10; // Reset memory for next algorithm
-    }
-
-    printf("\n** Worst Fit Allocation **\n");
-    worstFit(processSizes, processIDs, n, memory, m);
-
+    worstFit(bSize, bCount, pSize, pCount);
     return 0;
 }
 
@@ -167,20 +230,8 @@ $ ./partition
 </details>
 
 <details>
-  <summary>What is the use of `memory` array?</summary>
-  <div>The `memory` array is used to simulate memory blocks of size 10.</div>
-</details>
-
-<details>
   <summary>What is the use of `processes` array?</summary>
   <div>
     The `processes` array contains the processes to be allocated memory.
-  </div>
-</details>
-
-<details>
-  <summary>What is the use of `n` and `m` variables?</summary>
-  <div>
-    `n` is the number of processes and `m` is the number of memory blocks.
   </div>
 </details>
