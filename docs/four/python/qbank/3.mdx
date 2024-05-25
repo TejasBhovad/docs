@@ -1,0 +1,66 @@
+---
+title: "String operations"
+sidebar_position: 3
+description: "String operations in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="String operations">Python</Heading>
+
+> Write a program that demonstrates various string operations in Python.
+
+```python
+# String Concatenation
+string1 = "Hello, "
+string2 = "world!"
+concatenated_string = string1 + string2
+print("Concatenation:", concatenated_string)
+
+# String Repetition
+repeated_string = string1 * 3
+print("Repetition:", repeated_string)
+
+# String Indexing and Slicing
+print("Indexing:", concatenated_string[7])
+print("Slicing:", concatenated_string[7:12])
+
+# String Length
+string_length = len(concatenated_string)
+print("Length:", string_length)
+
+# String Membership
+print("Membership:", "world" in concatenated_string)
+
+# String Comparison
+print("Comparison:", string1 < string2)
+
+# String Formatting
+name = "Alice"
+age = 25
+print("Formatting:", f"{name} is {age} years old.")
+
+# String Methods
+uppercase_string = concatenated_string.upper()
+lowercase_string = concatenated_string.lower()
+stripped_string = "   trimmed string   ".strip()
+replaced_string = concatenated_string.replace("world", "Python")
+print("Upper:", uppercase_string)
+print("Lower:", lowercase_string)
+print("Strip:", stripped_string)
+print("Replace:", replaced_string)
+
+# String Iteration
+for char in concatenated_string:
+    print("Iteration:", char)
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

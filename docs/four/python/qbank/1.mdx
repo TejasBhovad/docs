@@ -1,0 +1,53 @@
+---
+title: "GUI"
+sidebar_position: 1
+description: "Tkinter GUI Example"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="GUI">Python</Heading>
+
+> Write a program that creates a simple GUI with a checkbox, a button, and a listbox.
+
+```python
+import tkinter as tk
+
+# Create a tkinter window
+window = tk.Tk()
+window.title("GUI Example")
+
+# Add a checkbox
+checkbox = tk.Checkbutton(window, text="Check me!")
+checkbox.pack()
+
+# Add a button
+button = tk.Button(window, text="Click me!")
+button.pack()
+
+# Add a listbox
+listbox = tk.Listbox(window)
+listbox.insert(1, "Item 1")
+listbox.insert(2, "Item 2")
+listbox.insert(3, "Item 3")
+listbox.pack()
+
+# Start the tkinter main loop
+window.mainloop()
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::
+
+:::note
+
+You require the `tkinter` module to run the program. If you don't have it installed, you can install it using the following command:
+
+:::

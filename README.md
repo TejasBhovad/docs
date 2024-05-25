@@ -2,6 +2,8 @@
 
 Welcome to the source code repository for the Documentation for Code project! 🎉
 
+![home page](/assets/home.jpeg)
+
 ## Project Overview
 
 The Documentation Website project provides a user-friendly and customizable platform for understanding and sharing program codes. 💻
@@ -27,3 +29,9 @@ The Documentation Website project is licensed under the [MIT License](./LICENSE)
 If you have any questions, feedback, or need support, please open an issue on the [Issue Tracker](https://github.com/TejasBhovad/docs/issues).
 
 We appreciate your interest in the Documentation Website project and look forward to your contributions! 🙏
+
+## Future Plans
+
+We plan to better document future releases
+
+[Project Roadmap](https://codes.super.site/)

@@ -1,7 +1,7 @@
 export const content = {
   announcement: {
-    label: "🧪",
-    text: "All the best for Practicals",
+    label: "📚",
+    text: "All the best for End Sem Exams",
     link: "https://github.com/TejasBhovad",
   },
   featured: {

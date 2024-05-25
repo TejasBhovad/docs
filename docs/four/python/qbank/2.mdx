@@ -1,0 +1,41 @@
+---
+title: "Area and Circumference of a Circle"
+sidebar_position: 2
+description: "Area and Circumference of a Circle"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Circle Area and Circumference">Python</Heading>
+
+> Write a program that calculates the area and circumference of a circle given its radius.
+
+```python
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def circumference(self):
+        return 2 * math.pi * self.radius
+
+    def area(self):
+        return math.pi * (self.radius ** 2)
+
+# Driver code to test the Circle class
+radius = 5
+circle = Circle(radius)
+print("The circumference of the circle is:", circle.circumference())
+print("The area of the circle is:", circle.area())
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::

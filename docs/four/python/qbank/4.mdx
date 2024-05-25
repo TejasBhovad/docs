@@ -1,0 +1,45 @@
+---
+title: "File Operations"
+sidebar_position: 4
+description: "File operations in Python"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="File Operations">Python</Heading>
+
+> Write a program that demonstrates file operations in Python.
+
+```python
+import os
+
+def append_to_file(filename, content):
+    with open(filename, "a") as file:
+        file.write(content + "\n")
+
+def delete_file(filename):
+    os.remove(filename)
+    print('File deleted successfully!')
+
+filename = "test.txt"
+
+append_to_file(filename, "This is some appended text.")
+
+delete_file(filename)
+```
+
+:::note
+
+To compile and run the program, you can use the following commands:
+
+```bash
+python3 foo.py
+```
+
+:::
+
+:::note
+
+You require a file named `test.txt` in the same directory as the program to run the program.
+
+:::
