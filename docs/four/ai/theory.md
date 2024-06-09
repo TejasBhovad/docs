@@ -26,8 +26,8 @@ Important Questions and Answers for AI
 ## Uninformed Search
 
 1. [What is uninformed search?](#what-is-uninformed-search)
-2. [BFS DFS DLS IDFS bidirectional Search and their analysis(comparison)](#bfs-dfs-dls-idfs-bidirectional-search-and-their-analysis)
-3. [Searching with partial information](#searching-with-partial-information)
+<!-- 2. [BFS DFS DLS IDFS bidirectional Search and their analysis(comparison)](#bfs-dfs-dls-idfs-bidirectional-search-and-their-analysis) -->
+2. [Searching with partial information](#searching-with-partial-information)
 
 ## Informed Search
 

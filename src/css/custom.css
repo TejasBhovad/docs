@@ -8,7 +8,7 @@
 :root {
   --ifm-color-primary: #6842da;
   --ifm-color-primary-dark: #141414;
-  --ifm-color-primary-darker: #277148;
+
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
@@ -62,11 +62,11 @@ html[data-theme="dark"] {
 }
 .container-s {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Change this */
-  grid-gap: 20px 25px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 10px;
   justify-items: center;
   align-items: center;
-  /* background-color: indigo; */
+  justify-content: center;
   color: white;
   text-align: center;
   padding: 10px;
@@ -75,7 +75,6 @@ html[data-theme="dark"] {
 .container-s div {
   width: 8rem;
   height: 8rem;
-  /* background-color: purple; */
 }
 
 @media (min-width: 600px) {
@@ -225,9 +224,43 @@ h1.title {
     font-size: 3.5rem;
   }
 }
-main {
+.main-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.titleCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* padding-left: 20px; */
+  gap: 10px;
+  padding: 10px;
+  margin-left: 0px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-menu-color);
+  border-radius: 4px;
+
+  margin: 10px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.titleCardContainer img {
+  fill: white; /* Set SVG color to white */
+}
+.titleCardImage {
+  width: 32px;
+  height: 32px;
+}
+
+.titleCardTitle {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+.label-announcement {
+  color: #1b161e;
 }

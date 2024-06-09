@@ -6,8 +6,7 @@ import Star from "../components/Star";
 import Fire from "../components/Fire";
 import { content } from "../../content";
 import posthog from "posthog-js";
-
-
+import "/src/css/custom.css";
 posthog.init("phc_FHWJnR3TU7aAP9GLzbFo6l37YXY4P95mkZFyspEq9LP", {
   api_host: "https://us.posthog.com",
 });
@@ -35,7 +34,7 @@ export default function Home() {
       title={`Home`}
       description="Code documentation for students of RAIT maintained by Tejas Bhovad."
     >
-      <main>
+      <main className="main-div">
         <div
           className="hero-section"
           style={{
@@ -68,6 +67,7 @@ export default function Home() {
               }}
             >
               <span
+                className="label-announcement"
                 style={{
                   fontSize: "1rem",
                   fontWeight: "bold",
@@ -83,15 +83,14 @@ export default function Home() {
                   paddingRight: ".75rem",
                   borderRadius: "3px",
                   backgroundColor: "#E665AA",
-                  color: "#000",
+                  // color: "#000",
                 }}
               >
                 {content.announcement.label}
                 <span
-                  className="label"
+                  className="label-announcement"
                   style={{
                     display: "flex",
-                    color: "#fff",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
@@ -230,6 +229,7 @@ export default function Home() {
             <Card sem="2" linkto="/two" />
             <Card sem="3" linkto="/three" />
             <Card sem="4" linkto="/four" />
+            <Card sem="5" linkto="/five" />
           </div>
         </div>
         <div

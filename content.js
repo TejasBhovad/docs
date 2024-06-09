@@ -1,7 +1,7 @@
 export const content = {
   announcement: {
     label: "📚",
-    text: "All the best for End Sem Exams",
+    text: "Take a break..",
     link: "https://github.com/TejasBhovad",
   },
   featured: {
