@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocsv_2=self.webpackChunkdocsv_2||[]).push([[2005],{2610:e=>{e.exports=JSON.parse('{"title":"Java","description":"Java","slug":"/category/java","permalink":"/docs/three/category/java","navigation":{"previous":{"title":"Semester Three","permalink":"/docs/three/"},"next":{"title":"Grades in Java","permalink":"/docs/three/java/Grades"}}}')}}]);
