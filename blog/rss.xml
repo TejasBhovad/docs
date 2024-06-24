@@ -4,10 +4,33 @@
         <title>Docs Blog</title>
         <link>https://tejasbhovad.github.io/docs/blog</link>
         <description>Docs Blog</description>
-        <lastBuildDate>Sat, 30 Dec 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Jun 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Docs v3.0 | Semester in Review]]></title>
+            <link>https://tejasbhovad.github.io/docs/blog/docs-v3</link>
+            <guid>https://tejasbhovad.github.io/docs/blog/docs-v3</guid>
+            <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Thumbnail]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_1-f41c53566671080e83876c43ed2b1cc2.png" width="2242" height="1718" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️semester-in-review">⏮️&nbsp;Semester in Review<a class="hash-link" aria-label="Direct link to ⏮️&nbsp;Semester in Review" title="Direct link to ⏮️&nbsp;Semester in Review" href="https://tejasbhovad.github.io/docs/blog/docs-v3#%EF%B8%8Fsemester-in-review">​</a></h2>
+<p>Its been a great semester and I hope everyone found this site helpful.</p>
+<p><img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_2-f3ed1e0597438537dc097cb38b71fe0d.png" width="2236" height="278" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_3-f879061e125edf347e4a43570c8875d9.png" width="2246" height="882" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source">📂&nbsp;Open Source<a class="hash-link" aria-label="Direct link to 📂&nbsp;Open Source" title="Direct link to 📂&nbsp;Open Source" href="https://tejasbhovad.github.io/docs/blog/docs-v3#open-source">​</a></h2>
+<p>The project will continue to be Open Source, welcoming contributions from individuals. You can submit a PR with new sections for review. To facilitate contributions, I will establish clear contributing guidelines, enabling even first-time OS contributors to enhance the project.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="v3-features">V3 features<a class="hash-link" aria-label="Direct link to V3 features" title="Direct link to V3 features" href="https://tejasbhovad.github.io/docs/blog/docs-v3#v3-features">​</a></h2>
+<p>Exciting features are in the pipeline for v3, and I am committed to delivering them promptly.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="notes-repository">📚&nbsp;Notes Repository<a class="hash-link" aria-label="Direct link to 📚&nbsp;Notes Repository" title="Direct link to 📚&nbsp;Notes Repository" href="https://tejasbhovad.github.io/docs/blog/docs-v3#notes-repository">​</a></h3>
+<p>I am also developing a portal for easy access to all college-related academic documents, including notes and answer keys for various upcoming topics.</p>
+<p>The repository for notes site is on <a href="https://github.com/TejasBhovad/notes" target="_blank" rel="noopener noreferrer">https://github.com/TejasBhovad/notes</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-plans-and-roadmap">🚀&nbsp;Future plans and Roadmap<a class="hash-link" aria-label="Direct link to 🚀&nbsp;Future plans and Roadmap" title="Direct link to 🚀&nbsp;Future plans and Roadmap" href="https://tejasbhovad.github.io/docs/blog/docs-v3#future-plans-and-roadmap">​</a></h2>
+<p>To find the roadmap of this project refer <a href="https://codes.super.site/" target="_blank" rel="noopener noreferrer">https://codes.super.site/</a></p>
+<p>We are also working on a way to take you feedback/bug reports easily so stay tuned.</p>]]></content:encoded>
+            <category>release</category>
+        </item>
         <item>
             <title><![CDATA[Building a Searchable Docs Site with Docusaurus]]></title>
             <link>https://tejasbhovad.github.io/docs/blog/docusaurus-search</link>
