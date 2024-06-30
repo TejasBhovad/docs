@@ -153,14 +153,15 @@ const config = {
             ],
           },
           { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/TejasBhovad/docs",
-            label: "GitHub",
-            position: "right",
-          },
+
           {
             href: "https://tejasbhovad.com",
             label: "Website",
+            position: "right",
+          },
+          {
+            href: "https://dypatil.vercel.app",
+            label: "Notes App",
             position: "right",
           },
         ],
@@ -217,6 +218,10 @@ const config = {
               {
                 label: "Website",
                 href: "https://tejasbhovad.com",
+              },
+              {
+                label: "Notes App",
+                href: "https://dypatil.vercel.app",
               },
             ],
           },
