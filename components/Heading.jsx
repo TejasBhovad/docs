@@ -3,7 +3,7 @@ import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const Heading = ({ name, description, children }) => {
-  const imgSrc = useBaseUrl(`/images/${name}.png`);
+  const imgSrc = useBaseUrl(`/images/${name}.jpg`);
   return (
     <div
       style={{

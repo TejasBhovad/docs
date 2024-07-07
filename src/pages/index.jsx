@@ -82,13 +82,13 @@ export default function Home() {
                   paddingLeft: ".75rem",
                   paddingRight: ".75rem",
                   borderRadius: "3px",
-                  backgroundColor: "#E665AA",
                   // color: "#000",
                 }}
               >
                 {content.announcement.label}
                 <span
-                  className="label-announcement"
+                  className="label-span"
+                  // className="label-announcement"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -154,6 +154,7 @@ export default function Home() {
             >
               <button
                 type="button"
+                className="star-button"
                 style={{
                   height: "30%",
                   display: "flex",
@@ -165,12 +166,10 @@ export default function Home() {
                   paddingLeft: "2.75rem",
                   paddingRight: "2.75rem",
                   borderRadius: "4px",
-                  backgroundColor: "#3F187F",
                   border: "none",
                   cursor: "pointer",
                   fontSize: "1.25rem",
                   fontWeight: "bold",
-                  color: "#DAD7F8",
                 }}
               >
                 Star us on Github

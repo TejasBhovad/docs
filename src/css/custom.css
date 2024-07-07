@@ -1,64 +1,29 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6842da;
-  --ifm-color-primary-dark: #141414;
-
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 html[data-theme="light"] {
-  --ifm-navbar-search-input-placeholder-color: #0a0914;
-
-  --ifm-color-primary: #5631c5;
-  --ifm-background-color: #e8e6f8;
-  --ifm-background-surface-color: #d6d5ed;
-  --ifm-color-emphasis-300: #c9c5ef;
-  --ifm-color-emphasis-200: #b4afe2;
-  --ifm-menu-color: #3a2c55;
+  --ifm-navbar-search-input-placeholder-color: #090d14;
+  --ifm-color-primary: #2e4860;
+  --ifm-background-color: #d1dce6;
+  --ifm-background-surface-color: #e1e8ef;
+  --ifm-color-emphasis-300: #beccd9;
+  --ifm-color-emphasis-200: #beccd9;
+  --ifm-menu-color: #1f65a6;
+  --ifm-code-background: #e1e8ef;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
   --ifm-color-emphasis-300: #28254b;
-  --ifm-color-emphasis-200: #252432;
-  --ifm-background-color: #181723;
-  --ifm-background-surface-color: #151420;
-  --ifm-color-primary: #6d44e8;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-emphasis-200: #1c2731;
+  --ifm-background-color: #18232d;
+  --ifm-background-surface-color: #11181f;
+  --ifm-color-primary: #87b8e5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* html[data-theme="light"].alert {
-  --docusaurus-details-decoration-color: #5631c5;
-  --ifm-alert-background-color: #f0e9ff;
-  --ifm-alert-border-color: #c9c5ef;
-  --ifm-alert-text-color: #5631c5;
-} */
-
-.alert {
-  --docusaurus-details-decoration-color: #6d4a7f;
-  --ifm-alert-background-color: #3d3d3d3d;
-  --ifm-alert-border-color: #6e68bf;
-  --ifm-alert-text-color: #6d4a7f;
-  --ifm-code-background: #9592c83d;
-}
-
 .footer--dark {
-  --ifm-footer-background-color: #14131f;
+  --ifm-footer-background-color: #181f28;
 }
 .container-s {
   display: grid;
@@ -96,10 +61,6 @@ html[data-theme="dark"] {
 
 .container-k div {
   flex: 1;
-
-  /* margin: 10px; */
-
-  /* background-color: rgb(239, 136, 239); */
   color: white;
   height: 100%;
   text-align: center;
@@ -124,19 +85,19 @@ html[data-theme="dark"] {
 
 html[data-theme="dark"] .navbar {
   border-width: 0px;
-  border-color: #2a274b;
+  border-color: #1b3145;
   border-style: solid;
   border-bottom-width: 1px;
 }
 html[data-theme="dark"] .card-desc {
-  color: #8d84eb;
+  color: #6182a1;
 }
 html[data-theme="dark"] .label-featured {
-  background-color: rgb(84, 61, 111);
-  color: #e665aa;
+  background-color: #87b8e5;
+  color: #1c4b77;
 }
 html[data-theme="dark"] path.card-logo {
-  fill: #e665aa;
+  fill: #1c4b77;
 }
 html[data-theme="dark"] h1.title {
   color: #fff;
@@ -145,13 +106,13 @@ html[data-theme="dark"] span {
   color: #fff;
 }
 html[data-theme="dark"] .description {
-  color: #a49cff;
+  color: #4b8dcb;
 }
 html[data-theme="dark"] .num {
   color: #dad7f8;
 }
 html[data-theme="dark"] div.card-link {
-  background-color: #2a274b;
+  background-color: #293540;
 }
 html[data-theme="dark"] .title-card {
   color: #fff;
@@ -161,34 +122,34 @@ html[data-theme="dark"] .label {
 }
 html[data-theme="dark"] div.sem {
   background-color: #151420;
-  border: solid 1px #252432;
+  border: solid 1px #243436;
 }
 html[data-theme="dark"] .line {
   background-color: #252432;
 }
 /* } */
 div.sem {
-  background-color: #dad7f8;
-  border: solid 1px #cabdca;
+  background-color: #bdcede;
+  border: solid 1px #beccd9;
 }
 .line {
-  background-color: #cabdca;
+  background-color: #beccd9;
 }
 div.card-link {
-  background-color: #bebbe4;
+  background-color: #beccd9;
 }
 .title-card {
-  color: #4e2e89;
+  color: #081826;
 }
 .label-featured {
-  background-color: #8565e64d;
-  color: #8001c5;
+  background-color: #a0bbd4;
+  color: #23588a;
 }
 path.card-logo {
-  fill: #8001c5;
+  fill: #1f65a6;
 }
 .card-desc {
-  color: #6d4a7f;
+  color: #677a8d;
 }
 .no-underline {
   transition: all 0.2s ease-in-out;
@@ -204,15 +165,6 @@ path.card-logo {
 .sem {
   min-width: 140px;
 }
-/* .navbar__search-input {
-  background-color: rgb(237, 232, 247);
-  color: #14131f;
-} */
-/* input[placeholder="Search"] {
-  background-color: rgb(237, 232, 247);
-  color: #0a0914;
-} */
-
 .description {
   font-size: 1.15rem;
 }
@@ -261,6 +213,23 @@ h1.title {
   display: flex;
   align-items: center;
 }
+
+/* DARK M TO DO */
 .label-announcement {
   color: #1b161e;
+  background-color: #b8c6e8;
+}
+
+html[data-theme="dark"] span.label-span {
+  color: #1b161e;
+  /* background-color: #b8c6e8; */
+}
+
+.star-button {
+  background-color: #87b8e5;
+  color: var(--ifm-color-primary);
+}
+html[data-theme="dark"] .star-button {
+  background-color: #87b8e5;
+  color: #214f7b;
 }
