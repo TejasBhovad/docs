@@ -1,0 +1,66 @@
+---
+title: "Experiment 1"
+sidebar_position: 1
+description: "Creating objects and tables in SQL"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Objects and Tables in SQL">Experiment 1</Heading>
+
+> Write a SQL query to show usage of objects and their members in SQL.
+
+```sql
+CREATE TYPE EMPLOYEE_TY AS OBJECT
+(
+  EMPLOYEE_ID   NUMBER(6),
+  FIRST_NAME   VARCHAR2(20),
+  LAST_NAME    VARCHAR2(25),
+  EMAIL        VARCHAR2(65),
+  SALARY       NUMBER(8,2),
+  DOB          DATE,
+  MEMBER FUNCTION GET_AGE RETURN NUMBER
+)
+/
+
+CREATE TYPE BODY EMPLOYEE_TY AS
+  MEMBER FUNCTION GET_AGE RETURN NUMBER
+  IS
+  BEGIN
+    RETURN TRUNC(MONTHS_BETWEEN(SYSDATE, DOB) / 12);
+  END GET_AGE;
+END;
+/
+
+CREATE TABLE EMPLOYEES OF EMPLOYEE_TY;
+
+INSERT INTO EMPLOYEES VALUES
+(EMPLOYEE_TY(100, 'John', 'Doe', 'john.doe@example.com', 5000.00, DATE '1985-01-01'));
+
+INSERT INTO EMPLOYEES VALUES
+(EMPLOYEE_TY(101, 'Jane', 'Smith', 'jane.smith@example.com', 4000.00, DATE '1990-03-15'));
+
+INSERT INTO EMPLOYEES VALUES
+(EMPLOYEE_TY(102, 'Michael', 'Johnson', 'michael.johnson@example.com', 6000.00, DATE '1980-06-30'));
+
+INSERT INTO EMPLOYEES VALUES
+(EMPLOYEE_TY(103, 'Emily', 'Davis', 'emily.davis@example.com', 3500.00, DATE '1995-09-01'));
+
+SELECT e.FIRST_NAME, e.LAST_NAME, e.SALARY, e.GET_AGE() AS AGE
+FROM EMPLOYEES e;
+
+```
+
+:::note
+
+To compile and run the program, either use [Oracle XE](https://www.oracle.com/in/database/technologies/appdev/xe.html) or [OneCompiler](https://onecompiler.com/plsql)
+
+:::
+
+![Output](/images/advanced-databases/img_1.png)
+
+![Output](/images/advanced-databases/img_2.png)
+
+![Output](/images/advanced-databases/img_3.png)
+
+![Output](/images/advanced-databases/img_4.png)

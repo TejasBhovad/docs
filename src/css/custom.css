@@ -14,7 +14,7 @@ html[data-theme="light"] {
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 html[data-theme="dark"] {
-  --ifm-color-emphasis-300: #28254b;
+  --ifm-color-emphasis-300: #253b4b;
   --ifm-color-emphasis-200: #1c2731;
   --ifm-background-color: #18232d;
   --ifm-background-surface-color: #11181f;
