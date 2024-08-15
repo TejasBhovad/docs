@@ -1,0 +1,68 @@
+---
+title: " Nested Tables in SQL"
+sidebar_position: 2
+description: "Creating Tables objects in SQL"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Nested Tables">RDBMS</Heading>
+
+## Write a SQL query to show usage of nested tables in SQL
+
+```sql
+-- (DONT WRITE BEGIN BLOCK IN EXAM)
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE employees';
+   EXECUTE IMMEDIATE 'DROP TYPE address_type';
+EXCEPTION
+   WHEN OTHERS THEN NULL;
+END;
+/
+
+--- ACTUAL CODE STARTS HERE
+
+-- Define the nested table type
+CREATE OR REPLACE TYPE address_type AS TABLE OF VARCHAR2(100);
+/
+
+-- Create the employees table with a nested table column
+CREATE TABLE employees (
+  id NUMBER PRIMARY KEY,
+  name VARCHAR2(50),
+  addresses address_type
+)
+NESTED TABLE addresses STORE AS addresses_tab;
+
+DESC employees;
+
+-- Insert operation
+INSERT INTO employees VALUES (1, 'John Doe', address_type('123 Main St', '456 Elm St', '789 Oak St'));
+
+-- Select all data before deletion
+SELECT e.id, e.name, a.column_value AS address
+FROM employees e
+CROSS JOIN TABLE(e.addresses) a;
+
+-- Delete operation: remove a specific address using a subquery
+DELETE FROM THE (
+    SELECT addresses
+    FROM employees
+    WHERE id = 1
+) a
+WHERE a.column_value = '456 Elm St';
+
+-- Update operation
+UPDATE THE (
+    SELECT addresses
+    FROM employees
+    WHERE id = 1
+) a
+SET a.column_value = '789 Maple St'
+WHERE a.column_value = '789 Oak St';
+
+-- Final select to show results after deletion
+SELECT e.id, e.name, a.column_value AS address
+FROM employees e
+CROSS JOIN TABLE(e.addresses) a;
+```

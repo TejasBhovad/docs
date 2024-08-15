@@ -1,0 +1,170 @@
+---
+title: "Objects and nested Objects in SQL"
+sidebar_position: 1
+description: "Creating Nested objects in SQL"
+---
+
+import Heading from "../../../../components/Heading";
+
+# <Heading name="banner" description="Objects and nested Objects">RDBMS</Heading>
+
+## Write a SQL query to show usage of objects in SQL.
+
+```sql
+-- BASIC OBJECTS
+-- Step 1: Create the Address Object Type
+CREATE OR REPLACE TYPE Address AS OBJECT (
+    street VARCHAR2(50),
+    city VARCHAR2(30),
+    state CHAR(2),
+    zip VARCHAR2(10)
+);
+/
+
+-- Step 2: Create the EMPLOYEE Table
+CREATE TABLE EMPLOYEE (
+    empId INT PRIMARY KEY,
+    name VARCHAR2(15),
+    dept VARCHAR2(10),
+    address Address
+);
+
+-- Step 3: Insert Data into the EMPLOYEE Table
+INSERT INTO EMPLOYEE(empId, name, dept, address)
+VALUES (1, 'Clark', 'Sales', Address('123 Main St', 'Anytown', 'CA', '12345'));
+
+INSERT INTO EMPLOYEE(empId, name, dept, address)
+VALUES (2, 'Dave', 'Accounting', Address('456 Oak Ave', 'Somewhere', 'NY', '54321'));
+
+INSERT INTO EMPLOYEE(empId, name, dept, address)
+VALUES (3, 'Ava', 'Sales', Address('789 Elm St', 'Elsewhere', 'TX', '98765'));
+
+-- Step 4: Update the Address of Employee with empId = 1
+UPDATE EMPLOYEE
+SET address = Address('321 Maple St', 'Newtown', 'CA', '67890')
+WHERE empId = 1;
+
+-- Step 5: Fetch the Data from the EMPLOYEE Table
+SELECT * FROM EMPLOYEE;
+
+-- Step 6: Delete the Employee with empId = 2
+DELETE FROM EMPLOYEE
+WHERE empId = 2;
+
+
+```
+
+:::note
+
+To compile and run the program, either use [Oracle XE](https://www.oracle.com/in/database/technologies/appdev/xe.html) or [OneCompiler](https://onecompiler.com/plsql)
+
+:::
+
+## Write a SQL query to add methods to Objects
+
+```sql
+-- OBJECTS FUNCTIONS
+
+CREATE TYPE EMPLOYEE_TY AS OBJECT
+(
+  EMPLOYEE_ID   NUMBER(6),
+  FIRST_NAME   VARCHAR2(20),
+  LAST_NAME    VARCHAR2(25),
+  EMAIL        VARCHAR2(65),
+  SALARY       NUMBER(8,2),
+  DOB          DATE,
+  MEMBER FUNCTION GET_AGE RETURN NUMBER
+)
+/
+
+CREATE TYPE BODY EMPLOYEE_TY AS
+  MEMBER FUNCTION GET_AGE RETURN NUMBER
+  IS
+  BEGIN
+    RETURN TRUNC(MONTHS_BETWEEN(SYSDATE, DOB) / 12);
+  END GET_AGE;
+END;
+/
+
+CREATE TABLE EMPLOYEES OF EMPLOYEE_TY;
+
+INSERT INTO EMPLOYEES VALUES
+(EMPLOYEE_TY(100, 'John', 'Doe', 'john.doe@example.com', 5000.00, DATE '1985-01-01'));
+
+SELECT e.FIRST_NAME, e.LAST_NAME, e.SALARY, e.GET_AGE() AS AGE
+FROM EMPLOYEES e;
+
+```
+
+## Write a SQL query to show usage of nested objects in SQL
+
+```sql
+-- (DONT WRITE BELOW BEGIN BLOCK IN EXAM)
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE TeacherData';
+   EXECUTE IMMEDIATE 'DROP TYPE Teacher';
+   EXECUTE IMMEDIATE 'DROP TYPE Class';
+   EXECUTE IMMEDIATE 'DROP TYPE Student';
+EXCEPTION
+   WHEN OTHERS THEN NULL; -- Ignore errors if objects do not exist
+END;
+/
+
+--- ACTUAL CODE STARTS HERE
+
+-- Step 1: Create the Student Object Type
+CREATE OR REPLACE TYPE Student AS OBJECT (
+    studentId INT,
+    studentName VARCHAR2(50)
+);
+/
+
+-- Step 2: Create the Class Object Type
+CREATE OR REPLACE TYPE Class AS OBJECT (
+    className VARCHAR2(50),
+    students Student -- Single Student object
+);
+/
+
+-- Step 3: Create the Teacher Object Type
+CREATE OR REPLACE TYPE Teacher AS OBJECT (
+    teacherId INT,
+    teacherName VARCHAR2(50),
+    subject VARCHAR2(50),
+    classes Class -- Single Class object
+);
+/
+
+-- Step 4: Create a Table to Store Teacher Objects
+CREATE TABLE TeacherData OF Teacher;
+/
+
+-- Step 5: Insert Data into the TeacherData
+INSERT INTO TeacherData VALUES (
+    Teacher(1, 'Mr. Smith', 'Mathematics', Class('Algebra', Student(101, 'Alice')))
+);
+
+INSERT INTO TeacherData VALUES (
+    Teacher(2, 'Mrs. Johnson', 'Science', Class('Biology', Student(102, 'Bob')))
+);
+
+INSERT INTO TeacherData VALUES (
+    Teacher(3, 'Ms. Davis', 'History', Class('World History', Student(103, 'Charlie')))
+);
+
+-- Step 6: Fetch the Data from the TeacherData
+SELECT t.teacherId, t.teacherName, t.subject, t.classes.className,
+       t.classes.students.studentId, t.classes.students.studentName
+FROM TeacherData t;
+
+-- Step 7: Update a Student's Name
+UPDATE TeacherData
+SET classes = Class('Algebra', Student(101, 'Alicia'))
+WHERE teacherId = 1;
+
+-- Step 9: Fetch the Data from the TeacherData after Update and Delete
+SELECT t.teacherId, t.teacherName, t.subject, t.classes.className,
+       t.classes.students.studentId, t.classes.students.studentName
+FROM TeacherData t;
+
+```
