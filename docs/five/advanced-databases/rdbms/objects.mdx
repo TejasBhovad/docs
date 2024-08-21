@@ -168,3 +168,57 @@ SELECT t.teacherId, t.teacherName, t.subject, t.classes.className,
 FROM TeacherData t;
 
 ```
+
+## Write a SQL query to show usage of Array of Objects in a Table
+
+> Movie Guide magazine wants to keep a database of directors and the films that they directed. The director table has the attributes of name, age, and residence. The film is saved as an object with the attributes of title, genre, year, and rating. As a director may direct more than one film, the film object is implemented into the director table using a nesting technique. Show the implementation of the relationships described.
+
+```sql
+-- Create the Film object type
+CREATE OR REPLACE TYPE Film AS OBJECT (
+  title VARCHAR2(100),
+  genre VARCHAR2(50),
+  year INT,
+  rating FLOAT
+);
+/
+
+-- Create the Film nested table type
+CREATE OR REPLACE TYPE FilmList IS TABLE OF Film;
+/
+
+-- Create the Director table with a nested table column
+CREATE TABLE Director (
+  name VARCHAR2(50),
+  age INT,
+  residence VARCHAR2(50),
+  films FilmList
+) NESTED TABLE films STORE AS films_nt;
+/
+
+-- Insert a director with their films
+INSERT INTO Director
+VALUES (
+  'Steven Spielberg',
+  75,
+  'Pacific Palisades, California',
+  FilmList(
+    Film('Jurassic Park', 'Science Fiction', 1993, 8.1),
+    Film('Schindler''s List', 'Drama', 1993, 8.9),
+    Film('E.T. the Extra-Terrestrial', 'Science Fiction', 1982, 7.5)
+  )
+);
+/
+
+-- Query the directors and their films
+SELECT
+  d.name,
+  d.age,
+  d.residence,
+  f.title,
+  f.genre,
+  f.year,
+  f.rating
+FROM Director d
+CROSS JOIN TABLE(d.films) f;
+```

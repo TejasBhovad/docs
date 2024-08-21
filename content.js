@@ -5,9 +5,9 @@ export const content = {
     link: "https://github.com/TejasBhovad",
   },
   featured: {
-    title: "OS Practicals",
-    desc: "Programs that will help you in OS Practicals",
-    link: "/four/category/operating-system",
+    title: "Advanced Databases",
+    desc: "SQL and MongoDB queries(SQL and NoSQL)",
+    link: "/five/category/advanced-databases",
   },
   popular: {
     title: "Python",
