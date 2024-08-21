@@ -14,3 +14,212 @@ https://www.mongodb.com/resources/products/fundamentals/crud
 https://www.geeksforgeeks.org/mongodb-crud-operations/
 https://www.mongodb.com/docs/manual/tutorial/query-documents/
 https://www.mongodb.com/docs/manual/aggregation/
+
+## CRUD Operations in MongoDB
+
+### 1. Create Operations
+
+Create operations are used to insert new documents into a collection. If the specified collection does not exist, MongoDB will create it automatically.
+
+#### Methods:
+
+- **`insertOne()`**: Inserts a single document into a collection.
+- **`insertMany()`**: Inserts multiple documents into a collection.
+
+#### Example:
+
+```javascript
+// Insert a single document
+db.students.insertOne({
+  name: "John Doe",
+  age: 21,
+  major: "Computer Science",
+});
+
+// Insert multiple documents
+db.students.insertMany([
+  { name: "Jane Smith", age: 22, major: "Mathematics" },
+  { name: "Sam Brown", age: 20, major: "Physics" },
+]);
+```
+
+### 2. Read Operations
+
+Read operations are used to retrieve documents from a collection. You can specify query filters to narrow down the results.
+
+#### Methods:
+
+- **`find()`**: Retrieves documents from a collection. You can use filters to specify which documents to return.
+- **`findOne()`**: Retrieves a single document that matches the specified criteria.
+
+#### Example:
+
+```javascript
+// Retrieve all documents
+db.students.find().pretty();
+
+// Retrieve documents with a specific condition
+db.students.find({ major: "Computer Science" }).pretty();
+
+// Retrieve a single document
+db.students.findOne({ name: "Jane Smith" });
+
+// Retrieve students who are majoring in Computer Science and are older than 20
+db.students
+  .find({ $and: [{ major: "Computer Science" }, { age: { $gt: 20 } }] })
+  .pretty();
+
+// Retrieve students who are majoring in Mathematics and have an age of 22
+db.students.find({ major: "Mathematics", age: 22 }).pretty();
+```
+
+### 3. Update Operations
+
+Update operations modify existing documents in a collection. You can update one or multiple documents based on specified criteria.
+
+#### Methods:
+
+- **`updateOne()`**: Updates a single document that matches the specified criteria.
+- **`updateMany()`**: Updates multiple documents that match the specified criteria.
+- **`replaceOne()`**: Replaces a single document with a new document.
+
+#### Example:
+
+```javascript
+// Update a single document
+db.students.updateOne({ name: "John Doe" }, { $set: { age: 22 } });
+
+// Update multiple documents
+db.students.updateMany(
+  { major: "Mathematics" },
+  { $set: { major: "Applied Mathematics" } }
+);
+
+// Replace a document
+db.students.replaceOne(
+  { name: "Sam Brown" },
+  { name: "Samuel Brown", age: 21, major: "Physics" }
+);
+```
+
+### 4. Delete Operations
+
+Delete operations are used to remove documents from a collection. You can delete one or multiple documents based on specified criteria.
+
+#### Methods:
+
+- **`deleteOne()`**: Deletes a single document that matches the specified criteria.
+- **`deleteMany()`**: Deletes multiple documents that match the specified criteria.
+
+#### Example:
+
+```javascript
+// Delete a single document
+db.students.deleteOne({ name: "John Doe" });
+
+// Delete multiple documents
+db.students.deleteMany({ major: "Physics" });
+```
+
+## Aggregation in MongoDB
+
+Aggregation in MongoDB is a powerful feature that allows users to process and analyze data from multiple documents in a collection. It enables complex data transformations and computations, making it essential for generating reports, analyzing trends, and summarizing data.
+
+### What is Aggregation?
+
+Aggregation operations in MongoDB group values from multiple documents together and perform various computations on the grouped data to return a single result. This is similar to SQL's `GROUP BY` clause, where data is grouped and aggregated.
+
+### Key Features of Aggregation:
+
+- **Data Transformation**: Aggregation allows for the transformation of data as it passes through different stages.
+- **Multiple Stages**: Aggregation pipelines can consist of multiple stages, each performing a specific operation on the data.
+- **Flexibility**: Aggregation can handle complex queries and calculations, providing flexibility in data analysis.
+
+### Aggregation Methods
+
+MongoDB provides two primary methods for performing aggregation:
+
+#### 1. Aggregation Pipeline
+
+The aggregation pipeline is the preferred method for performing aggregations in MongoDB. It consists of a sequence of stages that process documents and transform the data.
+
+##### Basic Structure:
+
+```javascript
+db.collection.aggregate([
+    { $stage1: { /* stage1 operations */ } },
+    { $stage2: { /* stage2 operations */ } },
+    ...
+])
+```
+
+##### Example:
+
+To calculate the total number of tutorials written by each user in a collection:
+
+```javascript
+db.tutorials.aggregate([
+  { $group: { _id: "$by_user", num_tutorial: { $sum: 1 } } },
+]);
+```
+
+This query will output a result similar to the following table:
+
+| \_id    | num_tutorial |
+| ------- | ------------ |
+| "user1" | 5            |
+| "user2" | 3            |
+| "user3" | 7            |
+
+The `$group` stage groups the documents by the `by_user` field and counts the number of documents for each user using the `$sum` operator with a constant value of `1`.
+
+#### 2. Single-Purpose Aggregation Methods
+
+These methods provide simple access to common aggregation operations without the complexity of an aggregation pipeline. Examples include `count()`, `distinct()`, and `estimatedDocumentCount()`.
+
+##### Example:
+
+To count the total number of documents in a collection:
+
+```javascript
+db.collection.countDocuments();
+```
+
+This query will return the total number of documents in the specified collection.
+
+### Common Aggregation Operators
+
+MongoDB supports various operators that can be used within aggregation stages:
+
+- **`$sum`**: Calculates the total sum of a specified field.
+- **`$avg`**: Computes the average value of a specified field.
+- **`$min`**: Finds the minimum value of a specified field.
+- **`$max`**: Finds the maximum value of a specified field.
+- **`$count`**: Counts the number of documents in a group.
+- **`$push`**: Adds values to an array in the resulting document.
+
+##### Example of Using Multiple Operators:
+
+To calculate the average likes per user and total likes:
+
+```javascript
+db.tutorials.aggregate([
+  {
+    $group: {
+      _id: "$by_user",
+      total_likes: { $sum: "$likes" },
+      average_likes: { $avg: "$likes" },
+    },
+  },
+]);
+```
+
+This query will output a result similar to the following table:
+
+| \_id    | total_likes | average_likes |
+| ------- | ----------- | ------------- |
+| "user1" | 250         | 50.0          |
+| "user2" | 150         | 50.0          |
+| "user3" | 350         | 50.0          |
+
+The `$group` stage groups the documents by the `by_user` field, calculates the total likes using the `$sum` operator, and computes the average likes using the `$avg` operator.
