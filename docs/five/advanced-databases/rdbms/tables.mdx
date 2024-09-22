@@ -66,3 +66,177 @@ SELECT e.id, e.name, a.column_value AS address
 FROM employees e
 CROSS JOIN TABLE(e.addresses) a;
 ```
+
+## Q1
+
+A university has a number of books listed as textbooks, each of which may be used by
+more than one university. A book is published by only one publisher, but one publisher
+can publish more than one book. Show the implementation of the association
+relationships above using object references. Assume that there are three object types,
+that is, University, Book, and Publisher. Add any attribute where necessary.
+
+```sql
+-- Drop the types if they already exist (in case of re-execution)
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TYPE Publisher FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE Book FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE University FORCE';
+   EXECUTE IMMEDIATE 'DROP TABLE Publisher_Table';
+   EXECUTE IMMEDIATE 'DROP TABLE Book_Table';
+   EXECUTE IMMEDIATE 'DROP TABLE University_Table';
+EXCEPTION
+   WHEN OTHERS THEN NULL;
+END;
+/
+
+-- Create the Publisher type
+CREATE OR REPLACE TYPE Publisher AS OBJECT (
+    publisher_id NUMBER,
+    name VARCHAR2(100)
+);
+/
+
+-- Create the Book type with a REF to Publisher
+CREATE OR REPLACE TYPE Book AS OBJECT (
+    book_id NUMBER,
+    title VARCHAR2(100),
+    publisher_ref REF Publisher
+);
+/
+
+-- Create the University type with a REF to Book
+CREATE OR REPLACE TYPE University AS OBJECT (
+    university_id NUMBER,
+    name VARCHAR2(100),
+    books REF Book
+);
+/
+
+-- Create a table for publishers
+CREATE TABLE Publisher_Table OF Publisher;
+
+-- Create a table for books
+CREATE TABLE Book_Table OF Book;
+
+-- Create a table for universities
+CREATE TABLE University_Table OF University;
+
+-- Insert publishers
+INSERT INTO Publisher_Table VALUES (Publisher(1, 'Pearson'));
+INSERT INTO Publisher_Table VALUES (Publisher(2, 'McGraw-Hill'));
+
+-- Insert books with references to publishers
+INSERT INTO Book_Table VALUES (Book(101, 'Introduction to Databases',
+    (SELECT REF(p) FROM Publisher_Table p WHERE p.publisher_id = 1)));
+INSERT INTO Book_Table VALUES (Book(102, 'Advanced SQL Techniques',
+    (SELECT REF(p) FROM Publisher_Table p WHERE p.publisher_id = 2)));
+
+-- Insert universities with references to books
+INSERT INTO University_Table VALUES (University(1, 'Stanford University',
+    (SELECT REF(b) FROM Book_Table b WHERE b.book_id = 101)));
+INSERT INTO University_Table VALUES (University(2, 'MIT',
+    (SELECT REF(b) FROM Book_Table b WHERE b.book_id = 102)));
+
+-- Query to show book titles and their publisher names
+SELECT b.title, p.name AS publisher_name
+FROM Book_Table b, Publisher_Table p
+WHERE b.publisher_ref = REF(p);
+
+-- Query to show university names and their associated book titles
+SELECT u.name AS university_name, b.title AS book_title
+FROM University_Table u, Book_Table b
+WHERE u.books = REF(b);
+```
+
+## Q2
+
+The Victorian state government stores geographic data in the ranking of aggregation.
+Data of the state is an aggregation of the area data, and data of the area is an aggregation
+of the suburb data. For the first implementation, each level contains only an ID and a
+name as the attributes. Using a nested table, show the implementation of this case.
+
+```sql
+-- Drop types if they already exist
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TYPE Suburb FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE Area FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE State FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE Suburb_NestedTable FORCE';
+   EXECUTE IMMEDIATE 'DROP TYPE Area_NestedTable FORCE';
+EXCEPTION
+   WHEN OTHERS THEN NULL;
+END;
+/
+
+-- Create the Suburb type
+CREATE OR REPLACE TYPE Suburb AS OBJECT (
+    suburb_id NUMBER,
+    name VARCHAR2(100)
+);
+/
+
+-- Create a nested table type for Suburbs
+CREATE OR REPLACE TYPE Suburb_NestedTable AS TABLE OF Suburb;
+/
+
+-- Create the Area type with a nested table of Suburbs
+CREATE OR REPLACE TYPE Area AS OBJECT (
+    area_id NUMBER,
+    name VARCHAR2(100),
+    suburbs Suburb_NestedTable
+);
+/
+
+-- Create a nested table type for Areas
+CREATE OR REPLACE TYPE Area_NestedTable AS TABLE OF Area;
+/
+
+-- Create the State type with a nested table of Areas
+CREATE OR REPLACE TYPE State AS OBJECT (
+    state_id NUMBER,
+    name VARCHAR2(100),
+    areas Area_NestedTable
+);
+/
+-- Create a table for storing state data
+CREATE TABLE State_Table OF State
+NESTED TABLE areas STORE AS State_Areas_NestedTable
+  (NESTED TABLE suburbs STORE AS Area_Suburbs_NestedTable);
+-- Insert data into the State_Table using nested tables
+
+INSERT INTO State_Table VALUES (
+    State(
+        1,
+        'Victoria',
+        Area_NestedTable(
+            -- Area 1
+            Area(101, 'Melbourne Metropolitan Area',
+                Suburb_NestedTable(
+                    Suburb(1001, 'Melbourne CBD'),
+                    Suburb(1002, 'Richmond'),
+                    Suburb(1003, 'Fitzroy')
+                )
+            ),
+            -- Area 2
+            Area(102, 'Geelong Area',
+                Suburb_NestedTable(
+                    Suburb(2001, 'Geelong'),
+                    Suburb(2002, 'Torquay'),
+                    Suburb(2003, 'Barwon Heads')
+                )
+            )
+        )
+    )
+);
+SELECT s.name AS state_name,
+       a.name AS area_name,
+       t.name AS suburb_name
+FROM State_Table s,
+     TABLE(s.areas) a,
+     TABLE(a.suburbs) t;
+SELECT s.name AS state_name,
+       a.name AS area_name
+FROM State_Table s,
+     TABLE(s.areas) a;
+
+```
