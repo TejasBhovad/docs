@@ -105,6 +105,15 @@ const config = {
         sidebarPath: "./sidebars.js",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "training",
+        path: "docs/training",
+        routeBasePath: "training",
+        sidebarPath: "./sidebars.js",
+      },
+    ],
   ],
 
   themeConfig:
@@ -150,6 +159,7 @@ const config = {
               { to: "/docs/three", label: "Semester 3" },
               { to: "/docs/four", label: "Semester 4" },
               { to: "/docs/five", label: "Semester 5" },
+              { to: "/docs/training", label: "Training" },
             ],
           },
           { to: "/blog", label: "Blog", position: "left" },
@@ -191,6 +201,10 @@ const config = {
               {
                 label: "Semester Five",
                 to: "/docs/five",
+              },
+              {
+                label: "Training",
+                to: "/docs/training",
               },
             ],
           },

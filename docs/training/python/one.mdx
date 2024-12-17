@@ -1,0 +1,267 @@
+# Day One
+
+## Basics
+
+```python
+a = 10
+b = 6
+name = "Chad"
+
+print(a+b)
+print(id(a))
+
+maths = 10
+science =11
+maths=89
+print(id(maths))
+print(maths)
+print(id(science))
+
+```
+
+## Swapping
+
+```python
+# with temp variable
+a = input()
+b= input()
+
+print(a)
+print(b)
+
+tmp = a
+a= b
+b= tmp
+print(a)
+print(b)
+
+```
+
+```python
+# without temp variable
+a = input()
+b= input()
+
+print(a)
+print(b)
+
+# a,b = b,a or
+a= a+b
+b=a-b
+a=a-b
+
+print(a)
+print(b)
+
+```
+
+## Casting
+
+```python
+a= True
+b =False
+c = 3.1234
+d = "hello"
+print(int(a))
+print(int(b))
+print(int(c))
+# print(int(d)
+
+a= True
+b =False
+c = 3.1234
+d = "hello"
+print(complex(a))
+print(complex(b))
+print(complex(c))
+#print(complex(d))
+
+print(bool(""))
+print(bool(12))
+print(bool(-12))
+print(bool("hello"))
+
+```
+
+## What is the Character
+
+```python
+c = ord(input("Enter char:\n"))
+
+if(c>=48 and c<=57):
+    print("Number")
+elif(c>=65 and c<=65+26):
+    print("Caps")
+elif(c>=97 and c<=97+26):
+    print("No caps")
+else:
+    print("U r special")
+```
+
+## Average
+
+```python
+a = int(input())
+b = int(input())
+c=int(input())
+
+tot = a+b+c
+avg = a+b+c/3
+
+print(tot)
+print(avg)
+```
+
+## Weekdays or Weekends
+
+```python
+a = int(input())
+b = int(input())
+c= int(input())
+d = int (input())
+e = int(input())
+
+if(a>b and a>c and a>d and a>e):
+    print("A")
+if(b>a and b>c and b>d and b>e):
+    print("B")
+if(c>a and c>b and c>d and c>e):
+    print("C")
+if(d>a and d>b and d>c and d>e):
+    print("D")
+if(e>a and e>b and e>c and e>d):
+    print("E")
+
+day = input("Enter day:\n")
+if(day.lower()=="sunday" or day.lower()=="saturday"):
+    print("weeknd")
+else:
+    print("weekday")
+```
+
+## Passing criteria
+
+```python
+m1 = int(input())
+m2 = int(input())
+m3 = int(input())
+m4 = int(input())
+m5 = int(input())
+gender = input("Gender: ")
+# M 60
+# F 65
+
+if(m1>=60 and m2>=60 and m3>=60 and m4>=60 and m5>=60 and gender == "M"):
+    print("Pass")
+if(m1>=65 and m2>=65 and m3>=65 and m4>=65 and m5>=65 and gender == "F"):
+    print("Pass")
+else:
+    print("Fail")
+
+avg = (m1 + m2+ m3 +m4 +m5)/500
+perc = avg*100
+print(perc)
+```
+
+## If Elif
+
+```python
+a = 12
+
+test = [1,-1,0]
+if (a>10):
+    print("Greater than {}".format(a))
+for ele in test:
+    if(test==0):
+        print("Zero")
+    elif(tes>0):
+        print("Greater than Zero")
+    elif(tes<0):
+        print("Less than ZZero")
+
+```
+
+## String Operations
+
+```python
+str1 = "python is not very good langauge"
+print(str1.find("python"))
+print(str1.find("hehe"))
+s = "a","b","c"
+m= '|'.join(s)
+print(m)
+
+print("{} is {}".format("hello","world"))
+
+```
+
+## Jump
+
+```python
+for i in range(1,6):
+    if (i==3):
+        continue
+    print(i," ",6-i)
+```
+
+## Tables
+
+```python
+i =10
+for i in range(1,i+1,2):
+    print(i)
+for i in range(1,20,-1):
+    print(i)
+
+for i in range (1,11):
+    print(i," ",i*2," ",i*3," ",i*4," ",i*5," ",i*6," ",i*7," ",i*8," ",i*9," ",i*10)
+
+for i in range(1,11):
+    print(i*11," ",i*12," ",i*13," ",i*14," ",i*15," ",i*16," ",i*17," ",i*18," ",i*19," ",i*20)
+
+```
+
+## String Operations
+
+```python
+x= 10
+y=10
+print(y is x)
+ar =[1,2,3]
+print(1 in ar)
+```
+
+## String slices
+
+```python
+str1 = "supercalifragilisticexphihalidocious"
+print(str1[:4])
+print(str1[2:])
+print(str1[3:5])
+print(str1[::2])
+```
+
+## String Loop
+
+```python
+s = 'helloWorld'
+
+for i in range(len(s)):
+    if(s[i]=='h'):
+        print(i)
+for i in range(len(s)-1,0,-1):
+    if(s[i]=='W'):
+        print(i)
+
+list =['a','e','i','o','u']
+vow=0
+cons=0
+for i in s.lower():
+    if i.lower() in list:
+        vow=vow+1
+    else:
+        cons=cons+1
+print("vow:",vow)
+print("cons",cons)
+
+```
