@@ -14,18 +14,18 @@
         <updated>2024-06-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Thumbnail]]></summary>
         <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_1-f41c53566671080e83876c43ed2b1cc2.png" width="2242" height="1718" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️semester-in-review">⏮️&nbsp;Semester in Review<a class="hash-link" aria-label="Direct link to ⏮️&nbsp;Semester in Review" title="Direct link to ⏮️&nbsp;Semester in Review" href="https://tejasbhovad.github.io/docs/blog/docs-v3#%EF%B8%8Fsemester-in-review">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️semester-in-review">⏮️&nbsp;Semester in Review<a href="https://tejasbhovad.github.io/docs/blog/docs-v3#%EF%B8%8Fsemester-in-review" class="hash-link" aria-label="Direct link to ⏮️&nbsp;Semester in Review" title="Direct link to ⏮️&nbsp;Semester in Review">​</a></h2>
 <p>Its been a great semester and I hope everyone found this site helpful.</p>
 <p><img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_2-f3ed1e0597438537dc097cb38b71fe0d.png" width="2236" height="278" class="img_ev3q">
 <img decoding="async" loading="lazy" alt="Thumbnail" src="https://tejasbhovad.github.io/docs/assets/images/image_3-f879061e125edf347e4a43570c8875d9.png" width="2246" height="882" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source">📂&nbsp;Open Source<a class="hash-link" aria-label="Direct link to 📂&nbsp;Open Source" title="Direct link to 📂&nbsp;Open Source" href="https://tejasbhovad.github.io/docs/blog/docs-v3#open-source">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source">📂&nbsp;Open Source<a href="https://tejasbhovad.github.io/docs/blog/docs-v3#open-source" class="hash-link" aria-label="Direct link to 📂&nbsp;Open Source" title="Direct link to 📂&nbsp;Open Source">​</a></h2>
 <p>The project will continue to be Open Source, welcoming contributions from individuals. You can submit a PR with new sections for review. To facilitate contributions, I will establish clear contributing guidelines, enabling even first-time OS contributors to enhance the project.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="v3-features">V3 features<a class="hash-link" aria-label="Direct link to V3 features" title="Direct link to V3 features" href="https://tejasbhovad.github.io/docs/blog/docs-v3#v3-features">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="v3-features">V3 features<a href="https://tejasbhovad.github.io/docs/blog/docs-v3#v3-features" class="hash-link" aria-label="Direct link to V3 features" title="Direct link to V3 features">​</a></h2>
 <p>Exciting features are in the pipeline for v3, and I am committed to delivering them promptly.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="notes-repository">📚&nbsp;Notes Repository<a class="hash-link" aria-label="Direct link to 📚&nbsp;Notes Repository" title="Direct link to 📚&nbsp;Notes Repository" href="https://tejasbhovad.github.io/docs/blog/docs-v3#notes-repository">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="notes-repository">📚&nbsp;Notes Repository<a href="https://tejasbhovad.github.io/docs/blog/docs-v3#notes-repository" class="hash-link" aria-label="Direct link to 📚&nbsp;Notes Repository" title="Direct link to 📚&nbsp;Notes Repository">​</a></h3>
 <p>I am also developing a portal for easy access to all college-related academic documents, including notes and answer keys for various upcoming topics.</p>
 <p>The repository for notes site is on <a href="https://github.com/TejasBhovad/notes" target="_blank" rel="noopener noreferrer">https://github.com/TejasBhovad/notes</a></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-plans-and-roadmap">🚀&nbsp;Future plans and Roadmap<a class="hash-link" aria-label="Direct link to 🚀&nbsp;Future plans and Roadmap" title="Direct link to 🚀&nbsp;Future plans and Roadmap" href="https://tejasbhovad.github.io/docs/blog/docs-v3#future-plans-and-roadmap">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-plans-and-roadmap">🚀&nbsp;Future plans and Roadmap<a href="https://tejasbhovad.github.io/docs/blog/docs-v3#future-plans-and-roadmap" class="hash-link" aria-label="Direct link to 🚀&nbsp;Future plans and Roadmap" title="Direct link to 🚀&nbsp;Future plans and Roadmap">​</a></h2>
 <p>To find the roadmap of this project refer <a href="https://codes.super.site/" target="_blank" rel="noopener noreferrer">https://codes.super.site/</a></p>
 <p>We are also working on a way to take you feedback/bug reports easily so stay tuned.</p>]]></content>
         <author>
@@ -44,14 +44,14 @@
 <p>Docusaurous is an easy to use documentation tool bey Meta. In this article we will look into how to build a basic Docusaurous site and add Search bar to it.</p>
 <p>If you prefer a video tutorial, I have a 3 minute video on the same</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fIJxcaqeUBE?si=R5y9xwdtubzuITAy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-basic-docs-setup">Step 1: Basic Docs Setup<a class="hash-link" aria-label="Direct link to Step 1: Basic Docs Setup" title="Direct link to Step 1: Basic Docs Setup" href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-1-basic-docs-setup">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-basic-docs-setup">Step 1: Basic Docs Setup<a href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-1-basic-docs-setup" class="hash-link" aria-label="Direct link to Step 1: Basic Docs Setup" title="Direct link to Step 1: Basic Docs Setup">​</a></h2>
 <p>Head to <a href="https://docusaurus.io/docs#fast-track" target="_blank" rel="noopener noreferrer">https://docusaurus.io/docs#fast-track</a>
 Copy the installation command from the above page.</p>
 <p><img decoding="async" loading="lazy" alt="website" src="https://tejasbhovad.github.io/docs/assets/images/image_1-70d44c45960cff05cc6e99045008ac19.jpeg" width="1814" height="1038" class="img_ev3q"></p>
 <p>Open VS Code, and open the terminal, paste the copied command and let the site build</p>
 <p>If the installation doesn't proceed and is stuck, press <code>ctr+c</code> to terminate current session and run <code>npm i</code> to install the node modules</p>
 <p>run <code>npm run start</code> to start development server, a window will automatically appear in your default web browser</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-setting-up-local-search">Step 2: Setting up Local Search<a class="hash-link" aria-label="Direct link to Step 2: Setting up Local Search" title="Direct link to Step 2: Setting up Local Search" href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-2-setting-up-local-search">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-setting-up-local-search">Step 2: Setting up Local Search<a href="https://tejasbhovad.github.io/docs/blog/docusaurus-search#step-2-setting-up-local-search" class="hash-link" aria-label="Direct link to Step 2: Setting up Local Search" title="Direct link to Step 2: Setting up Local Search">​</a></h2>
 <p>Now, Docusaurous doesn't have a built in search bar, it does officially have partnership with Algolia search, but it requires a particular checklist to be satisfied. We will be using an open source alternative: <a href="https://github.com/easyops-cn/docusaurus-search-local" target="_blank" rel="noopener noreferrer">https://github.com/easyops-cn/docusaurus-search-local</a>
 <img decoding="async" loading="lazy" alt="repository" src="https://tejasbhovad.github.io/docs/assets/images/image_2-ab02abcd6c5c4619c9dee2e8c5d8bfe9.jpeg" width="1780" height="1012" class="img_ev3q">
 Head to <a href="https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#installation" target="_blank" rel="noopener noreferrer">https://github.com/easyops-cn/docusaurus-search-local?tab=readme-ov-file#installation</a> and copy installation code, and paste it in the terminal</p>
@@ -83,18 +83,18 @@ Restart the dev server and search bar should appear in the top right</p>
         <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Docs site" src="https://tejasbhovad.github.io/docs/assets/images/display-d1c71cc1c692a54586705eabf4cce2be.jpeg" width="3426" height="1986" class="img_ev3q">
 Today, I am excited to announce <strong>Docs 2.0 🥳</strong></p>
 <p>Docs 2.0 is a complete rewrite of the Old Docs site and has added a lot of new features and improvements.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#new-features">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
 <ul>
 <li><strong>Built-in Search</strong>: Docs 2.0 features a lightning-fast search powered by <a href="https://github.com/easyops-cn/docusaurus-search-local" target="_blank" rel="noopener noreferrer"><strong>easyops-local-search</strong></a>. Access it using command + k.</li>
 <li><strong>Dark Mode</strong>: Easily toggle the site's dark mode by clicking the moon icon in the top right corner.</li>
 <li><strong>Semester Dropdown</strong>: Navigate between semesters effortlessly with the new dropdown menu.</li>
 <li><strong>Popular and Featured</strong>: The homepage now includes sections showcasing popular and featured pages for quick access.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="blogs">Blogs<a class="hash-link" aria-label="Direct link to Blogs" title="Direct link to Blogs" href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#blogs">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="blogs">Blogs<a href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#blogs" class="hash-link" aria-label="Direct link to Blogs" title="Direct link to Blogs">​</a></h2>
 <p>A blog section has been added to the site that will be used to post updates about the site and other announcements. It will also serve as a channel for posting articles related to programming and technology that were previously posted on the <a href="https://medium.com/@tejasbhovad" target="_blank" rel="noopener noreferrer"><strong>Medium</strong></a>.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source">Open Source<a class="hash-link" aria-label="Direct link to Open Source" title="Direct link to Open Source" href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#open-source">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-source">Open Source<a href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#open-source" class="hash-link" aria-label="Direct link to Open Source" title="Direct link to Open Source">​</a></h2>
 <p>Docs 2.0 is completely open source and is available on <a href="https://github.com/TejasBhovad/docs" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></a>. Feel free to contribute to the site by opening a pull request.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2023---year-in-review">2023 - Year in Review<a class="hash-link" aria-label="Direct link to 2023 - Year in Review" title="Direct link to 2023 - Year in Review" href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#2023---year-in-review">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2023---year-in-review">2023 - Year in Review<a href="https://tejasbhovad.github.io/docs/blog/docs-v2-release#2023---year-in-review" class="hash-link" aria-label="Direct link to 2023 - Year in Review" title="Direct link to 2023 - Year in Review">​</a></h2>
 <p><img decoding="async" loading="lazy" alt="2023 - Year in Review" src="https://tejasbhovad.github.io/docs/assets/images/stats-9eecf9698f793b3a85655f9874c4aa1e.jpeg" width="1610" height="1512" class="img_ev3q"></p>
 <p>Almost 800 users have visited the site since its launch in Jan 2023 and it amounted to almost 30k views.</p>]]></content>
         <author>
