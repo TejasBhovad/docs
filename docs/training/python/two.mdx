@@ -1,0 +1,353 @@
+---
+title: "Day Two"
+sidebar_position: 2
+description: "List Python"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Day Two">Python</Heading>
+
+## List Basics
+
+```python
+l = ["Tejas", "A", "b", "c", 98, 78.34, "hello"]
+print(l)
+print(type(l))
+print(l[0])
+print(l[1])
+print(l[-1])
+print(l[-2])
+print(l[:3])
+print(l[3:])
+print(l[2:5:2])
+l[0] = "HELLO"
+print(l[0])
+l.append("Appended")
+print(l)
+l.insert(2, "hhelo")
+l.insert(5, 3)
+print(l)
+l.remove("HELLO")
+print(l)
+cplist = l.copy()
+print(cplist)
+tl = [[1, 2, 3], ["a", "b", "c"]]
+r = 0
+c = 2
+print(tl[r][c])
+
+l1 = ["secret", "santa"]
+print(l1*2)
+l2 = [1, 2]
+print(l1+l2)
+del l1
+l2.clear
+print(l2)
+
+myname = list("Tejas")
+print(myname)
+
+unsorted_list = [1,2,4,2,34,32,1]
+unsorted_list.sort(reverse=True)
+print(unsorted_list)
+
+oglist = [12,34,56]
+pointingList = oglist
+print(id(oglist))
+print(id(pointingList))
+
+# char ops
+print('Sej@123'.isalnum())
+print('JohnDoe'.isalpha())
+print('899'.isdigit())
+print("".islower())
+print("hello world".isspace())
+print(" ".isspace())
+
+l = [1,2,3,4,4,4]
+l.count(4)
+```
+
+# Problems
+
+## Maximum Element
+
+```python
+list = [ 3,3,4,2,4,4,2,4,4]
+min,max=0,0
+for i in list:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+print(dict)
+max = -1
+for i,j in dict.items():
+    if j > max:
+        max = j
+        max_key = i
+print(max_key)
+```
+
+### Other method
+
+```python
+list = [ 3,3,4,2,4,4,2,4,4]
+min,max=list[0],list[0]
+maxIdx,minIdx=0,0
+for i in range(len(list)):
+if max > list[i]:
+max = list[i]
+maxIdx=i
+if min < list[i]:
+min=list[i]
+minIdx=i
+print("Max",maxIdx,"VALUE",max)
+print("Min",minIdx,"VALUE",min)
+```
+
+## Move Zeros from List to End
+
+```python
+
+list = [0,0,34,4,4,5,5]
+len_list  = len(list)
+new_list=[]
+for i in list:
+    if (i!=0):
+        new_list.append(i)
+for i in range(0,(len_list-len(new_list))):
+    new_list.append(0)
+print(new_list)
+```
+
+## Kth maximum element
+
+```python
+list = [3,2,1,5,6,4]
+k=2
+# list.sort()
+# print(list)
+# k=2
+# print(list[len(list)-k])
+
+def find_max(list):
+    max=list[0]
+    for i in range(len(list)):
+        if max < list[i]:
+            max = list[i]
+    # print(max)
+    return max
+
+
+for i in range(k):
+    max=find_max(list)
+    list.remove(max)
+
+print(list)
+print(find_max(list))
+```
+
+## Conditional List iterations
+
+```python
+budget =500
+cart = [10,100,200,600,400]
+for itm in cart:
+    if itm>budget:
+        print("Not sufficient budget")
+        continue
+    print(itm)
+else:
+    print("u purchased everything")
+```
+
+## Check if input is number, alphabet or space
+
+```python
+x= input()
+if(x.isdigit()):
+    print("Digit")
+if(x.isalpha()):
+    print("Alphabet")
+if(x.isspace()):
+    print("Space")
+```
+
+## Common Elements in two lists
+
+```python
+lista = [ 1,2,3,4]
+listb = [3,4,5,6]
+lista.sort()
+listb.sort()
+listc=[]
+
+for j in listb:
+    if j in lista:
+        print(j)
+        listc.append(j)
+    else:
+        break
+print(listc)
+```
+
+## First Non repeating character
+
+```python
+list = [1,2,3,5,2,1]
+dict={}
+for i in list:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+print(dict)
+
+for i in list:
+    if (dict[i]<2):
+        print(i,dict[i])
+        break
+```
+
+### Other method
+
+```python
+list = [1,2,3,5,2,1]
+dict={}
+for i in list:
+    if list.count(i)==1:
+        print(i)
+        break
+```
+
+## Calculate the count of Negative and Positive numbers in a list
+
+```python
+list = [1,2,3,4,-3,-45]
+e=0
+o=0
+for i in list:
+    if(i<0):
+        e=e+1
+    elif(i>0):
+        o=o+1
+
+print("POS",o)
+print("NEG",e)
+```
+
+## Find the no of repeating numbers
+
+```python
+# find no of repeating numbers from given number
+i = int(input())
+n=i
+list=[]
+dict={}
+while (i>0):
+    list.append(i%10)
+    i=i//10
+ctr=0
+print(list)
+for i in list:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+print(dict)
+
+for i,j in dict.items():
+    if j>1:
+        ctr=ctr+1
+print(ctr)
+```
+
+### Alternate method
+
+```python
+
+list1 = [4, 3, 2, 3, 2, 1]
+seen = set()
+
+for i in list1:
+    if i not in seen:
+        seen.add(i)
+
+print(seen)
+clone = list1.copy()
+for i in seen:
+        clone.remove(i)
+print(len(clone))
+```
+
+### Alternate method
+
+```python
+list1 = [4, 3, 2, 3, 2, 1]
+cache = [0,0,0,0,0,0,0,0,0]
+for i in range(len(list1)):
+    cache[list1[i]]=cache[list1[i]]+1
+print(cache)
+ctr=0
+for i in cache:
+    if cache[i]>1:
+        ctr=ctr+1
+print(ctr)
+```
+
+## Anagram(both str contains same letters)
+
+```python
+str1 = input()
+str2 = input()
+
+list1= list(str1)
+list2= list(str2)
+list1.sort()
+list2.sort()
+print(list1)
+print(list2)
+if(list1 == list2):
+    print("Anagram")
+```
+
+## Pangram (contains all letters)
+
+```python
+str = input()
+seenAlpha= set()
+strList= list(str.lower())
+for i in strList:
+    if i not in seenAlpha:
+        seenAlpha.add(i)
+print(seenAlpha)
+if(len(seenAlpha)==27 or len(seenAlpha)==26):
+    print("Y")
+else:
+    print("N")
+```
+
+## Remove duplicates from String
+
+```python
+str = "Programming"
+# seenAlpha= set()
+strList= list(str.lower())
+liststr=[]
+for i in strList:
+    if i not in liststr:
+
+        liststr.append(i)
+
+print("".join(liststr))
+```
+
+# Count the frequency of substring
+
+```python
+sub = "str"
+ogstring = "stroriginalstring"
+print(ogstring.count(sub))
+```
