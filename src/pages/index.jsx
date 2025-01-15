@@ -229,6 +229,7 @@ export default function Home() {
             <Card sem="3" linkto="/three" />
             <Card sem="4" linkto="/four" />
             <Card sem="5" linkto="/five" />
+            <Card sem="6" linkto="/six" />
           </div>
         </div>
         <div

@@ -108,6 +108,15 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "six",
+        path: "docs/six",
+        routeBasePath: "six",
+        sidebarPath: "./sidebars.js",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "training",
         path: "docs/training",
         routeBasePath: "training",
@@ -159,6 +168,7 @@ const config = {
               { to: "/docs/three", label: "Semester 3" },
               { to: "/docs/four", label: "Semester 4" },
               { to: "/docs/five", label: "Semester 5" },
+              { to: "/docs/six", label: "Semester 6" },
               { to: "/docs/training", label: "Training" },
             ],
           },
@@ -203,6 +213,10 @@ const config = {
                 to: "/docs/five",
               },
               {
+                label: "Semester Six",
+                to: "/docs/six",
+              },
+              {
                 label: "Training",
                 to: "/docs/training",
               },
@@ -245,7 +259,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.oceanicNext,
-        additionalLanguages: ["java", "python", "bash"],
+        additionalLanguages: ["java", "python", "bash", "matlab"],
       },
     }),
 };

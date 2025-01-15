@@ -2,7 +2,7 @@ import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const buttonStyle = {
-  backgroundColor: "#8001c5",
+  backgroundColor: "#4b8dcb",
   color: "#FFFFFF",
   padding: "10px 20px",
   borderRadius: "5px",
