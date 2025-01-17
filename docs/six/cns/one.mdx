@@ -1,0 +1,63 @@
+---
+title: "Experiment 1"
+sidebar_position: 1
+description: "Caesar Cipher"
+---
+
+import DownloadButton from "/components/DownloadButton";
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Caesar Cipher">Experiment 1</Heading>
+
+> Perform Caesar Cipher on a given text using Java.
+
+```java
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string to encrypt: ");
+        String input = sc.nextLine();
+        System.out.print("Enter shift value (0-25): ");
+        int shift = sc.nextInt();
+        char[] encryptedArray = input.toCharArray();
+        encrypt(encryptedArray, shift);
+        System.out.println("Encrypted String: " + new String(encryptedArray));
+
+        sc.nextLine();
+
+        System.out.print("Enter a string to decrypt: ");
+        String input2 = sc.nextLine();
+        char[] decryptedArray = input2.toCharArray();
+        decrypt(decryptedArray, shift);
+        System.out.println("Decrypted String: " + new String(decryptedArray));
+
+        sc.close();
+    }
+
+    public static void encrypt(char[] str, int shift) {
+        for (int i = 0; i < str.length; i++) {
+            char ch = str[i];
+            if (ch >= 'a' && ch <= 'z') {
+                str[i] = (char) ((ch - 'a' + shift) % 26 + 'a');
+            } else if (ch >= 'A' && ch <= 'Z') {
+                str[i] = (char) ((ch - 'A' + shift) % 26 + 'A');
+            }
+
+        }
+    }
+
+    public static void decrypt(char[] str, int shift) {
+        for (int i = 0; i < str.length; i++) {
+            char ch = str[i];
+            if (ch >= 'a' && ch <= 'z') {
+                str[i] = (char) ((ch - 'a' - shift + 26) % 26 + 'a');
+            } else if (ch >= 'A' && ch <= 'Z') {
+                str[i] = (char) ((ch - 'A' - shift + 26) % 26 + 'A');
+            }
+        }
+    }
+}
+```
