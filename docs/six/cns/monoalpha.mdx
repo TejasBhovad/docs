@@ -1,0 +1,53 @@
+---
+title: "Monoalphabetic Cipher"
+sidebar_position: 2
+description: "Python implementation of Monoalphabetic Cipher"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Monoalphabetic Cipher">Experiment 1</Heading>
+
+> Perform Monoalphabetic Cipher encryption and decryption using Python.
+
+```python
+# MONO ALPHABETIC CIPHER
+import random
+def generate_key():
+    letters = list("abcdefghijklmnopqrstuvwxyz")
+    shuffled_letters = letters.copy() + ['1','2','3','4','5','6','7','8','9','0']
+    random.shuffle(shuffled_letters)
+    key = dict(zip(letters, shuffled_letters))
+    return key
+def encrypt(text, key):
+    e_text = ""
+    for char in text:
+        if char in key:
+            e_text += key[char]
+        else:
+            e_text += char
+    return e_text
+
+def decrypt(text, key):
+    d_text = ""
+    for char in text:
+        if char in key.values():
+            for k, v in key.items():
+                if v == char:
+                    d_text += k
+                    break
+        else:
+            d_text += char
+    return d_text
+
+def main():
+    text = input("Enter the text: ")
+    ftext = text.lower()
+    key = generate_key()
+    print("Key: ", key)
+    e_text = encrypt(ftext, key)
+    print("Encrypted: ", e_text)
+    d_text = decrypt(e_text, key)
+    print("Decrypted : ", d_text)
+main()
+```

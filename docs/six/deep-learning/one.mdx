@@ -1,0 +1,446 @@
+---
+title: "Experiment 1"
+sidebar_position: 1
+description: "Explore ML libraries"
+---
+
+import Heading from "../../../components/Heading";
+
+# <Heading name="banner" description="Explore ML libraries">Experiment 1</Heading>
+
+> Explore popular machine learning libraries in Python, including Pandas, NumPy, Matplotlib, Scikit-Learn, TensorFlow, and PyTorch.
+
+```python
+"""
+## Pandas
+"""
+
+import pandas as pd
+
+# Creating a dataframe
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+df = pd.DataFrame(data)
+
+print(df.head())
+
+# select column
+ages = df['Age']
+
+# select mult cols
+subset = df[['Name', 'Age']]
+
+print(ages)
+print(subset)
+
+data_with_nan = {
+    'Name': ['Alice', 'Bob', None, 'David'],
+    'Age': [25, None, 35, 40]
+}
+df_nan = pd.DataFrame(data_with_nan)
+
+print("\nDataFrame with missing values:")
+print(df_nan)
+
+# Filling missing values
+df_nan.fillna({'Name': 'Unknown', 'Age': df_nan['Age'].mean()}, inplace=True)
+print("\nDataFrame after filling missing values:")
+print(df_nan)
+
+"""## NumPy"""
+
+import numpy as np
+
+array_1d = np.array([1, 2, 3, 4, 5])
+print("1D Array:")
+print(array_1d)
+
+array_2d = np.array([[1, 2, 3], [4, 5, 6]])
+print("\n2D Array:")
+print(array_2d)
+
+print("\nShape of 2D Array:", array_2d.shape)
+print("Size of Array:", array_2d.size)
+print("Data Type of Array:", array_2d.dtype)
+
+# Two arrays for arithmetic operations
+arr1 = np.array([10, 20, 30])
+arr2 = np.array([5, 10, 15])
+
+# Addition
+add_result = np.add(arr1, arr2)
+print("\nAddition Result:", add_result)
+
+# Subtraction
+sub_result = np.subtract(arr1, arr2)
+print("Subtraction Result:", sub_result)
+
+# Multiplication
+mul_result = np.multiply(arr1, arr2)
+print("Multiplication Result:", mul_result)
+
+# Division
+div_result = np.divide(arr1, arr2)
+print("Division Result:", div_result)
+
+# Reshaping a 1D array into a 2D array
+reshaped_array = np.arange(12).reshape(3, 4)
+print("\nReshaped Array (3x4):")
+print(reshaped_array)
+
+"""## Matplotlib"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data for plotting
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([23,333, 335, 457, 311])
+
+# Creating the line plot
+plt.plot(x, y)
+plt.title("Basic Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.grid(True)
+plt.show()
+
+# Data for bar chart
+categories = ['A', 'B', 'C', 'D']
+values = [4, 7, 11, 8]
+
+# Creating the bar chart
+plt.bar(categories, values)
+plt.title("Bar Chart")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+plt.show()
+
+# Data for histogram
+data = np.random.randn(1000)
+
+# Creating the histogram
+plt.hist(data, bins=30, alpha=0.7)
+plt.title("Histogram")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.grid(axis='y')
+plt.show()
+
+# Data for scatter plot
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+# Creating the scatter plot
+plt.scatter(x, y)
+plt.title("Scatter Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.grid(True)
+plt.show()
+
+# Data for pie chart
+sizes = [15, 30, 45, 10]
+labels = ['A', 'B', 'C', 'D']
+
+# Creating the pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title("Pie Chart")
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+
+"""## Tensorflow"""
+
+import tensorflow as tf
+
+# Use compat.v1 to access Session
+with tf.compat.v1.Session() as sess:
+    # Your operations here
+    result = sess.run(tf.add(5, 3))
+    print("Result:", result)
+
+# Creating a tensor filled with zeros
+zeros_tensor = tf.zeros((2, 3))
+print("\nZeros Tensor:")
+print(zeros_tensor)
+
+# Creating a tensor filled with random values
+random_tensor = tf.random.uniform((2, 3), minval=0, maxval=10)
+print("\nRandom Tensor:")
+print(random_tensor)
+
+constant_tensor = tf.constant([[1, 2], [3, 4]], dtype=tf.float32)
+print("Constant Tensor:")
+print(constant_tensor)
+
+tensor_a = tf.constant([[1, 2], [3, 4]])
+tensor_b = tf.constant([[5, 6], [7, 8]])
+
+# Addition
+add_result = tf.add(tensor_a, tensor_b)
+print("\nAddition Result:")
+print(add_result)
+
+"""## Scikit learn"""
+
+from sklearn import datasets
+
+# Load the Iris dataset
+iris = datasets.load_iris()
+
+# Display the features and target
+print("Features:", iris.data)
+print("Target:", iris.target)
+
+from sklearn.model_selection import train_test_split
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2, random_state=42)
+
+print("Training set shape:", X_train.shape)
+print("Testing set shape:", X_test.shape)
+
+from sklearn.svm import SVC
+
+# Create an SVM classifier
+clf = SVC(kernel='linear')
+
+# Train the classifier on the training data
+clf.fit(X_train, y_train)
+
+# Make predictions on the test set
+predictions = clf.predict(X_test)
+
+print("Predictions:", predictions)
+
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, predictions)
+print("Accuracy:", accuracy)
+
+# Generate confusion matrix
+conf_matrix = confusion_matrix(y_test, predictions)
+print("Confusion Matrix:\n", conf_matrix)
+
+from sklearn.model_selection import GridSearchCV
+
+# Define the parameter grid
+param_grid = {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}
+
+# Create a GridSearchCV object
+grid_search = GridSearchCV(SVC(), param_grid, cv=5)
+
+# Fit the grid search to the training data
+grid_search.fit(X_train, y_train)
+
+# Best parameters found
+print("Best Parameters:", grid_search.best_params_)
+
+"""### **1. Pandas**
+
+#### **Advantages:**
+- **Efficient Data Manipulation**: Allows for quick data manipulation with less code compared to traditional programming languages.
+- **Flexible Data Structures**: Provides DataFrames and Series that can handle various data types and structures.
+- **Data Cleaning and Preparation**: Streamlines processes for cleaning and preparing data for analysis.
+- **Integration with Other Libraries**: Works well with NumPy, Matplotlib, and SciPy for enhanced functionality.
+
+#### **Disadvantages:**
+- **Memory Consumption**: Can be inefficient with very large datasets (over 2-3 GB).
+- **Complex Syntax**: Some users may find the syntax complex compared to standard Python.
+- **Performance Limitations**: Slower than lower-level languages like C or C++ for certain operations.
+
+#### **Applications:**
+- Data cleaning and preparation
+- Exploratory Data Analysis (EDA)
+- Feature engineering for machine learning
+- Time series analysis
+- Data visualization (in conjunction with Matplotlib)
+
+---
+
+### **2. NumPy**
+
+#### **Advantages:**
+- **Performance**: Highly efficient for numerical computations due to its array-oriented approach.
+- **Multidimensional Arrays**: Supports n-dimensional arrays which are essential for scientific computing.
+- **Broad Functionality**: Offers a wide range of mathematical functions to operate on arrays.
+
+#### **Disadvantages:**
+- **Limited Data Types**: Primarily designed for numerical data; less effective for handling non-numeric data.
+- **Learning Curve**: May require some time to understand its array manipulation capabilities fully.
+
+#### **Applications:**
+- Numerical simulations
+- Linear algebra operations
+- Fourier transforms
+- Random number generation
+- Data preprocessing for machine learning
+
+---
+
+### **3. Matplotlib**
+
+#### **Advantages:**
+- **Comprehensive Visualization Options**: Supports a wide variety of static, animated, and interactive plots.
+- **Customization**: Highly customizable plots with extensive options for styling.
+- **Integration**: Works seamlessly with NumPy and Pandas.
+
+#### **Disadvantages:**
+- **Complexity in Advanced Visualizations**: Creating complex visualizations can require verbose code.
+- **Performance Issues**: May not perform well with very large datasets or real-time plotting.
+
+#### **Applications:**
+- Data visualization in EDA
+- Creating publication-quality plots
+- Interactive visualizations in Jupyter notebooks
+- Plotting results from machine learning models
+
+---
+
+### **4. Scikit-Learn**
+
+#### **Advantages:**
+- **User-Friendly API**: Simplifies the process of implementing machine learning algorithms.
+- **Wide Range of Algorithms**: Provides numerous algorithms for classification, regression, clustering, and more.
+- **Built-in Cross-validation Tools**: Facilitates model evaluation through cross-validation techniques.
+
+#### **Disadvantages:**
+- **Limited to Classical ML Algorithms**: Does not support deep learning models natively.
+- **Performance on Large Datasets**: May struggle with very large datasets compared to specialized libraries like TensorFlow.
+
+#### **Applications:**
+- Classification tasks (e.g., spam detection)
+- Regression analysis (e.g., predicting house prices)
+- Clustering (e.g., customer segmentation)
+- Model evaluation and selection
+
+---
+
+### **5. TensorFlow**
+
+#### **Advantages:**
+- **Scalability**: Designed to scale across multiple CPUs and GPUs, making it suitable for large-scale machine learning tasks.
+- **Flexibility**: Offers both high-level APIs (like Keras) for quick model building and low-level APIs for custom model design.
+- **Ecosystem Support**: Integrates well with other tools in the TensorFlow ecosystem for deployment and serving models.
+
+#### **Disadvantages:**
+- **Steep Learning Curve**: Can be complex for beginners due to its extensive features and options.
+- **Verbose Syntax**: Requires more lines of code compared to simpler libraries like Keras or Scikit-Learn.
+
+#### **Applications:**
+- Deep learning applications (e.g., image recognition, natural language processing)
+- Reinforcement learning
+- Time series forecasting
+- Generative models (e.g., GANs)
+
+"""
+
+import seaborn as sns
+
+sns.set_theme()
+
+# Load an example dataset
+tips = sns.load_dataset("tips")
+
+# Create a visualization
+sns.relplot(
+    data=tips,
+    x="total_bill", y="tip", col="time",
+    hue="smoker", style="smoker", size="size",
+)
+
+fmri = sns.load_dataset("fmri")
+sns.relplot(
+    data=fmri, kind="line",
+    x="timepoint", y="signal", col="region",
+    hue="event", style="event",
+)
+
+sns.displot(data=tips, x="total_bill", col="time", kde=True)
+
+penguins = sns.load_dataset("penguins")
+sns.jointplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
+
+sns.pairplot(data=penguins, hue="species")
+
+sns.relplot(
+    data=penguins,
+    x="bill_length_mm", y="bill_depth_mm", hue="body_mass_g"
+)
+
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set_theme(style="dark")
+
+# Simulate data from a bivariate Gaussian
+n = 10000
+mean = [0, 0]
+cov = [(2, .4), (.4, .2)]
+rng = np.random.RandomState(0)
+x, y = rng.multivariate_normal(mean, cov, n).T
+
+# Draw a combo histogram and scatterplot with density contours
+f, ax = plt.subplots(figsize=(6, 6))
+sns.scatterplot(x=x, y=y, s=5, color=".15")
+sns.histplot(x=x, y=y, bins=50, pthresh=.1, cmap="mako")
+sns.kdeplot(x=x, y=y, levels=5, color="w", linewidths=1)
+
+"""## Pytorch"""
+
+import torch
+import numpy as np
+
+# Create a tensor from a NumPy array
+ndarray = np.array([0, 1, 2])
+tensor = torch.from_numpy(ndarray)
+
+print(tensor)  # Outputs: tensor([0, 1, 2])
+print(tensor.shape)  # Outputs: torch.Size([3])
+print(tensor.dtype)   # Outputs: torch.int64
+print(tensor.device)  # Outputs: cpu
+
+# Create a 3x2 tensor
+tensor_a = torch.tensor([[1, 2], [3, 4], [5, 6]])
+
+# Indexing
+element = tensor_a[1, 0]
+print(f"Indexed Element (Row 1, Column 0): {element}")  # Outputs: 3
+
+# Slicing
+slice_tensor = tensor_a[:2, :]
+print(f"Sliced Tensor (First two rows): \n{slice_tensor}")
+
+# Reshaping
+reshaped_tensor = tensor_a.view(2, 3)
+print(f"Reshaped Tensor (2x3): \n{reshaped_tensor}")
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Set up the figure and axis
+fig, ax = plt.subplots()
+x = np.linspace(0, 2 * np.pi, 100)  # x values from 0 to 2π
+line, = ax.plot(x, np.sin(x), color='blue')  # Initial sine wave
+
+# Set the limits of the axes
+ax.set_ylim(-1.5, 1.5)
+ax.set_xlim(0, 2 * np.pi)
+ax.set_title('Animated Sine Wave')
+ax.set_xlabel('x')
+ax.set_ylabel('sin(x)')
+
+# Animation function that updates the y data of the line
+def animate(i):
+    line.set_ydata(np.sin(x + i / 10))  # Update the y data for the sine wave
+    return line,
+
+# Create an animation
+ani = FuncAnimation(fig, animate, frames=100, interval=50)
+
+# Display the animation
+plt.show()
+
+```
